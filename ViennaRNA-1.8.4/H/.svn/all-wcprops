@@ -1,0 +1,197 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/rdat/!svn/ver/565/external/ViennaRNA-1.8.4/H
+END
+ribo.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/ribo.h
+END
+pair_mat.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/pair_mat.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/Makefile.in
+END
+dist_vars.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/dist_vars.h
+END
+utils.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/utils.h
+END
+Lfold.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/Lfold.h
+END
+duplex.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/duplex.h
+END
+part_func_co.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/part_func_co.h
+END
+MEA.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/MEA.h
+END
+aln_util.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/aln_util.h
+END
+inverse.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/inverse.h
+END
+subopt.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/subopt.h
+END
+edit_cost.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/edit_cost.h
+END
+LPfold.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/LPfold.h
+END
+profiledist.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/profiledist.h
+END
+RNAstruct.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/RNAstruct.h
+END
+part_func_up.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/part_func_up.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/565/external/ViennaRNA-1.8.4/H/Makefile
+END
+PS_dot.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/PS_dot.h
+END
+stringdist.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/stringdist.h
+END
+ProfileAln.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/ProfileAln.h
+END
+energy_par.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/energy_par.h
+END
+findpath.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/findpath.h
+END
+energy_const.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/energy_const.h
+END
+cofold.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/cofold.h
+END
+alifold.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/alifold.h
+END
+fold_vars.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/fold_vars.h
+END
+part_func.h
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/part_func.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/Makefile.am
+END
+params.h
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/params.h
+END
+treedist.h
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/treedist.h
+END
+fold.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/H/fold.h
+END

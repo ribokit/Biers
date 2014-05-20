@@ -1,0 +1,730 @@
+RNA_wrap.c:124:20: error: Python.h: No such file or directory
+RNA_wrap.c:730: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:785: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:806: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c: In function ‘SWIG_Python_AddErrorMsg’:
+RNA_wrap.c:853: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:853: error: (Each undeclared identifier is reported only once
+RNA_wrap.c:853: error: for each function it appears in.)
+RNA_wrap.c:853: error: ‘type’ undeclared (first use in this function)
+RNA_wrap.c:854: error: ‘value’ undeclared (first use in this function)
+RNA_wrap.c:855: error: ‘traceback’ undeclared (first use in this function)
+RNA_wrap.c:857: warning: implicit declaration of function ‘PyErr_Occurred’
+RNA_wrap.c:857: warning: implicit declaration of function ‘PyErr_Fetch’
+RNA_wrap.c:859: error: ‘old_str’ undeclared (first use in this function)
+RNA_wrap.c:859: warning: implicit declaration of function ‘PyObject_Str’
+RNA_wrap.c:860: warning: implicit declaration of function ‘PyErr_Clear’
+RNA_wrap.c:861: warning: implicit declaration of function ‘Py_XINCREF’
+RNA_wrap.c:862: warning: implicit declaration of function ‘PyErr_Format’
+RNA_wrap.c:862: warning: implicit declaration of function ‘PyString_AsString’
+RNA_wrap.c:863: warning: implicit declaration of function ‘Py_DECREF’
+RNA_wrap.c:866: warning: implicit declaration of function ‘PyErr_SetString’
+RNA_wrap.c:866: error: ‘PyExc_RuntimeError’ undeclared (first use in this function)
+RNA_wrap.c: At top level:
+RNA_wrap.c:1034: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1042: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1053: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1060: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1106: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1208: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1219: error: expected specifier-qualifier-list before ‘PyObject’
+RNA_wrap.c: In function ‘SWIG_Python_CheckImplicit’:
+RNA_wrap.c:1231: error: ‘PySwigClientData’ has no member named ‘implicitconv’
+RNA_wrap.c: At top level:
+RNA_wrap.c:1234: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1243: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘PySwigClientData_Del’:
+RNA_wrap.c:1298: warning: implicit declaration of function ‘Py_XDECREF’
+RNA_wrap.c:1298: error: ‘PySwigClientData’ has no member named ‘newraw’
+RNA_wrap.c:1299: error: ‘PySwigClientData’ has no member named ‘newargs’
+RNA_wrap.c:1300: error: ‘PySwigClientData’ has no member named ‘destroy’
+RNA_wrap.c: At top level:
+RNA_wrap.c:1306: error: expected specifier-qualifier-list before ‘PyObject_HEAD’
+RNA_wrap.c:1313: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1319: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1337: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1343: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1349: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1372: error: expected declaration specifiers or ‘...’ before ‘FILE’
+RNA_wrap.c: In function ‘PySwigObject_print’:
+RNA_wrap.c:1377: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:1377: error: ‘repr’ undeclared (first use in this function)
+RNA_wrap.c:1377: warning: implicit declaration of function ‘PySwigObject_repr’
+RNA_wrap.c:1380: warning: implicit declaration of function ‘fputs’
+RNA_wrap.c:1380: error: ‘fp’ undeclared (first use in this function)
+RNA_wrap.c: At top level:
+RNA_wrap.c:1388: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c: In function ‘PySwigObject_compare’:
+RNA_wrap.c:1399: error: ‘PySwigObject’ has no member named ‘ptr’
+RNA_wrap.c:1400: error: ‘PySwigObject’ has no member named ‘ptr’
+RNA_wrap.c: At top level:
+RNA_wrap.c:1404: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1406: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1413: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1418: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1422: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1456: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1473: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1489: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1501: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1513: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1561: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘swigobject_methods’
+RNA_wrap.c:1573: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1580: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1688: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1706: error: expected specifier-qualifier-list before ‘PyObject_HEAD’
+RNA_wrap.c:1713: error: expected declaration specifiers or ‘...’ before ‘FILE’
+RNA_wrap.c: In function ‘PySwigPacked_print’:
+RNA_wrap.c:1716: error: ‘fp’ undeclared (first use in this function)
+RNA_wrap.c:1717: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1717: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c:1721: error: ‘PySwigPacked’ has no member named ‘ty’
+RNA_wrap.c: At top level:
+RNA_wrap.c:1726: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1737: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c: In function ‘PySwigPacked_compare’:
+RNA_wrap.c:1751: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c:1752: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘pack’
+RNA_wrap.c:1754: error: ‘PySwigPacked’ has no member named ‘size’
+RNA_wrap.c: At top level:
+RNA_wrap.c:1757: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1759: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1766: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1772: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1781: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1851: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1871: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1887: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1893: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:1903: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1954: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:1969: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2060: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2092: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2114: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2178: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2199: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2217: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2238: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c: In function ‘SWIG_Python_GetModule’:
+RNA_wrap.c:2259: warning: implicit declaration of function ‘PyCObject_Import’
+RNA_wrap.c:2260: warning: assignment makes pointer from integer without a cast
+RNA_wrap.c: At top level:
+RNA_wrap.c:2274: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘SWIG_Python_DestroyModule’:
+RNA_wrap.c:2315: warning: implicit declaration of function ‘SWIG_This’
+RNA_wrap.c: In function ‘SWIG_Python_SetModule’:
+RNA_wrap.c:2320: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘swig_empty_runtime_method_table’
+RNA_wrap.c:2320: error: ‘swig_empty_runtime_method_table’ undeclared (first use in this function)
+RNA_wrap.c:2320: error: expected expression before ‘]’ token
+RNA_wrap.c:2322: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:2322: error: ‘module’ undeclared (first use in this function)
+RNA_wrap.c:2322: warning: implicit declaration of function ‘Py_InitModule’
+RNA_wrap.c:2324: error: ‘pointer’ undeclared (first use in this function)
+RNA_wrap.c:2324: warning: implicit declaration of function ‘PyCObject_FromVoidPtr’
+RNA_wrap.c:2326: warning: implicit declaration of function ‘PyModule_AddObject’
+RNA_wrap.c: At top level:
+RNA_wrap.c:2333: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c: In function ‘SWIG_Python_TypeQuery’:
+RNA_wrap.c:2342: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:2342: error: ‘cache’ undeclared (first use in this function)
+RNA_wrap.c:2342: warning: implicit declaration of function ‘SWIG_Python_TypeCache’
+RNA_wrap.c:2343: error: ‘key’ undeclared (first use in this function)
+RNA_wrap.c:2343: warning: implicit declaration of function ‘PyString_FromString’
+RNA_wrap.c:2344: error: ‘obj’ undeclared (first use in this function)
+RNA_wrap.c:2344: warning: implicit declaration of function ‘PyDict_GetItem’
+RNA_wrap.c:2347: warning: implicit declaration of function ‘PyCObject_AsVoidPtr’
+RNA_wrap.c:2353: warning: implicit declaration of function ‘PyDict_SetItem’
+RNA_wrap.c: In function ‘SWIG_Python_AddErrMesg’:
+RNA_wrap.c:2372: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:2372: error: ‘type’ undeclared (first use in this function)
+RNA_wrap.c:2373: error: ‘value’ undeclared (first use in this function)
+RNA_wrap.c:2374: error: ‘traceback’ undeclared (first use in this function)
+RNA_wrap.c:2377: error: ‘old_str’ undeclared (first use in this function)
+RNA_wrap.c: In function ‘SWIG_Python_ArgFail’:
+RNA_wrap.c:2399: warning: implicit declaration of function ‘snprintf’
+RNA_wrap.c:2399: warning: incompatible implicit declaration of built-in function ‘snprintf’
+RNA_wrap.c: At top level:
+RNA_wrap.c:2407: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2415: error: expected declaration specifiers or ‘...’ before ‘PyObject’
+RNA_wrap.c: In function ‘SWIG_Python_TypeError’:
+RNA_wrap.c:2429: error: ‘obj’ undeclared (first use in this function)
+RNA_wrap.c:2431: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:2431: error: ‘str’ undeclared (first use in this function)
+RNA_wrap.c:2434: error: ‘PyExc_TypeError’ undeclared (first use in this function)
+RNA_wrap.c: At top level:
+RNA_wrap.c:2453: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2525:4: error: #error "This python version requires swig to be run with the '-classic' option"
+In file included from RNA_wrap.c:2544:
+../H/utils.h:25: error: expected ‘)’ before ‘*’ token
+../H/utils.h:31: warning: type defaults to ‘int’ in declaration of ‘FILE’
+../H/utils.h:31: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+In file included from ../H/cofold.h:2,
+                 from RNA_wrap.c:2548:
+../H/subopt.h:10: error: expected declaration specifiers or ‘...’ before ‘FILE’
+../H/subopt.h:11: error: expected declaration specifiers or ‘...’ before ‘FILE’
+In file included from RNA_wrap.c:2550:
+../H/part_func_co.h:28: warning: ‘struct plist’ declared inside parameter list
+../H/part_func_co.h:28: warning: its scope is only this definition or declaration, which is probably not what you want
+In file included from RNA_wrap.c:2564:
+../H/aln_util.h:4: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘delete_intP’:
+RNA_wrap.c:2579: warning: implicit declaration of function ‘free’
+RNA_wrap.c:2579: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:2591: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘SWIG_CanCastAsInteger’:
+RNA_wrap.c:2647: error: ‘errno’ undeclared (first use in this function)
+RNA_wrap.c:2647: error: ‘EDOM’ undeclared (first use in this function)
+RNA_wrap.c:2647: error: ‘ERANGE’ undeclared (first use in this function)
+RNA_wrap.c: At top level:
+RNA_wrap.c:2671: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2715: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2727: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2745: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:2784: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘delete_intArray’:
+RNA_wrap.c:2805: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: In function ‘delete_floatP’:
+RNA_wrap.c:2825: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:2839: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2847: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘delete_floatArray’:
+RNA_wrap.c:2868: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: In function ‘delete_doubleP’:
+RNA_wrap.c:2888: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: In function ‘delete_doubleArray’:
+RNA_wrap.c:2905: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: In function ‘delete_ushortP’:
+RNA_wrap.c:2925: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:2936: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2944: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2952: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘delete_shortP’:
+RNA_wrap.c:2972: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:2983: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:2991: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:3048: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3078: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:3132: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3163: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c: In function ‘my_co_pf_fold’:
+RNA_wrap.c:3172: warning: unused variable ‘en’
+RNA_wrap.c: In function ‘my_get_concentrations’:
+RNA_wrap.c:3200: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:3239: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:3263: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘get_xy_coordinates’:
+RNA_wrap.c:3316: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: In function ‘delete_SOLUTION’:
+RNA_wrap.c:3345: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:3357: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘make_loop_index’:
+RNA_wrap.c:3406: warning: implicit declaration of function ‘fprintf’
+RNA_wrap.c:3406: warning: incompatible implicit declaration of built-in function ‘fprintf’
+RNA_wrap.c:3406: error: ‘stderr’ undeclared (first use in this function)
+RNA_wrap.c:3411: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: In function ‘energy_of_move’:
+RNA_wrap.c:3452: warning: incompatible implicit declaration of built-in function ‘fprintf’
+RNA_wrap.c:3452: error: ‘stderr’ undeclared (first use in this function)
+RNA_wrap.c:3460: warning: incompatible implicit declaration of built-in function ‘fprintf’
+RNA_wrap.c:3464: warning: implicit declaration of function ‘abs’
+RNA_wrap.c:3465: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c:3494: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:3522: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3544: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3565: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3596: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3635: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3657: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3678: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3709: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3748: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3770: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3792: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3799: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3821: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3842: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3873: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3912: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3934: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3955: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:3986: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4025: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4047: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4069: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4076: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4098: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4119: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4150: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4189: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4211: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4232: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4263: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4302: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4324: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4346: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4353: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4375: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4396: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4427: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4466: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4488: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4509: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4540: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4579: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4610: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4645: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4695: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4732: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4744: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4765: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4777: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4820: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4869: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4941: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:4978: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5015: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5132: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5182: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5194: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5215: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5227: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5252: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5302: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5323: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5335: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5356: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5378: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5400: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5431: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5513: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5538: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5575: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5600: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5680: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:5695: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5703: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5715: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5736: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5803: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:5928: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6033: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6081: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6129: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6149: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6157: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6172: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6180: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6195: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6203: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6218: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6226: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6241: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6249: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6264: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6272: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6287: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6295: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6310: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6318: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6333: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6341: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6356: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6364: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6384: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6392: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6412: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6420: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6435: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6443: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6458: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6466: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6481: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6489: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6504: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6512: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6542: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6564: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6594: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6616: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6647: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6660: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6681: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6688: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6703: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6711: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6726: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6734: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6749: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6757: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6772: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6780: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6795: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6803: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6818: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6826: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6841: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6849: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6864: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6872: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6885: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6897: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6912: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6920: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:6935: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6943: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6973: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:6995: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7025: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7047: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7077: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7099: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7129: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7151: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7188: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7210: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7240: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7262: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7275: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7296: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7303: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7352: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7392: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7417: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7439: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7451: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7509: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7549: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7598: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7651: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7680: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7708: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7738: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7760: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7790: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7812: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7843: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7856: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7877: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7884: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7909: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7939: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:7961: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8000: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8022: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8053: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8075: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8096: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8109: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8116: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8171: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8186: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8194: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8225: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8251: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8277: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8303: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8329: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8355: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8381: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8407: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8433: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8454: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8478: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8497: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8505: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8524: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8532: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8551: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8559: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8574: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8582: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8597: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8605: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8620: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8628: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8653: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8684: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8705: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8726: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8751: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8782: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8804: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8835: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8856: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8877: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8892: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8900: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8919: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8927: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:8942: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8950: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:8972: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9001: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9025: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9037: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:9056: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9064: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9077: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9108: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9134: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9148: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9183: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9220: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9241: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9267: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9293: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9318: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9355: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9379: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9403: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9434: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9447: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9460: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9482: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9504: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9529: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9584: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9614: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9636: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9666: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9688: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9727: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9749: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9779: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9801: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9814: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9835: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9842: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9879: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9922: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9947: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:9993: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10042: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10115: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10173: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10222: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10271: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10320: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10357: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:10372: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10380: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10410: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10432: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10462: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10484: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10514: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10536: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10566: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10588: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10618: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10640: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10670: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10692: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10705: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10726: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10733: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10779: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10834: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10864: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10886: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10916: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10938: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10968: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:10990: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11003: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11024: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11031: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11098: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11153: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11208: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11238: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11260: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11299: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11321: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11334: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11355: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11362: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11420: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:11478: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘SwigMethods’
+RNA_wrap.c:12142: error: expected specifier-qualifier-list before ‘PyObject’
+RNA_wrap.c:12148: error: expected specifier-qualifier-list before ‘PyObject_HEAD’
+RNA_wrap.c:12152: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:12157: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:12170: error: expected declaration specifiers or ‘...’ before ‘FILE’
+RNA_wrap.c: In function ‘swig_varlink_print’:
+RNA_wrap.c:12171: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:12171: error: ‘str’ undeclared (first use in this function)
+RNA_wrap.c:12171: warning: implicit declaration of function ‘swig_varlink_str’
+RNA_wrap.c:12172: warning: incompatible implicit declaration of built-in function ‘fprintf’
+RNA_wrap.c:12172: error: ‘fp’ undeclared (first use in this function)
+RNA_wrap.c:12173: warning: format ‘%s’ expects type ‘char *’, but argument 3 has type ‘int’
+RNA_wrap.c: In function ‘swig_varlink_dealloc’:
+RNA_wrap.c:12180: error: ‘swig_varlinkobject’ has no member named ‘vars’
+RNA_wrap.c:12182: error: ‘swig_globalvar’ has no member named ‘next’
+RNA_wrap.c:12183: warning: incompatible implicit declaration of built-in function ‘free’
+RNA_wrap.c: At top level:
+RNA_wrap.c:12189: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:12207: error: expected declaration specifiers or ‘...’ before ‘PyObject’
+RNA_wrap.c: In function ‘swig_varlink_setattr’:
+RNA_wrap.c:12209: error: ‘swig_varlinkobject’ has no member named ‘vars’
+RNA_wrap.c:12212: error: ‘swig_globalvar’ has no member named ‘set_attr’
+RNA_wrap.c:12212: error: ‘p’ undeclared (first use in this function)
+RNA_wrap.c:12215: error: ‘swig_globalvar’ has no member named ‘next’
+RNA_wrap.c:12218: error: ‘PyExc_NameError’ undeclared (first use in this function)
+RNA_wrap.c: At top level:
+RNA_wrap.c:12223: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:12275: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:12285: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:12301: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+RNA_wrap.c:12314: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c:12341: error: expected ‘)’ before ‘*’ token
+RNA_wrap.c: In function ‘init_RNA’:
+RNA_wrap.c:12394: error: ‘PyObject’ undeclared (first use in this function)
+RNA_wrap.c:12394: error: ‘m’ undeclared (first use in this function)
+RNA_wrap.c:12394: error: ‘d’ undeclared (first use in this function)
+RNA_wrap.c:12394: warning: left-hand operand of comma expression has no effect
+RNA_wrap.c:12397: warning: implicit declaration of function ‘SWIG_Python_FixMethods’
+RNA_wrap.c:12397: error: ‘SwigMethods’ undeclared (first use in this function)
+RNA_wrap.c:12400: warning: implicit declaration of function ‘PyModule_GetDict’
+RNA_wrap.c:12403: warning: implicit declaration of function ‘SWIG_Python_InstallConstants’
+RNA_wrap.c:12406: warning: implicit declaration of function ‘SWIG_Python_SetConstant’
+RNA_wrap.c:12406: warning: implicit declaration of function ‘PyFloat_FromDouble’
+RNA_wrap.c:12407: warning: implicit declaration of function ‘PyDict_SetItemString’
+RNA_wrap.c:12407: warning: implicit declaration of function ‘SWIG_globals’
+RNA_wrap.c:12408: warning: implicit declaration of function ‘SWIG_Python_addvarlink’
+RNA_wrap.c:12408: error: ‘Swig_var_mirnatog_get’ undeclared (first use in this function)
+RNA_wrap.c:12408: error: ‘Swig_var_mirnatog_set’ undeclared (first use in this function)
+RNA_wrap.c:12409: error: ‘Swig_var_symbolset_get’ undeclared (first use in this function)
+RNA_wrap.c:12409: error: ‘Swig_var_symbolset_set’ undeclared (first use in this function)
+RNA_wrap.c:12410: error: ‘Swig_var_final_cost_get’ undeclared (first use in this function)
+RNA_wrap.c:12410: error: ‘Swig_var_final_cost_set’ undeclared (first use in this function)
+RNA_wrap.c:12411: error: ‘Swig_var_give_up_get’ undeclared (first use in this function)
+RNA_wrap.c:12411: error: ‘Swig_var_give_up_set’ undeclared (first use in this function)
+RNA_wrap.c:12412: error: ‘Swig_var_noGU_get’ undeclared (first use in this function)
+RNA_wrap.c:12412: error: ‘Swig_var_noGU_set’ undeclared (first use in this function)
+RNA_wrap.c:12413: error: ‘Swig_var_no_closingGU_get’ undeclared (first use in this function)
+RNA_wrap.c:12413: error: ‘Swig_var_no_closingGU_set’ undeclared (first use in this function)
+RNA_wrap.c:12414: error: ‘Swig_var_tetra_loop_get’ undeclared (first use in this function)
+RNA_wrap.c:12414: error: ‘Swig_var_tetra_loop_set’ undeclared (first use in this function)
+RNA_wrap.c:12415: error: ‘Swig_var_energy_set_get’ undeclared (first use in this function)
+RNA_wrap.c:12415: error: ‘Swig_var_energy_set_set’ undeclared (first use in this function)
+RNA_wrap.c:12416: error: ‘Swig_var_dangles_get’ undeclared (first use in this function)
+RNA_wrap.c:12416: error: ‘Swig_var_dangles_set’ undeclared (first use in this function)
+RNA_wrap.c:12417: error: ‘Swig_var_oldAliEn_get’ undeclared (first use in this function)
+RNA_wrap.c:12417: error: ‘Swig_var_oldAliEn_set’ undeclared (first use in this function)
+RNA_wrap.c:12418: error: ‘Swig_var_ribo_get’ undeclared (first use in this function)
+RNA_wrap.c:12418: error: ‘Swig_var_ribo_set’ undeclared (first use in this function)
+RNA_wrap.c:12419: error: ‘Swig_var_RibosumFile_get’ undeclared (first use in this function)
+RNA_wrap.c:12419: error: ‘Swig_var_RibosumFile_set’ undeclared (first use in this function)
+RNA_wrap.c:12420: error: ‘Swig_var_nonstandards_get’ undeclared (first use in this function)
+RNA_wrap.c:12420: error: ‘Swig_var_nonstandards_set’ undeclared (first use in this function)
+RNA_wrap.c:12421: error: ‘Swig_var_temperature_get’ undeclared (first use in this function)
+RNA_wrap.c:12421: error: ‘Swig_var_temperature_set’ undeclared (first use in this function)
+RNA_wrap.c:12422: error: ‘Swig_var_james_rule_get’ undeclared (first use in this function)
+RNA_wrap.c:12422: error: ‘Swig_var_james_rule_set’ undeclared (first use in this function)
+RNA_wrap.c:12423: error: ‘Swig_var_logML_get’ undeclared (first use in this function)
+RNA_wrap.c:12423: error: ‘Swig_var_logML_set’ undeclared (first use in this function)
+RNA_wrap.c:12424: error: ‘Swig_var_cut_point_get’ undeclared (first use in this function)
+RNA_wrap.c:12424: error: ‘Swig_var_cut_point_set’ undeclared (first use in this function)
+RNA_wrap.c:12425: error: ‘Swig_var_base_pair_get’ undeclared (first use in this function)
+RNA_wrap.c:12425: error: ‘Swig_var_base_pair_set’ undeclared (first use in this function)
+RNA_wrap.c:12426: error: ‘Swig_var_pr_get’ undeclared (first use in this function)
+RNA_wrap.c:12426: error: ‘Swig_var_pr_set’ undeclared (first use in this function)
+RNA_wrap.c:12427: error: ‘Swig_var_iindx_get’ undeclared (first use in this function)
+RNA_wrap.c:12427: error: ‘Swig_var_iindx_set’ undeclared (first use in this function)
+RNA_wrap.c:12428: error: ‘Swig_var_pf_scale_get’ undeclared (first use in this function)
+RNA_wrap.c:12428: error: ‘Swig_var_pf_scale_set’ undeclared (first use in this function)
+RNA_wrap.c:12429: error: ‘Swig_var_fold_constrained_get’ undeclared (first use in this function)
+RNA_wrap.c:12429: error: ‘Swig_var_fold_constrained_set’ undeclared (first use in this function)
+RNA_wrap.c:12430: error: ‘Swig_var_do_backtrack_get’ undeclared (first use in this function)
+RNA_wrap.c:12430: error: ‘Swig_var_do_backtrack_set’ undeclared (first use in this function)
+RNA_wrap.c:12431: error: ‘Swig_var_noLonelyPairs_get’ undeclared (first use in this function)
+RNA_wrap.c:12431: error: ‘Swig_var_noLonelyPairs_set’ undeclared (first use in this function)
+RNA_wrap.c:12432: error: ‘Swig_var_backtrack_type_get’ undeclared (first use in this function)
+RNA_wrap.c:12432: error: ‘Swig_var_backtrack_type_set’ undeclared (first use in this function)
+RNA_wrap.c:12433: error: ‘Swig_var_cv_fact_get’ undeclared (first use in this function)
+RNA_wrap.c:12433: error: ‘Swig_var_cv_fact_set’ undeclared (first use in this function)
+RNA_wrap.c:12434: error: ‘Swig_var_nc_fact_get’ undeclared (first use in this function)
+RNA_wrap.c:12434: error: ‘Swig_var_nc_fact_set’ undeclared (first use in this function)
+RNA_wrap.c:12435: error: ‘Swig_var_subopt_sorted_get’ undeclared (first use in this function)
+RNA_wrap.c:12435: error: ‘Swig_var_subopt_sorted_set’ undeclared (first use in this function)
+RNA_wrap.c:12436: error: ‘Swig_var_loop_size_get’ undeclared (first use in this function)
+RNA_wrap.c:12436: error: ‘Swig_var_loop_size_set’ undeclared (first use in this function)
+RNA_wrap.c:12437: error: ‘Swig_var_helix_size_get’ undeclared (first use in this function)
+RNA_wrap.c:12437: error: ‘Swig_var_helix_size_set’ undeclared (first use in this function)
+RNA_wrap.c:12438: error: ‘Swig_var_loop_degree_get’ undeclared (first use in this function)
+RNA_wrap.c:12438: error: ‘Swig_var_loop_degree_set’ undeclared (first use in this function)
+RNA_wrap.c:12439: error: ‘Swig_var_loops_get’ undeclared (first use in this function)
+RNA_wrap.c:12439: error: ‘Swig_var_loops_set’ undeclared (first use in this function)
+RNA_wrap.c:12440: error: ‘Swig_var_unpaired_get’ undeclared (first use in this function)
+RNA_wrap.c:12440: error: ‘Swig_var_unpaired_set’ undeclared (first use in this function)
+RNA_wrap.c:12441: error: ‘Swig_var_pairs_get’ undeclared (first use in this function)
+RNA_wrap.c:12441: error: ‘Swig_var_pairs_set’ undeclared (first use in this function)
+RNA_wrap.c:12442: error: ‘Swig_var_edit_backtrack_get’ undeclared (first use in this function)
+RNA_wrap.c:12442: error: ‘Swig_var_edit_backtrack_set’ undeclared (first use in this function)
+RNA_wrap.c:12443: error: ‘Swig_var_aligned_line_get’ undeclared (first use in this function)
+RNA_wrap.c:12443: error: ‘Swig_var_aligned_line_set’ undeclared (first use in this function)
+RNA_wrap.c:12444: error: ‘Swig_var_cost_matrix_get’ undeclared (first use in this function)
+RNA_wrap.c:12444: error: ‘Swig_var_cost_matrix_set’ undeclared (first use in this function)
+RNA_wrap.c:12445: error: ‘Swig_var_xsubi_get’ undeclared (first use in this function)
+RNA_wrap.c:12445: error: ‘Swig_var_xsubi_set’ undeclared (first use in this function)
+RNA_wrap.c:12453: error: ‘Swig_var_rna_plot_type_get’ undeclared (first use in this function)
+RNA_wrap.c:12453: error: ‘Swig_var_rna_plot_type_set’ undeclared (first use in this function)
+error: command 'gcc' failed with exit status 1

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -rf build
+rm _RNA.so
+python setup.py build_ext --inplace
