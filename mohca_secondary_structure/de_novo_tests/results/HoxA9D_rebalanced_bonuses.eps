@@ -1,0 +1,1944 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Creator: MATLAB, The MathWorks, Inc. Version 7.12.0.635 (R2011a). Operating System: Linux 3.2.0-51-generic #77-Ubuntu SMP Wed Jul 24 20:18:19 UTC 2013 x86_64.
+%%Title: results/HoxA9D_rebalanced_bonuses.eps
+%%CreationDate: 05/19/2014  17:13:38
+%%DocumentNeededFonts: Helvetica
+%%DocumentProcessColors: Cyan Magenta Yellow Black
+%%LanguageLevel: 2
+%%Pages: 1
+%%BoundingBox:     0    72   612   828
+%%EndComments
+
+%%BeginProlog
+% MathWorks dictionary
+/MathWorks 160 dict begin
+% definition operators
+/bdef {bind def} bind def
+/ldef {load def} bind def
+/xdef {exch def} bdef
+/xstore {exch store} bdef
+% operator abbreviations
+/c  /clip ldef
+/cc /concat ldef
+/cp /closepath ldef
+/gr /grestore ldef
+/gs /gsave ldef
+/mt /moveto ldef
+/np /newpath ldef
+/cm /currentmatrix ldef
+/sm /setmatrix ldef
+/rm /rmoveto ldef
+/rl /rlineto ldef
+/s {show newpath} bdef
+/sc {setcmykcolor} bdef
+/sr /setrgbcolor ldef
+/sg /setgray ldef
+/w /setlinewidth ldef
+/j /setlinejoin ldef
+/cap /setlinecap ldef
+/rc {rectclip} bdef
+/rf {rectfill} bdef
+% page state control
+/pgsv () def
+/bpage {/pgsv save def} bdef
+/epage {pgsv restore} bdef
+/bplot /gsave ldef
+/eplot {stroke grestore} bdef
+% orientation switch
+/portraitMode 0 def /landscapeMode 1 def /rotateMode 2 def
+% coordinate system mappings
+/dpi2point 0 def
+% font control
+/FontSize 0 def
+/FMS {/FontSize xstore findfont [FontSize 0 0 FontSize neg 0 0]
+  makefont setfont} bdef
+/reencode {exch dup where {pop load} {pop StandardEncoding} ifelse
+  exch dup 3 1 roll findfont dup length dict begin
+  { 1 index /FID ne {def}{pop pop} ifelse } forall
+  /Encoding exch def currentdict end definefont pop} bdef
+/isroman {findfont /CharStrings get /Agrave known} bdef
+/FMSR {3 1 roll 1 index dup isroman {reencode} {pop pop} ifelse
+  exch FMS} bdef
+/csm {1 dpi2point div -1 dpi2point div scale neg translate
+ dup landscapeMode eq {pop -90 rotate}
+  {rotateMode eq {90 rotate} if} ifelse} bdef
+% line types: solid, dotted, dashed, dotdash
+/SO { [] 0 setdash } bdef
+/DO { [.5 dpi2point mul 4 dpi2point mul] 0 setdash } bdef
+/DA { [6 dpi2point mul] 0 setdash } bdef
+/DD { [.5 dpi2point mul 4 dpi2point mul 6 dpi2point mul 4
+  dpi2point mul] 0 setdash } bdef
+% macros for lines and objects
+/L {lineto stroke} bdef
+/MP {3 1 roll moveto 1 sub {rlineto} repeat} bdef
+/AP {{rlineto} repeat} bdef
+/PDlw -1 def
+/W {/PDlw currentlinewidth def setlinewidth} def
+/PP {closepath eofill} bdef
+/DP {closepath stroke} bdef
+/MR {4 -2 roll moveto dup  0 exch rlineto exch 0 rlineto
+  neg 0 exch rlineto closepath} bdef
+/FR {MR stroke} bdef
+/PR {MR fill} bdef
+/L1i {{currentfile picstr readhexstring pop} image} bdef
+/tMatrix matrix def
+/MakeOval {newpath tMatrix currentmatrix pop translate scale
+0 0 1 0 360 arc tMatrix setmatrix} bdef
+/FO {MakeOval stroke} bdef
+/PO {MakeOval fill} bdef
+/PD {currentlinewidth 2 div 0 360 arc fill
+   PDlw -1 eq not {PDlw w /PDlw -1 def} if} def
+/FA {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arc tMatrix setmatrix stroke} bdef
+/PA {newpath tMatrix currentmatrix pop	translate 0 0 moveto scale
+  0 0 1 5 -2 roll arc closepath tMatrix setmatrix fill} bdef
+/FAn {newpath tMatrix currentmatrix pop translate scale
+  0 0 1 5 -2 roll arcn tMatrix setmatrix stroke} bdef
+/PAn {newpath tMatrix currentmatrix pop translate 0 0 moveto scale
+  0 0 1 5 -2 roll arcn closepath tMatrix setmatrix fill} bdef
+/vradius 0 def /hradius 0 def /lry 0 def
+/lrx 0 def /uly 0 def /ulx 0 def /rad 0 def
+/MRR {/vradius xdef /hradius xdef /lry xdef /lrx xdef /uly xdef
+  /ulx xdef newpath tMatrix currentmatrix pop ulx hradius add uly
+  vradius add translate hradius vradius scale 0 0 1 180 270 arc 
+  tMatrix setmatrix lrx hradius sub uly vradius add translate
+  hradius vradius scale 0 0 1 270 360 arc tMatrix setmatrix
+  lrx hradius sub lry vradius sub translate hradius vradius scale
+  0 0 1 0 90 arc tMatrix setmatrix ulx hradius add lry vradius sub
+  translate hradius vradius scale 0 0 1 90 180 arc tMatrix setmatrix
+  closepath} bdef
+/FRR {MRR stroke } bdef
+/PRR {MRR fill } bdef
+/MlrRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lry uly sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 90 270 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 270 90 arc tMatrix setmatrix
+  closepath} bdef
+/FlrRR {MlrRR stroke } bdef
+/PlrRR {MlrRR fill } bdef
+/MtbRR {/lry xdef /lrx xdef /uly xdef /ulx xdef /rad lrx ulx sub 2 div def
+  newpath tMatrix currentmatrix pop ulx rad add uly rad add translate
+  rad rad scale 0 0 1 180 360 arc tMatrix setmatrix lrx rad sub lry rad
+  sub translate rad rad scale 0 0 1 0 180 arc tMatrix setmatrix
+  closepath} bdef
+/FtbRR {MtbRR stroke } bdef
+/PtbRR {MtbRR fill } bdef
+/stri 6 array def /dtri 6 array def
+/smat 6 array def /dmat 6 array def
+/tmat1 6 array def /tmat2 6 array def /dif 3 array def
+/asub {/ind2 exch def /ind1 exch def dup dup
+  ind1 get exch ind2 get sub exch } bdef
+/tri_to_matrix {
+  2 0 asub 3 1 asub 4 0 asub 5 1 asub
+  dup 0 get exch 1 get 7 -1 roll astore } bdef
+/compute_transform {
+  dmat dtri tri_to_matrix tmat1 invertmatrix 
+  smat stri tri_to_matrix tmat2 concatmatrix } bdef
+/ds {stri astore pop} bdef
+/dt {dtri astore pop} bdef
+/db {2 copy /cols xdef /rows xdef mul dup 3 mul string
+  currentfile 
+  3 index 0 eq {/ASCIIHexDecode filter}
+  {/ASCII85Decode filter 3 index 2 eq {/RunLengthDecode filter} if }
+  ifelse exch readstring pop
+  dup 0 3 index getinterval /rbmap xdef
+  dup 2 index dup getinterval /gbmap xdef
+  1 index dup 2 mul exch getinterval /bbmap xdef pop pop}bdef
+/it {gs np dtri aload pop moveto lineto lineto cp c
+  cols rows 8 compute_transform 
+  rbmap gbmap bbmap true 3 colorimage gr}bdef
+/il {newpath moveto lineto stroke}bdef
+currentdict end def
+%%EndProlog
+
+%%BeginSetup
+MathWorks begin
+
+0 cap
+
+end
+%%EndSetup
+
+%%Page: 1 1
+%%BeginPageSetup
+%%PageBoundingBox:     0    72   612   828
+MathWorks begin
+bpage
+%%EndPageSetup
+
+%%BeginObject: obj1
+bplot
+
+/dpi2point 4.16667 def
+portraitMode 0000 3450 csm
+
+    0     0  2550  3149 rc
+85 dict begin %Colortable dictionary
+/c0 { 0.000000 0.000000 0.000000 sr} bdef
+/c1 { 1.000000 1.000000 1.000000 sr} bdef
+/c2 { 0.900000 0.000000 0.000000 sr} bdef
+/c3 { 0.000000 0.820000 0.000000 sr} bdef
+/c4 { 0.000000 0.000000 0.800000 sr} bdef
+/c5 { 0.910000 0.820000 0.320000 sr} bdef
+/c6 { 1.000000 0.260000 0.820000 sr} bdef
+/c7 { 0.000000 0.820000 0.820000 sr} bdef
+c0
+1 j
+1 sg
+   0    0 2551 3150 rf
+2.08333 w
+0 -1976 1976 0 0 1976 332 531 4 MP
+PP
+-1976 0 0 -1976 1976 0 0 1976 332 531 5 MP stroke
+gs 332 531 1977 1977 rc
+/mwscm { [/Indexed /DeviceRGB 63
+  <
+    ffffff fafafa f6f6f6 f2f2f2 eeeeee eaeaea e6e6e6 e2e2e2 dedede dadada 
+    d6d6d6 d2d2d2 cecece cacaca c6c6c6 c2c2c2 bebebe bababa b6b6b6 b2b2b2 
+    aeaeae aaaaaa a5a5a5 a1a1a1 9d9d9d 999999 959595 919191 8d8d8d 898989 
+    858585 818181 7d7d7d 797979 757575 717171 6d6d6d 696969 656565 616161 
+    5d5d5d 595959 555555 505050 4c4c4c 484848 444444 404040 3c3c3c 383838 
+    343434 303030 2c2c2c 282828 242424 202020 1c1c1c 181818 141414 101010 
+    0c0c0c 080808 040404 000000 
+  >
+] setcolorspace } bdef mwscm
+gs np 332 531 mt 0 1977 rl 1977 0 rl 0 -1977 rl cp c np
+[1981 0 0 1981 330 529] cc
+<< % Image dictionary
+  /ImageType 1
+  /Width 379 /Height 379
+  /BitsPerComponent 8
+  /Decode [0 255]
+  /ImageMatrix [379.000000 0 0 379.000000 0 0]
+  /DataSource currentfile
+  /ASCII85Decode filter
+  /RunLengthDecode filter
+>>
+image
+JH16$rW)pAgAq3sbQ.Sc!!)m?JH16$nGiP5gAq3sl2Uf.j8f-&!!)m?JH16$a8c2al2^f-j8]3),5qQB
+,(T`F!36)",3f..,(T`F!/LXS,1-Dg,5VB=,5hKA,(T`F!6tTD,1-Dd,5qT>+oqZDrZZmnJH4$srZ]_i
+pEKS:q]Z%@!<+0n!.b-s!!"4h!<",@!!"5@!<",?!!"3o!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!7_&L,(T`F!/LXS,(T`F!/^dT,(T`F!/^dT,(T`F!/^dT
+,(T`F!/^dU,(T`F!/U^T,(T`F!/LUU+sMR<JH1K+rZZmnJH1K+!$ZsoJH16$JH16$JH4s8rZZmnJH2bO
+!$^>$r$$[lJH2hQrZ^8#rZZmnJH2ePr?C/"!$ZsoJH2bOr??dmJH1Q-r??dmJH1N,rZZmnJH1K+!$Zso
+JH16$JH16$N;rr&JH16$L]IDuJH16$L]IDuli7#0JH16$ScAa7li@#/JH16$M#dJuJH16$M?*W"JH16$
+L]@E!JH16$JH16$JH16$JH16$JH5<Br??dmJH1T.q]^RkJH1T.r??dmJH1N,!?r``!!"3o!.b-+!<+0n
+!.b-+!!"3o!.b.(!!"3o!.b-+!<+0n!.b-+!!"4H!!"3o!.b-,!<"*m!.b.;!!"50!!"4O!;[mj!.b.>
+!<+2=!!"5:!<+1b!!"52!;[mj!.b.>!!"5A!!4>E!<+29!!"4c!<+21!;n$l!.b.9!;[o<!!"4\!<",0
+!!4>E,(T`F!:'Xa+ohW@+oqZDrZV@C,5qQB,0Boa,(T`F!7h/J+ohWB+oqZDrZV=BrZV=BrZ]McrZZmn
+JH41"rZV@C!<+/B!<+2A!!"5B!!"4b!!"3o!.b."!<")A!<")E!!"2C,(T`F!1!Tc+oqE_r;cg@"TSNH
+!!"3o!.b-A!;@Z;!<")C!$VF>,(T`F!4Mq.,3]+(+oqZDq]Z"?r?;:C!$]2Y!$^J(!$ZsoQN7"/klCW*
+!<<,r+p%`E,5qTA,/O?Z,3An),(T`\!!+8fklC],quHU<q>^L>`W,u_r;cd?jo>B*JH1u9rZ_4>!$^n4
+!$_=@q]``SrZV@C!;dsk!.b.J!<+2>!<+2/!;n%Q!!"5A!<"*m!.b.H!!"5=!!"59!!+8fp]1:;ZiL%K
+JH16$joG?(p](:<ZN0tKJH16$joG?(VZ6]@JH16$j8]9+!$WW\!!"3o!.b-N!!"51!;n&>!!"5B!<"*m
+!.b-[!!"5;!<+22!;[l?!!*!B!!)p@M#[N"JH2tUrZ_(:!$_%8!$_=@rZVIF!$VCCrZV=BqBCgtrZZmn
+ZiL(LpAk1:p&P(9qu?^@q>^L>rVupBrVupBM#[N"JH2tU!$_.;rZ^t7!$_7>!$ZsoJH28A!$^b0rZZmn
+JH1K+!$_1<!$[@%!$ZsoL]@E!rW!*G!!"2C!<+1&!<+0n!/^dU+ohW<,5V??,*N!0+oiee,2rS&,(T`q
+!"'no!!"2C!$VCe,5VB>,*N$)+p%`g,3Jt*,(T`r!<+2?!<+2?!<+1E!!"5*!!=DF+oqQck5YK+p](:<
+JH3.ZrZV@C,5_E@,5M9>,-:kE,3/b$,2iM&+oqTdJH3.Z!?qOC,5V??,52';,-_+J,2rV#,3o43+ohTe
+,5hN>,(Ta%!<+2>!<+2<!<+/D!!"4/!;[o,!;[o<!<+0n!4)Y*,5D3=,52'=+ohWB,*i30+oqTdm/Zo*
+!<<-!,(T`b!!4>E!<+1,!!+8fli?l+r;ZgAJH2YL!$_+:q]_7)r?Cn7!$_+:!?r_=!3-#!,5_H>,5qQB
+,5V?B+ohTeV>pT?mK!20pAk1:p]1:;JH2_NrZV@C,5qT@+ohWB,5M<=,,bM@,45I0+p%`E,5_H?,5)!<
++oig<!36)#+oqTdr;ZgArW)pA!<=>B!<+1?!!4>E,4,@3+sI$d,5_H?,5)$9,(T`n!<+2?!;Rf>!!*!B
+V#^K=mK!//quH^?oDek8JH4C(!$^>$!$^q5!$_@Ap`fY:!$\0<!$^b0rZ_1=rZ^h3!$ZsohuNa#iW/s%
+mJuu*!WW3EU&b0:li7#0q>gL=p&G(:quH^?JH4U.!$^>$!$^b0!?qO;,,,&?+oiee,3f.1+oieerZ_+;
+rZ_7?!$Zsof)Pdph>dU$!$_.;r#u+@q]c">!$\6>r$(J-q',V7rZZmnd/a.ihuN[!q#L78!!)sA!<<,u
+,-CnG,5VB<,3o7*,52';,52';,(TaJ!!"5"!!4>E,5M9B+ohTe!<+/B!<")B!!)sAXoSGFquHU<!<=>3
+!;du,!<+0n!6bEC,3/b&+ohWA+oqZDr?;:C!$\HD!$_7>q',5,r?CS.rZZmnbQ.Vdm/R,1q#L@;!!)sA
+!<<,r,,5/6,45F2,3o7,,(Ta<!!"51!<+2?!!"5B!!+8Dr?D1?"<o#i!$\'9![7UErZ^P+!$^n4rZZmn
+[fHCOquH^?r;cg@OoYG)lN$o.nGrP4JH3+Y!$_7>!$_:?!$[L)r?CP-!$^k3!$ZsoX8i5EL]IDuJH1?'
+rZ[4"rZ^>%rZ_7?!$Zsoe,TImfDkmqM?*W"iW/m#rW)pAJH4R-!$_4=rZ^>%!?r`Q!!"42!!"5*!!+8D
+qBGh;!$ZsohZ3X"qZ-R=irK$%pAb1;pAk1:PlUe-mJuu*!<=>A!!4>E,(TaR!!"5?!;du%!<",9!<+2<
+!<+1-!;n&/!;.Q8!;n$l!8RYP,4#:0,5VB>,4ts6,5M9>,*N$),45I,+oqZfrW)j?JH4F)r?CS.rZ_4>
+!$_"7q]_%#r$(J-q',_:r$$[lg]7<tl2Uf.n,NG4rW)a<PQ1k2!$VCe!<",-!;du<!;n$l!87DQ,1lnp
++ohW@+p%`E,5M9>,+JZ-,3]+*,5VB>,(T`s!!+8DqBG_8rZ[p6pEJc#r?;7B,5hN@,(T`r!;Ic;!!4>g
+!<+14!!a\J+oiee+sQpb!$^_/q]Z%@!<"*m!3Q=s,5qT@+p%`g,*2g(,3o7-,5hN?,(TaR!!"5>!!"4o
+!!4>E!<")I!!"2C!$WTe!<+1(!!"5-!<+/E!$VCCr$$[lj8f0'quH^?g].<up](@>!!*!B!rsMF!<"+!
+!!"52!;@[g!9=.Z,5_H?,2<1t,5D3>+oqTd!!*!B!!)sAMZE`#mJuu*JH4a2!$_7>!$^+s!$_4=rZV=B
+r#u+@r?@'urZ^b1![8fgq]^RklMpo/quH^?aT)>c!;n&?!!=DF+sNZ[!$^e1r$(M.q]^RklN$o.quH[>
+aT28`quH[>U&b0:mK!,.mK!//JH4p7!$_:?r$';arZVCD!$_=@!?r_^!<",0!;[o-!!4>E,(TaR!;n%_
+!;dt0!<+2<!!"5<!;Iah!6bEE+oih/!<+/D!!"47!!"5B!<+/C!$_=@rZ_1=p*/i'!$ZsoW;uoAqZ$U?
+U&b0:!!)j>rW)pAq#L(3mK!51JH2YL!$_:?rZ\':![7UEq]Z%@,5qQB,5;01,45I1,(T`k!!"5B!!"46
+!<+/C!!*!BoDf%=!!"2C,5qT@,45F2,(T`m!!+8DrZ[a1!$_@A!$^q5rZ_=Aq]^RkQiI.2!;n&;!!"4"
+!!"5@!!4>E!<+0n!1Eoa,5M<=,(]gn,(T`a!;Ri8!<+1:!!4>E,5M9>,5)!:,5)!>+sI"2,3/_(,(Ta-
+!<")D!$VCeq#CF>,,,)8,5_H?,5hKA,5hN@+pe5L+oiee!$VCCq]b2'r??dm^B"3V!!*!B!<=>@!<"+9
+!<+2=!!"5A!<",@!!4>E!:qDt!<",=!!"3o!5nj;,5hKB+oqTdqZ$X@,,,):,4ts5,5hN3,3]++,5VB>
+,(Ta-!!"43!<+28!;du;!:qE6!!"5/!!+8fq#CC=JH3"V!$\-;!$_"7![7Ugq>gF;rW)g>rW)pAJH2&;
+!$_CBrZ[1!![7Ugqu?gC!$WWb!<+0n!1Eoe,5qQB,(Taf!!"3o!13`d,(T`F!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!0I6],(T`F!/LXS,(T`F!/^dT,(T`F!/^dU,(T`F!/^dU
+,(T``!!+8fJH50>!$ZsoRfNC2JH16$M#[Q#,(T`F!.b-$!.b-8!!"5>!!"3o!.b-9!!"5@!<+2?!<+0n
+!:Bge,(T`q!<+2?!!"5>!!"3o!:Bjd,(T`q!!"3o!8[\U,(T`F!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!9X=^,5qQC+sNf_!$Zso
+JH5!9rZV=Br?A*=rZZmnJH5!9!$_CB!?r_`!!"3o!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$
+!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!8IPS,(T`F!/COT
++sMR<JH1K+!$ZsoJH16$JH3(X!$ZsoJH1K+rZZmnJH1K+!$ZsoJH16$JH16$MuWi%JH16$L]IDuJH16$
+M#dN!JH16$L]@E!\,ZLQq>^R@!$_1<!$_@A![7UgqZ$U?r;ZgAg].I$!$VCeJH16$g&Usn!!)j>rW)d=
+!!)p@r;cg@!<<-!,3T",,5;07,5qQB,(T`F!8mk9,5_E@,5hKA,3T%+,5;-@+oiee,5qTA,(T`F!8mk9
+,5hKA,2rS&,5_E@,5)$9,(T`F!8[_@+oqZDr$)(>rZ^2!rZ_%9!$ZsoJH4I*rZVCD+oqNb!rsMF!;du=
+!<+2>!!"4u!!"3o!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b-$!.b.H!!"3o!.b-+!<+0n
+!.b-,!<"*m!.b-.!;dsk!.b-.!;n$l!.b-.!;n$l!.b-.!<"*m!.b--!;n$l!.b--!<+0n!.b--!;n$l
+!.b-.!;n$l!1X#h,(Tab!;dsk!1a,h,(Tab!;n$l!1X#h,(Tab!;dsk!.b-.!<"*m!.b--!;n$l!.b--
+!<+0n!.b-,!<+1/!!"4;!!"5-!!OPH+ohTeJH56@r?@X0rZ\-<rZ_"8!$_1<q'(@ioDne5R/d73,,,&;
+,4ts8,5M<=+ohWA,(Tac!;n%/!!"4,!!"5<!!"5B!<"*m!;$9h,(T`a!<+0n!:p3g,(T``!!"3o!:p3f
+,(T`F!/gjU,(T`F!/^dU,(Ta#!!"59!!"5=!!"3o!:9ae+sMR<ZiL(LpAk.9quH^?JH5-=r??dmaoDDc
+li7#0pAk(7rW)pAJH5-=q]^RkbQ.VdirJs#qu?^@JH5';r$$[lblI_eirJs#JH4j5q]^RkbQ%Vei;ig#
+JH4d3r??dmVuQfAJH4[0!$ZsoJH16$JH16$JH16$JH16$JH16$QiI44!!"3o!.b-.!;dsk!.b-.!!=DF
+!$ZsoJH16$JH3sq!$ZsoJH1l6"!R^F,5_EA+oqTdlMpo/JH4F)!$ZsodfB7hrW)j?lN$o.JH4L+rZ[R,
+!$]5Zr?D.>![7Ugkl:]-JH4F)!$[X-rZ],X!$ZsoJH3gm!$ZsoJH16$JH16$JH16$JH16$JH16$JH16$
+JH16$f)PdpJH16$L]IDuJH16$L]@E!k5YK+nGiP5JH16$R/m41o)Sb6JH16$R/d42nGiP5JH16$WrN,D
+JH16$L]IDuJH16$L]@E!JH16$JH16$JH16$JH16$JH5*<!$ZsoJH1K+rZZmnLB%;uWrN8H!!"2equ?gC
+!!"58!!"5A!!"5@!<+0n!/CRR,-:kA+p%`g!;du6!<+/C!!*!BrW)pAJH1B(!$\NFrZV=BrZV=BrZV=B
+r?;7B,5)!<+ohWB,5hN@,(T`F!:^$h,/F9V,5qQB,5hKB+oqTdrVupBquH^?!WW3EqZ$U?JH16$nGrP4
+ci=%iq>^L>qZ$X@!<+2>!!4>E!<+2A!<+2?!!"50!!"3o!.b.K!<+1h!<+2?!<+2<!<+2@!<+/D!!"5@
+!!"5*!<+0n!.b+N!!*!Bc2[hgq>gI<q>^L>qZ$U?pAb1;jo>B*JH5';!$[R+!$]Mb!?qO?,4kj8,5;0;
+,(TaC!<+0n!8@MK,5D3=,5hN@,5;0;,5D3=,52';,(TaW!!"3o!8@MK,5D6<,5hKC+oih^!!"5=!<+/C
+!$_:?rZV@C,4GR4,(T`F!7h/E,5M<=,5_H>,5_E@,5;-@+ohTe!<+2>!!+8DrZ^n5rZ^V-!$ZsoJH5*<
+"<mgi!!*!Bp](:<quH[>"98EG!!*!Bq>gL=r;ZgAq#LC<nc8Y5l2^f-JH2YL!$]Ja"!Soh!<+2@!!"5?
+!!"5B!<+2A!<+/E!!"2erVupBr;ZjB,4ts7,4Ya5,3](-,*N!,,+&B0,0Bo]+p%`g!<+2@!<+2A!!"5@
+!!"5B!<+/B!<+/D!$VFB,5M9@+sI$a,4km7,(Taj!<+11!<+1c!;Rf=!;[l?!!*!Bnc/h;!!"2e!<+/C
+!$_7>pEBY=!$_1<rZV@C,(Taj!!"41!!+8faT22^!!)j>rW)pAn,W>0"99VG+sQmaoHO56!$_@Ar$$[l
+OT5A*`W,u_r;c^=rW)m@nc/\7!;.Q5!;RfC!!"2C!$VFB+oqZDrZV@C,(T`T!!"4^!!4>E!;n&=!<",=
+!!"5?!:qE2!<+/B!<+/E!!"2Cq]Z%@!;n#A!$^_/!$[[.!$[[.rZ]A_rZV=Br$(t;!$_:?rZ_4>ocj/2
+"sP5k!$VCCq',b;rZV=BrZ^_0rZ]bj!$]G`rZ[X.!?r`.!<+/D!$VFB,4bg6,5D6:+p7li!!"5;!<+2A
+!;dr@!$_@ArZ_=A!$^_/!$]hkrZ]A_!$[[.!?r`/!<+/B!<+22!!"5;!;n#A!$_%8!$_=@!?qOC+oqZf
+rW)pA[/^1N`rQ)_Q2gq0,0'Z`,5qQD+oihL!;Ic.!!4>E!<+/B!<+2A!!"5<!!"3p!!"4R!!"5"!!+8f
+c2[hgq>^L>rW)pAm/R,1qZ$[A!!)m?o)SY3rVupBoDnk7KE1uq])_gShZ*X#c2dhfquH^?!rr<F,4,C0
++oqZfqZ-I:oDnk7!<=>?!!"5:!!"3p!!"4R!!"4B!!"5>!!4>E!<+2/!!+8DrZ_:@r?;4ArZ_1=!$_:?
+!$_CB!$_=@rZZmnJH3dl!$^V,!$_CB"<mgG+sR!d!$_7>rZ_:@![7UEr?D.>!$_:?!$^h2!$_CB!$[U,
+!$Zsoh>dO"rVupBrW!!D!$^b0"!R^h!<",?!!4>E,5VB>,5hN<+oqZfp]17:!WW3Eo)Sb6!!*!BPlUe-
+JH4U.rZV=BrZV=Br$(P/q',b;r$)"<!$_@Ap*0>5r#u+@rZ^t7rZVCD!$[[.rZZmnh>dO"rVupBrW!!D
+!$^b0rZVCD+sQpb"!Soh,4kj:+ohWB+ohWB,5VB>+oqZfrVupBnc/Y6O8o8)JH3=_!$_4=rZ^V-!$_4=
+!$ZsoJH2YL!$ZsoJH16$JH16$JH16$JH16$JH16$JH16$JH16$JH1?'J,
+~>
+gr
+gr
+
+/c8 { 1.000000 0.000000 0.000000 sr} bdef
+c8
+  12   12  337  531 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  342  536 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  347  541 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  352  547 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  358  552 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  363  557 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  368  562 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  373  568 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  379  573 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  384  578 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  389  583 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  394  589 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  399  594 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  405  599 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  410  604 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  415  609 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  420  615 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  426  620 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  431  625 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  436  630 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  441  636 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  447  641 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  452  646 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  457  651 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  462  656 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  467  662 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  473  667 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  478  672 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  483  677 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  488  683 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  494  688 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  499  693 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  504  698 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  509  704 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  514  709 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  520  714 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  525  719 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  530  724 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  535  730 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  541  735 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  546  740 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  551  745 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  556  751 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  562  756 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  567  761 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  572  766 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  577  771 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  582  777 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  588  782 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  593  787 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  598  792 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  603  798 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  609  803 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  614  808 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  619  813 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  624  819 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  629  824 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  635  829 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  640  834 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  645  839 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  650  845 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  656  850 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  661  855 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  666  860 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  671  866 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  677  871 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  682  876 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  687  881 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  692  886 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  697  892 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  703  897 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  708  902 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  713  907 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  718  913 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  724  918 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  729  923 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  734  928 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  739  934 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  744  939 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  750  944 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  755  949 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  760  954 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  765  960 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  771  965 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  776  970 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  781  975 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  786  981 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  792  986 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  797  991 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  802  996 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  807 1001 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  812 1007 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  818 1012 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  823 1017 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  828 1022 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  833 1028 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  839 1033 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  844 1038 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  849 1043 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  854 1049 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  859 1054 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  865 1059 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  870 1064 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  875 1069 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  880 1075 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  886 1080 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  891 1085 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  896 1090 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  901 1096 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  907 1101 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  912 1106 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  917 1111 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  922 1116 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  927 1122 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  933 1127 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  938 1132 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  943 1137 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  948 1143 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  954 1148 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  959 1153 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  964 1158 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  969 1164 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  974 1169 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  980 1174 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  985 1179 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  990 1184 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12  995 1190 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1001 1195 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1006 1200 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1011 1205 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1016 1211 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1022 1216 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1027 1221 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1032 1226 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1037 1231 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1042 1237 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1048 1242 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1053 1247 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1058 1252 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1063 1258 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1069 1263 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1074 1268 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1079 1273 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1084 1279 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1089 1284 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1095 1289 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1100 1294 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1105 1299 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1110 1305 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1116 1310 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1121 1315 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1126 1320 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1131 1326 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1137 1331 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1142 1336 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1147 1341 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1152 1346 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1157 1352 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1163 1357 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1168 1362 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1173 1367 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1178 1373 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1184 1378 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1189 1383 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1194 1388 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1199 1394 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1204 1399 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1210 1404 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1215 1409 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1220 1414 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1225 1420 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1231 1425 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1236 1430 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1241 1435 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1246 1441 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1252 1446 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1257 1451 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1262 1456 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1267 1461 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1272 1467 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1278 1472 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1283 1477 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1288 1482 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1293 1488 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1299 1493 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1304 1498 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1309 1503 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1314 1509 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1320 1514 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1325 1519 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1330 1524 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1335 1529 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1340 1535 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1346 1540 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1351 1545 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1356 1550 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1361 1556 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1367 1561 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1372 1566 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1377 1571 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1382 1577 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1387 1582 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1393 1587 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1398 1592 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1403 1597 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1408 1603 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1414 1608 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1419 1613 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1424 1618 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1429 1624 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1435 1629 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1440 1634 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1445 1639 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1450 1644 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1455 1650 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1461 1655 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1466 1660 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1471 1665 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1476 1671 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1482 1676 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1487 1681 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1492 1686 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1497 1692 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1502 1697 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1508 1702 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1513 1707 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1518 1712 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1523 1718 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1529 1723 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1534 1728 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1539 1733 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1544 1739 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1550 1744 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1555 1749 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1560 1754 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1565 1759 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1570 1765 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1576 1770 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1581 1775 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1586 1780 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1591 1786 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1597 1791 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1602 1796 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1607 1801 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1612 1807 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1617 1812 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1623 1817 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1628 1822 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1633 1827 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1638 1833 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1644 1838 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1649 1843 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1654 1848 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1659 1854 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1665 1859 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1670 1864 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1675 1869 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1680 1874 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1685 1880 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1691 1885 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1696 1890 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1701 1895 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1706 1901 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1712 1906 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1717 1911 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1722 1916 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1727 1922 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1732 1927 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1738 1932 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1743 1937 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1748 1942 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1753 1948 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1759 1953 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1764 1958 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1769 1963 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1774 1969 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1780 1974 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1785 1979 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1790 1984 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1795 1989 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1800 1995 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1806 2000 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1811 2005 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1816 2010 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1821 2016 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1827 2021 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1832 2026 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1837 2031 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1842 2037 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1847 2042 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1853 2047 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1858 2052 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1863 2057 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1868 2063 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1874 2068 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1879 2073 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1884 2078 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1889 2084 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1895 2089 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1900 2094 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1905 2099 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1910 2104 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1915 2110 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1921 2115 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1926 2120 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1931 2125 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1936 2131 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1942 2136 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1947 2141 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1952 2146 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1957 2152 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1962 2157 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1968 2162 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1973 2167 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1978 2172 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1983 2178 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1989 2183 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1994 2188 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 1999 2193 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2004 2199 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2010 2204 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2015 2209 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2020 2214 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2025 2219 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2030 2225 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2036 2230 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2041 2235 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2046 2240 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2051 2246 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2057 2251 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2062 2256 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2067 2261 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2072 2267 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2077 2272 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2083 2277 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2088 2282 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2093 2287 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2098 2293 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2104 2298 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2109 2303 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2114 2308 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2119 2314 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2125 2319 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2130 2324 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2135 2329 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2140 2334 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2145 2340 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2151 2345 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2156 2350 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2161 2355 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2166 2361 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2172 2366 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2177 2371 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2182 2376 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2187 2382 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2192 2387 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2198 2392 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2203 2397 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2208 2402 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2213 2408 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2219 2413 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2224 2418 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2229 2423 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2234 2429 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2240 2434 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2245 2439 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2250 2444 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2255 2449 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2260 2455 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2266 2460 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2271 2465 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2276 2470 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2281 2476 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2287 2481 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2292 2486 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2297 2491 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2302 2497 FO
+gs 332 531 1977 1977 rc
+gr
+
+  12   12 2308 2502 FO
+gs 332 531 1977 1977 rc
+gr
+
+0 sg
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 41.6667 FMSR
+
+ 963  482 mt 
+(results/HoxA9D) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 33.3333 FMSR
+
+1251  502 mt 
+(r) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 41.6667 FMSR
+
+1262  482 mt 
+(ebalanced) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 33.3333 FMSR
+
+1454  502 mt 
+(b) s
+%%IncludeResource: font Helvetica
+/Helvetica /ISOLatin1Encoding 41.6667 FMSR
+
+1472  482 mt 
+(onuses.eps) s
+1.38889 w
+DO
+SO
+2.08333 w
+ 332  531 mt 2308  531 L
+ 332 2507 mt 2308 2507 L
+ 332  531 mt  332 2507 L
+2308  531 mt 2308 2507 L
+ 332 2507 mt 2308 2507 L
+ 332  531 mt  332 2507 L
+ 588 2507 mt  588 2487 L
+ 588  531 mt  588  551 L
+ 565 2557 mt 
+(50) s
+ 849 2507 mt  849 2487 L
+ 849  531 mt  849  551 L
+ 815 2557 mt 
+(100) s
+1110 2507 mt 1110 2487 L
+1110  531 mt 1110  551 L
+1076 2557 mt 
+(150) s
+1372 2507 mt 1372 2487 L
+1372  531 mt 1372  551 L
+1338 2557 mt 
+(200) s
+1633 2507 mt 1633 2487 L
+1633  531 mt 1633  551 L
+1599 2557 mt 
+(250) s
+1895 2507 mt 1895 2487 L
+1895  531 mt 1895  551 L
+1861 2557 mt 
+(300) s
+2156 2507 mt 2156 2487 L
+2156  531 mt 2156  551 L
+2122 2557 mt 
+(350) s
+ 332  787 mt  351  787 L
+2308  787 mt 2288  787 L
+ 274  802 mt 
+(50) s
+ 332 1049 mt  351 1049 L
+2308 1049 mt 2288 1049 L
+ 251 1064 mt 
+(100) s
+ 332 1310 mt  351 1310 L
+2308 1310 mt 2288 1310 L
+ 251 1325 mt 
+(150) s
+ 332 1571 mt  351 1571 L
+2308 1571 mt 2288 1571 L
+ 251 1586 mt 
+(200) s
+ 332 1833 mt  351 1833 L
+2308 1833 mt 2288 1833 L
+ 251 1848 mt 
+(250) s
+ 332 2094 mt  351 2094 L
+2308 2094 mt 2288 2094 L
+ 251 2109 mt 
+(300) s
+ 332 2355 mt  351 2355 L
+2308 2355 mt 2288 2355 L
+ 251 2370 mt 
+(350) s
+ 332  531 mt 2308  531 L
+ 332 2507 mt 2308 2507 L
+ 332  531 mt  332 2507 L
+2308  531 mt 2308 2507 L
+
+end %%Color Dict
+
+eplot
+%%EndObject
+
+epage
+end
+
+showpage
+
+%%Trailer
+%%EOF
