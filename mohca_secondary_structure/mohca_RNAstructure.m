@@ -40,7 +40,9 @@ if( binarize )
     d_final(d_final > 0) = 1;
 end
 
-plot_and_save_sec_str_MOHCA(d_final, sequence, structure, [outprefix, name, '_bonuses.eps'])
+seqstr = {sequence, structure};
+
+mohcaplot_biers(d_final, '', '', 'MOHCA', '', [outprefix, name, '_bonuses.eps'], seqstr );
 
 if( zsthreshold < 0 )
     d_final = [];
