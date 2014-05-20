@@ -42,7 +42,7 @@ end
 
 seqstr = {sequence, structure};
 
-mohcaplot_biers(d_final, '', '', 'MOHCA', '', [outprefix, name, '_bonuses.eps'], seqstr );
+mohcaplot_biers(d_final, '', '', [outprefix, name, ': Secondary Structure Bonuses from MOHCA'], '', [outprefix, name, '_bonuses.eps'], seqstr );
 
 if( zsthreshold < 0 )
     d_final = [];

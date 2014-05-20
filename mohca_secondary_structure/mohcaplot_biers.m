@@ -84,7 +84,7 @@ end
 % Save figure
 if exist( 'save_path', 'var' )
     if ~isempty( save_path )
-        print( '-depsc2', 'loose', '-r300', save_path);
+        print( gcf, '-depsc2', '-loose', '-r300', save_path);
         fprintf( ['Created: ', save_path, '\n'] );
     end
 end
