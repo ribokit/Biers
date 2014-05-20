@@ -22,7 +22,7 @@ for i = 1:NUM_BOOTSTRAP;   structure_boot{i} = ''; end
 % this is set up to work with the Matlab parallelization toolbox.
 if exist( 'matlabpool' ) && parallelization_exists()
     if matlabpool( 'size' ) == 0;    res = findResource;  matlabpool( res.ClusterSize ) ; end
-    parfor n = 1:NUM_BOOTSTRAP
+    for n = 1:NUM_BOOTSTRAP
         [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk );
     end
 else
