@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/rdat/!svn/ver/565/external/ViennaRNA-1.8.4/Perl
+END
+RNAfold.pl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/RNAfold.pl
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/Makefile.in
+END
+RNAfold.cgi
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/RNAfold.cgi
+END
+Makefile.PL
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/Makefile.PL
+END
+RNA.i
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/RNA.i
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/Makefile.am
+END
+test.pl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/test.pl
+END
+RNA_wrap.c
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/RNA_wrap.c
+END
+Makefile.perl.old
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/rdat/!svn/ver/565/external/ViennaRNA-1.8.4/Perl/Makefile.perl.old
+END
+RNA.pm
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/RNA.pm
+END
+tmaps.i
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/rdat/!svn/ver/233/external/ViennaRNA-1.8.4/Perl/tmaps.i
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/rdat/!svn/ver/565/external/ViennaRNA-1.8.4/Perl/Makefile
+END
