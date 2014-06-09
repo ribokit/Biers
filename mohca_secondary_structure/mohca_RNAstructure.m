@@ -33,7 +33,7 @@ else
 end
 % step 3: broaden, to total of 3 parallel features
 if( dobroaden )
-    d_broadened = broaden(d_final, 1);
+    d_broadened = broaden(d_final, 2);
     d_final = d_broadened;
 else
     d_broadened = [];
@@ -44,7 +44,7 @@ if( binarize )
 end
 
 % output final d
-mohcaplot_biers(d_final, '', '', [outprefix, name, ': MOHCA Bonuses'], '', [outprefix, name, '_bonuses.eps'], seqstr, 1 );
+mohcaplot_biers(d_final, '', '', [outprefix, name, ': MOHCA Bonuses'], '', [outprefix, name, '_bonuses.eps'], seqstr, 1, [1 1 1] );
 
 % step 5: Z score filter, cutoff and becomes negative
 if( zsthreshold < 0 )
