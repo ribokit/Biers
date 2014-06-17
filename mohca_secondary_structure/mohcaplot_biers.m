@@ -89,7 +89,7 @@ if exist( 'secstr', 'var' ) && ~isempty(secstr);
     [x_pred, y_pred] = find(area_pred);
     x_pred = x_pred - 1 + seqpos(1);
     y_pred = y_pred - 1 + ligpos(1);
-    plot(x_pred, y_pred, '.', 'color', c2);
+    plot(x_pred, y_pred, '.', 'color', c2); hold on;
 end
 
 % Save figure
