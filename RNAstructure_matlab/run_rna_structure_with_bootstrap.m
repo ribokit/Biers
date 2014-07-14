@@ -1,5 +1,5 @@
 function [bpp, structure, ct_file, command ] = run_rna_structure_with_bootstrap( NUM_BOOTSTRAP, seq_file, bps, offset, nres, EX_file, SHAPE_file, ...
-    temperature, experimental_offset, zscore_scaling, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk )
+    temperature, experimental_offset, zscore_scaling, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file )
 % run_rna_structure_with_bootstrap( NUM_BOOTSTRAP, seq_file, bps, offset, nres, EX_file, SHAPE_file, temperature, experimental_offset, zscore_scaling, shape_intercept, shape_slope, USE_VIENNA, maxdist );
 %
 % make sure to set your path in get_exe_dir.m
@@ -7,8 +7,10 @@ function [bpp, structure, ct_file, command ] = run_rna_structure_with_bootstrap(
 
 if ~exist( 'maxdist','var' ); maxdist = 0; end;
 if ~exist('cmd_pk','var'); cmd_pk = 0; end;
+if ~exist('DMS_file','var'); DMS_file = ''; end;
 
-[structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk );
+
+[structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
 system( ['rm ',ct_file ] );
 
 if NUM_BOOTSTRAP == 0; return; end;
@@ -23,11 +25,11 @@ for i = 1:NUM_BOOTSTRAP;   structure_boot{i} = ''; end
 if exist( 'matlabpool' ) && parallelization_exists()
     if matlabpool( 'size' ) == 0;    res = findResource;  matlabpool( res.ClusterSize ) ; end
     for n = 1:NUM_BOOTSTRAP
-        [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk );
+        [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
     end
 else
     for n = 1:NUM_BOOTSTRAP
-        [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk );
+        [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
     end
 end
 
@@ -35,14 +37,16 @@ char( structure )
 char( structure_boot )
 bpp = squeeze( sum( all_bpp, 3 ) ) / NUM_BOOTSTRAP;
 
+
 % Plot will be made outside
 %make_plot( bpp, nres, bps, offset );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [structure_boot, bpp_boot ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk )
+function [structure_boot, bpp_boot ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file )
 
 EX_file_boot = '';
 SHAPE_file_boot = '';
+DMS_file_boot = '';
 
 if ~isempty(EX_file);
     EX_file_boot = ['EX_',num2str(n),'.txt'] ;
@@ -52,11 +56,16 @@ if ~isempty(SHAPE_file);
     SHAPE_file_boot = ['SHAPE_',num2str(n),'.txt'];
     create_bootstrap_SHAPE( SHAPE_file, SHAPE_file_boot );
 end
+if ~isempty(DMS_file);
+    DMS_file_boot = ['DMS_',num2str(n),'.txt'];
+    create_bootstrap_SHAPE( DMS_file, DMS_file_boot );
+end
 
-[ structure_boot, bpp_boot, ct_file ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file_boot, SHAPE_file_boot, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk );
+[ structure_boot, bpp_boot, ct_file ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file_boot, SHAPE_file_boot, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file_boot );
 
 if ~isempty(EX_file_boot);    system( ['rm ',EX_file_boot ] ); end
 if ~isempty(SHAPE_file_boot); system( ['rm ',SHAPE_file_boot ] ); end
+if ~isempty(DMS_file_boot); system( ['rm ',DMS_file_boot ] ); end
 system( ['rm ',ct_file ] );
 
 
@@ -117,7 +126,7 @@ fclose( fid );
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist,cmd_pk );
+function [structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
 
 if USE_VIENNA
     [structure, bpp, ct_file, command  ] = run_vienna_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA );
@@ -153,6 +162,7 @@ if ( maxdist > 0 ); command = [ command, ' -md ', num2str( maxdist) ];  end;
 
 if ~isempty( EX_file ); command = [ command, ' -x ', EX_file ]; end;
 if ~isempty( SHAPE_file ); command = [ command, ' -sh ', SHAPE_file ]; end;
+if ~isempty( DMS_file ); command = [ command, ' -dms ', DMS_file ]; end;
 
 if  ~isempty( shape_intercept); command = [ command, ' -si ', num2str( shape_intercept ) ]; end;
 if  ~isempty( shape_slope ); command = [ command, ' -sm ', num2str( shape_slope ) ]; end;
