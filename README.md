@@ -11,7 +11,7 @@ This package is a set of MATLAB scripts that wrap around the RNAstructure suite 
 * Secondary structure modeling guided by MOHCA data.
 * Calculation of helix-wise confidence values using bootstrapping.
 * Plotting utilities using MATLAB and VARNA.
-* 
+
 
 Installation
 ------
