@@ -35,12 +35,12 @@ special_colors{1} = [1,0.5,0];
 %special_colors{1} = [0,0.5,0];
 
 special_base_pairs{2} = missing_base_pairs_EDGE;
-%special_colors{2} = [1.0,0.5,0];
-special_colors{2} = [0,0.5,0];
+special_colors{2} = [1.0,0.5,0];
+%special_colors{2} = [0,0.5,0];
 
 special_base_pairs{3} = added_base_pairs;
-special_colors{3} = [0.5,0.5,0.5];
-%special_colors{3} = [0,0.5,1];
+%special_colors{3} = [0.5,0.5,0.5];
+special_colors{3} = [0,0.5,1];
 
 special_base_pairs{4} = added_base_pairs_EDGE;
 special_colors{4} = [0,0.5,1];
@@ -84,6 +84,7 @@ for i = 1:size( bps,1 )
 end
 
 structure_shift = convert_bps_to_structure( bps_shift, length(mutpos) );
+structure_shift = structure;
 
 
 
