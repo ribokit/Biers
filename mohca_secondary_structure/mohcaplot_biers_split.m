@@ -2,8 +2,9 @@ function mohcaplot_biers_split( D, seqpos, ligpos, titl, ticksize, save_path, se
 
 if ~exist( 'seqpos', 'var' ) || isempty( seqpos ); seqpos = 1:size(D{1},2); end
 if ~exist( 'ligpos', 'var' ) || isempty( ligpos ); ligpos = 1:size(D{1},1); end
-if ~exist( 'ticksize', 'var' ) || isempty( ticksize ); ticksize = 8; end
 if ~exist( 'titl', 'var' ); titl = ''; end
+if ~exist( 'ticksize', 'var' ) || isempty( ticksize ); ticksize = 8; end
+if ~exist( 'secstr', 'var'); secstr = ''; end;
 if ~exist( 'c', 'var') || isempty( c ); c = 1; end;
 if ~exist( 'c2','var') || isempty( c2); c2 = [1 0 1]; end;
 if ~exist( 'secstr_f','var') || isempty( secstr_f); secstr_f = 0; end;
@@ -113,4 +114,5 @@ if exist( 'secstr', 'var' ) && ~isempty(secstr);
     y_pred = y_pred - 1 + ligpos(1);
     plot(x_pred, y_pred, '.', 'color', c2); hold on;
 end
+grid off;
 
