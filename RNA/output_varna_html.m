@@ -31,19 +31,24 @@ not_in_cryst_base_pairs = [];
 [added_base_pairs_EDGE, not_in_cryst_base_pairs ] = filter_crystpos( added_base_pairs_EDGE, not_in_cryst_base_pairs, crystpos_subset );
 
 special_base_pairs{1} = missing_base_pairs;
-special_colors{1} = [1,0.5,0];
-%special_colors{1} = [0,0.5,0];
+special_colors{1} = [1, 0, 1];
+% special_colors{1} = [1,0.5,0];
+% special_colors{1} = [0,0.5,0];
 
 special_base_pairs{2} = missing_base_pairs_EDGE;
-special_colors{2} = [1.0,0.5,0];
-%special_colors{2} = [0,0.5,0];
+special_colors{2} = [1, 0, 1];
+% special_colors{2} = [1.0,0.5,0];
+% special_colors{2} = [0,0.5,0];
 
 special_base_pairs{3} = added_base_pairs;
-%special_colors{3} = [0.5,0.5,0.5];
-special_colors{3} = [0,0.5,1];
+special_colors{3} = [0, 1, 1];
+% special_colors{3} = [0.5,0.5,0.5];
+% special_colors{3} = [0,0.5,1];
 
 special_base_pairs{4} = added_base_pairs_EDGE;
-special_colors{4} = [0,0.5,1];
+special_colors{4} = [0, 1, 1];
+% special_colors{4} = [0.5,0.5,0.5];
+% special_colors{4} = [0,0.5,1];
 
 if ~isempty( not_in_cryst_base_pairs )
   special_base_pairs{5} = not_in_cryst_base_pairs;
