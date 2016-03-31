@@ -1,9 +1,0 @@
-function structure = convert_bps_to_structure( bps, nres );
-
-structure = '';
-for i = 1:nres; structure = [structure,'.']; end;
-
-for i = 1:size( bps, 1 )
-  structure( bps(i,1) ) = '(';
-  structure( bps(i,2) ) = ')';
-end
