@@ -1,4 +1,4 @@
-function []=varna_fig(filename, sequence, structure, DATA, colorscheme, offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases)
+function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases)
 % VARNA_FIG: Create html file with secondary structure -- double click to get VARNA visualizer in a web browser
 %
 %  varna_fig(filename,sequence,structure,DATA,colorscheme,offset,special_base_pairs,special_colors, bpp_values, bpp_anchor_bases)
@@ -35,13 +35,10 @@ if ~isempty(DATA)
     
     graypoints = find(DATA == -999 | isnan(DATA));
     Z(graypoints) = -0.01;
-    
 end;
 
 
-
 %%
-%filename='VARNA/test.html';
 fid = fopen(filename,'w');
 
 vers = 1;
@@ -62,7 +59,7 @@ if ~isempty(DATA);
     fprintf(fid, '%s\n','"/>');
 end;
 
-if exist('Z', 'var')
+if exist('Z', 'var');
     switch colorscheme
         case 0 % previous default
             fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000" />');
@@ -110,7 +107,7 @@ if exist('special_base_pairs', 'var');
         special_base_pair_set = special_base_pairs{q};
         hex_color = convert_rgb_to_hexadecimal(special_colors{q});
         for k = 1:size(special_base_pair_set, 1);
-            fprintf(fid, '(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k,1), special_base_pair_set(k,2), hex_color);
+            fprintf(fid, '(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color);
         end;
     end;
     fprintf(fid, '" />\n');
@@ -129,7 +126,7 @@ if (exist('offset', 'var') || exist('bpp_values', 'var'));
         PERIOD = 50;
         for i = 1:length(sequence)
             if (mod(i+offset, PERIOD) == 0)
-                fprintf(fid, '%d:type=B,anchor=%d,color=#000000,size=8;', i+offset, i);
+                fprintf(fid, '%d:type=B,anchor=%d,color=#000000,size=8;', i + offset, i);
             end;
         end;
     end;
@@ -141,13 +138,11 @@ if (exist('offset', 'var') || exist('bpp_values', 'var'));
         for i = 1:length(bpp_values)
             %fprintf( fid, '%3.0f%%:type=L,anchor=%d,color=#303030,size=9;', 100*bpp_values(i), bpp_anchor_bases(i) );
             %fprintf( fid, '%3.0f%%:type=L,anchor=%d,color=#FF3030,size=9;', 100*bpp_values(i), bpp_anchor_bases(i) );
-            fprintf(fid, '%3.0f%%:type=L,anchor=%d,color=#009000,size=9;', 100*bpp_values(i), bpp_anchor_bases(i));
+            fprintf(fid, '%3.0f%%:type=L,anchor=%d,color=#009000,size=9;', 100 * bpp_values(i), bpp_anchor_bases(i));
         end;
     end;
     
-    
     fprintf(fid, '">\n');
-    
 end;
 
 
@@ -161,7 +156,7 @@ fclose(fid);
 function hex_string = convert_rgb_to_hexadecimal(rgb)
 
 hex_string = '';
-for i = 1:3
+for i = 1:3;
     hex_string = [hex_string, pad_with_zero(dec2hex(floor(rgb(i)*255)))];
 end;
 
