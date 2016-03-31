@@ -1,0 +1,6 @@
+function [VARNA_DIR, VARNA_JAR] = get_varna()
+
+% Prepend "file://" to local path
+% or use "http://" for url
+VARNA_DIR = 'file:///path/to/VARNA/';
+VARNA_JAR = 'VARNA.jar';
