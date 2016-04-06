@@ -31,4 +31,5 @@ Copyright &copy; of **Biers** _Source Code_ is described in [LICENSE.md](https:/
 
 <br/>
 Develped by **Das lab**, _Leland Stanford Junior University_.
+<br/>
 README by [**t47**](http://t47.io/), *April 2016*.
