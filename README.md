@@ -26,7 +26,7 @@ git clone https://github.com/DasLab/biers.git
 
 ## Usage 
 
-*MATLAB* Tutorial is available at https://ribokit.github.io/biers/.
+*MATLAB* Tutorial is available at https://daslab.github.io/Biers/.
 
 ## License
 
