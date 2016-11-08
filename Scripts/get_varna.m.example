@@ -1,6 +1,11 @@
 function [VARNA_DIR, VARNA_JAR] = get_varna()
 
-% Prepend "file://" to local path
-% or use "http://" for url
+% make sure to change VARNA_DIR and VARNA_JAR to your local path
+% the following line is just a dummy path
+% it is used to locate the VARNA applet file
+
+% Prepend "file://" to local path, e.g. "file:///User/yourname/Desktop/VARNA.jar"
+% or use "http://" for url, e.g. "https://rmdb.stanford.edu/site_data/VARNA.jar"
+
 VARNA_DIR = 'file:///path/to/VARNA/';
 VARNA_JAR = 'VARNA.jar';
