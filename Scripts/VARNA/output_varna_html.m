@@ -30,6 +30,8 @@ if nargin == 0;  help( mfilename ); return; end;
 
 if ~exist('native_structure','var') || isempty(native_structure); native_structure = display_structure; end;
 if ~exist('modeled_structure','var') || isempty(modeled_structure); modeled_structure = display_structure; end;
+if ~exist('bpp', 'var') || isempty(bpp); bpp = []; end;
+if ~exist('shape', 'var') || isempty(shape); shape = []; end;
 
 if ~exist('offset','var') || isempty(offset); offset = 0; end;
 if ~exist('mutpos','var') || isempty(mutpos); mutpos = [1:length(sequence)] + offset; end;

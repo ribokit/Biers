@@ -17,20 +17,20 @@ To install **Biers**, simply:
 
 - Download the zip or tar file of the repository and unpack; or 
 ```bash
-git clone https://github.com/DasLab/biers.git
+git clone https://github.com/DasLab/Biers.git
 ```
 
-- In *MATLAB*, go to "**Set Path**". Then "**Add with Subfolders**" of the target `path/to/biers/Scripts/`.
+- In *MATLAB*, go to "**Set Path**". Then "**Add with Subfolders**" of the target `path/to/Biers/Scripts/`.
 
 - Copy `Scripts/get_exe_dir.m.example` and `Scripts/get_varna.m.example` into `Scripts/get_exe_dir.m` and `Scripts/get_varna.m`. Edit `Scripts/get_exe_dir.m` and `Scripts/get_varna.m` following the instructions in these files.
 
 ## Usage 
 
-*MATLAB* Tutorial is available at https://ribokit.github.io/biers/.
+Documentation (*MATLAB* tutorial) is available at https://daslab.github.io/Biers/.
 
 ## License
 
-Copyright &copy; of **Biers** _Source Code_ is described in [LICENSE.md](https://github.com/DasLab/biers/blob/master/LICENSE.md).
+Copyright &copy; of **Biers** _Source Code_ is described in [LICENSE.md](https://github.com/DasLab/Biers/blob/master/LICENSE.md).
 
 <br/>
 Developed by **Das lab**, _Leland Stanford Junior University_.
