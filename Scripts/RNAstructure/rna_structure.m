@@ -122,7 +122,14 @@ tic;
     temperature, experimental_offset, zscore_scalings, shape_intercepts, shape_slopes, USE_VIENNA, maxdist, cmd_pk, DMS_file);
 toc;
 
+% delete temporary files
+if exist( 'DMS_file', 'var' ) & length( DMS_file ) > 0; delete( DMS_file ); end;
+if exist( 'EX_file', 'var' ) & length( EX_file ) > 0; delete( EX_file ); end;
+if exist( 'SHAPE_file', 'var' ) & length( SHAPE_file ) > 0; delete( SHAPE_file ); end;
+if exist( 'seq_file', 'var' ) & length( seq_file ) > 0; delete( seq_file ); end;
+
 % beep notice when finished
+fprintf( [structure, '\n'] );
 gong;
 
 
