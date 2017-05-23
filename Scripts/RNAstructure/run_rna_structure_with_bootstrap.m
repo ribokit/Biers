@@ -63,13 +63,10 @@ end
 
 [ structure_boot, bpp_boot, ct_file ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file_boot, SHAPE_file_boot, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file_boot );
 
-if ~isempty(EX_file_boot);    system( ['rm ',EX_file_boot ] ); end
-if ~isempty(SHAPE_file_boot); system( ['rm ',SHAPE_file_boot ] ); end
-if ~isempty(DMS_file_boot); system( ['rm ',DMS_file_boot ] ); end
-system( ['rm ',ct_file ] );
-
-
-
+if ~isempty(EX_file_boot)    & exist( EX_file_boot, 'file' );   delete( EX_file_boot ); end
+if ~isempty(SHAPE_file_boot) & exist( EX_file_boot, 'file' );   delete( SHAPE_file_boot ); end
+if ~isempty(DMS_file_boot)   & exist( DMS_file_boot, 'file');   delete( DMS_file_boot ); end
+delete( ct_file );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function make_plot( bpp, nres, bps, offset )
