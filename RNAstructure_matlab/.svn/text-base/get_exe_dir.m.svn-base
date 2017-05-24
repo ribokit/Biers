@@ -1,6 +1,0 @@
-function EXE_DIR = get_exe_dir()
-
-%EXE_DIR = '../../../external/RNAstructure_DASLAB/exe/';
-%EXE_DIR = '../../../external/RNAstructure_Rochester/RNAstructure/exe/';
-EXE_DIR = '/Users/rhiju/projects/rdat/external/RNAstructure_Rochester/RNAstructure/exe/';
-%EXE_DIR = '~/Desktop/RNAstructure/exe/';

@@ -1,0 +1,4 @@
+*.m~
+tmp*.*
+Scripts/get_*.m
+.DS*
