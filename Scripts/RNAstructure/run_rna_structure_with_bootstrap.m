@@ -11,7 +11,7 @@ if ~exist('DMS_file','var'); DMS_file = ''; end;
 
 
 [structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
-system( ['rm ',ct_file ] );
+if exist( 'ct_file', 'var' )   & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
 
 if NUM_BOOTSTRAP == 0; return; end;
 
@@ -22,8 +22,7 @@ all_bpp = zeros( nres, nres, NUM_BOOTSTRAP );
 for i = 1:NUM_BOOTSTRAP;   structure_boot{i} = ''; end
 
 % this is set up to work with the Matlab parallelization toolbox.
-if exist( 'matlabpool' ) && parallelization_exists()
-    if matlabpool( 'size' ) == 0;    res = findResource;  matlabpool( res.ClusterSize ) ; end
+if (exist( 'parpool' ) | exist( 'matlabpool' )) & parallelization_exists()
     parfor n = 1:NUM_BOOTSTRAP
         [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
     end
