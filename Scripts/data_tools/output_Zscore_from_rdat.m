@@ -24,7 +24,9 @@ function [ Z, mutpos, seqplot ] = output_Zscore_from_rdat( outfile, rdat_files, 
 %  print_stuff = verbose output (Default: 0)
 %  mask_diag   = remove data +/- this value from diag before Z-score compute (Default: -1 means no masking)
 %
-% (C) R. Das, 2010-2013.
+% Originally part of HiTRACE tools, now in Biers with other RNA secondary structure modeling commands.
+% 
+% (C) R. Das, Stanford University, 2010-2013, 2017
 %
 
 if nargin == 0;  help( mfilename ); return; end;
@@ -203,8 +205,7 @@ if ~isempty( d_nomod )
 
 end
 
-
-%% Need to reshape into NRES by NRES matrix.
+% Need to reshape into NRES by NRES matrix.
 % Convert factor
 ZSCORE_SCALING = -1.0;
 
