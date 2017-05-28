@@ -1,4 +1,14 @@
 function [d_norm, scalefactor, cap_value ] = SHAPE_normalize( d_for_scalefactor );
+% [d_norm, scalefactor, cap_value ] = SHAPE_normalize( d_for_scalefactor );
+%
+%  'box-plot' normalize:
+%  -- remove outliers, i.e., any values above 1.5 * interquartile range 
+%  -- Find maximum value after filtering. If its smaller than the 95th percentile value, then 
+%      take that instead.
+%  -- scalefactor is mean of top 10th percentile of values, but removing values above that filter.
+%
+
+if nargin == 0;  help( mfilename ); return; end;
 
 FLIPPED = 0;
 if size( d_for_scalefactor, 1) == 1
@@ -17,8 +27,8 @@ for k = 1:size( d_for_scalefactor, 2 )
   q3 = dsort( round( 0.75*length(dsort) ) );
   interquartile_range = abs( q3 - q1 );
 
-  % original
-  outlier_cutoff = min( find( dsort > 1.5 ) );
+  % old
+  % outlier_cutoff = min( find( dsort > 1.5 ) );
 
   % original -- fixed
   outlier_cutoff = min( find( dsort > 1.5*interquartile_range ) );
