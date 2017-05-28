@@ -1,8 +1,10 @@
-# Biers (Best Inference Engine for RNA Structure)
+# Biers (Basic Inference Engine for RNA Structure)
 
 **Biers** is a set of *MATLAB* scripts that wrap around the *RNAstructure* suite of executables to infer secondary structure models guided by chemical mapping data. Features include:
 
-- Secondary structure modeling guided by SHAPE and DMS probing, as well as data from mutate-and-map experiments.
+- Secondary structure modeling guided by SHAPE and DMS probing
+
+- Secondary structure modeling from mutate-and-map (M2 and M2-seq) experiments.
 
 - Secondary structure modeling guided by MOHCA data.
 
@@ -35,4 +37,4 @@ Copyright &copy; of **Biers** _Source Code_ is described in [LICENSE.md](https:/
 <br/>
 Developed by **Das lab**, _Leland Stanford Junior University_.
 <br/>
-README by [**t47**](http://t47.io/), *April 2016*.
+README by [**t47**](http://t47.io/), *April 2016*. Updated, Rhiju Das, 2017.
