@@ -1,5 +1,5 @@
-function [special_base_pairs, special_colors] = output_varna_html(varna_file, sequence, display_structure, native_structure, modeled_structure, offset, mutpos, crystpos, shape, bpp, color_mode)
-% [special_base_pairs, special_colors] = output_varna_html( ...
+function [special_base_pairs, special_colors] = output_varna(varna_file, sequence, display_structure, native_structure, modeled_structure, offset, mutpos, crystpos, shape, bpp, color_mode)
+% [special_base_pairs, special_colors] = output_varna( ...
 %                               varna_file, sequence, display_structure, native_structure, modeled_structure, 
 %                               offset, mutpos, crystpos, shape, bpp, color_mode); 
 %
@@ -7,7 +7,7 @@ function [special_base_pairs, special_colors] = output_varna_html(varna_file, se
 % **Make sure to set your path in get_varna.m
 %
 % [Input]
-% varna_file            Required            HTML file name
+% varna_file            Required            File name (must end in: .html, .eps, .svg, .png)                                                          .png
 % sequence              Required            RNA sequence for display
 % display_structure     Required            RNA secstr for display
 % native_structure      Optional            Reference/native secstr used for secstr comparison.
@@ -102,7 +102,7 @@ end;
 
 
 % Do it!
-fprintf( ['Creating html file for VARNA visualization: ', varna_file, '\n' ] );
+fprintf( ['Creating file for VARNA visualization: ', varna_file, '\n' ] );
 
 shape_subset = [];
 if ~isempty(shape); shape_subset = shape(gp); end;

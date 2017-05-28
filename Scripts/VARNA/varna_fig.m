@@ -3,7 +3,7 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 %
 %  varna_fig(filename,sequence,structure,DATA,colorscheme,offset,special_base_pairs,special_colors, bpp_values, bpp_anchor_bases)
 %
-% filename  = output filename [e.g., 'my_rna_in_varna.html']
+% filename  = output filename [e.g., 'my_rna_in_varna.eps']
 % sequence  = RNA sequence
 % structure = structure in dot/bracket notation. length should match sequence.
 %
@@ -16,7 +16,7 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 % bpp_values         = numbers that will show up on helices as percentages
 % bpp_anchor_bases   = where those bpp_values will show up.
 %
-% (C) R. Das 2011
+% (C) R. Das 2011, 2017
 % (C) C.C. VanLang, P. Cordero 2010
 % (C) S. Tian, 2016
 
@@ -37,120 +37,238 @@ if ~isempty(DATA)
     Z(graypoints) = -0.01;
 end;
 
-
-%%
-fid = fopen(filename,'w');
-
-vers = 1;
-[VARNA_DIR, VARNA_JAR] = get_varna();
-
-fprintf(fid, '%s\n', '<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></HEAD><BODY>');
-fprintf(fid, '%s%s%s%s%s\n', '<APPLET code="VARNA.class" codebase="', VARNA_DIR, '" archive="', VARNA_JAR, '" width="1200" height="1200">');
-fprintf(fid, '%s%s%s\n', '<PARAM name="sequenceDBN"  value="', sequence, '"/>');
-fprintf(fid, '%s%s%s\n', '<PARAM name="structureDBN" value="', structure, '"/>');
-% fprintf(fid, '%s\n', '<PARAM name="algorithm" value="naview" />');
-fprintf(fid, '%s\n', '<PARAM name="algorithm" value="radiate" />');
-
-if ~isempty(DATA);
-    fprintf(fid, '%s', '<param name="colorMap" value="');
-    for i = 1:length(Z);
-        fprintf(fid,' %6.3f%s', Z(i), ',');
-    end;
-    fprintf(fid, '%s\n','"/>');
-end;
-
-if exist('Z', 'var');
-    switch colorscheme
-        case 0 % previous default
-            fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000" />');
-        case 1 % new default
-            fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000" />');
-        case 2 % white orange to red
-            % slight pain because of VARNA rescaling:
-            if (sum( Z < 0 ) > 0)
-                fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
-            else
-                fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
-            end
-        case 3 % blue to white to yellow
-            % slight pain because of VARNA rescaling:
-            if (sum( Z < 0 ) > 0);
-                fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00" />');
-            else
-                fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;,0.5:#2222FF;1:#0000FF" />');
-            end;
-    end;
-end;
-
-fprintf(fid, '<param name="bpStyle" value="lw" />\n');
-fprintf(fid, '<param name="baseInner" value="#FFFFFF" />\n');
-fprintf(fid, '<param name="baseOutline" value="#FFFFFF" />\n');
-fprintf(fid, '<param name="bp" value="#000000" />\n');
-fprintf(fid, '<param name="spaceBetweenBases" value="0.6" />\n');
-fprintf(fid, '<param name="flat" value="false" />\n');
-fprintf(fid, '%s%s%s\n', '<param name="title" value="', strrep(filename, '.html', ''), '" />\n');
-fprintf(fid, '<param name="titleColor" value="#000000" />\n');
-fprintf(fid, '<param name="titleSize" value="20" />\n');
-fprintf(fid, '<param name="colorMapCaption" value="Reactivity" />\n');
-
-% fprintf(fid, '<param name="colorMapMax" value="2" />\n');
-% fprintf(fid, '<param name="colorMapMin" value="0" />\n');
-
 if exist('special_base_pairs', 'var');
     if length(special_base_pairs) ~= length(special_colors);
         fprintf('Must specify a special_color for each special_base_pair set\n');
     end;
-    
-    fprintf(fid, '<param name="auxBPs" value="');
-    
-    for q = 1:length(special_base_pairs)
-        special_base_pair_set = special_base_pairs{q};
-        hex_color = convert_rgb_to_hexadecimal(special_colors{q});
-        for k = 1:size(special_base_pair_set, 1);
-            fprintf(fid, '(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color);
-        end;
-    end;
-    fprintf(fid, '" />\n');
-    
-end;
+end
 
-if (exist('offset', 'var') || exist('bpp_values', 'var'));
+if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html') 
+    % now standard mode -- use command-line interface into VARNA.jar
     
-    if exist('offset', 'var');
-        fprintf(fid, '<param name="baseNum" value="#FFFFFF" />\n');
-        fprintf(fid, '<param name="periodNum" value="1000" />\n');
+    [VARNA_DIR, VARNA_JAR] = get_varna();
+    if ~exist( [VARNA_DIR,VARNA_JAR], 'file' ); 
+        fprintf( ['Cannot find: ',VARNA_DIR,VARNA_JAR,'\n' ] );
+        scripts_dir = fileparts( fileparts( which( 'varna_fig.m') ) );
+        fprintf( ['Please update ',scripts_dir,'/get_varna.m based on ',scripts_dir,'/get_varna.m.example\n' ]);
+        return;
     end;
     
-    fprintf(fid, '<param name="annotations" value="');
+    
+    command = ['java -cp ',VARNA_DIR,VARNA_JAR,' fr.orsay.lri.varna.applications.VARNAcmd' ];
+    command = [command, ' -sequenceDBN ', sequence];
+    command = [command, ' -structureDBN "', structure,'"'];
+    command = [command, ' -algorithm radiate'];
+    
+    if ~isempty(DATA);
+        command = [command, ' -colorMap '];
+        for i = 1:length(Z);
+            command = [command,sprintf('%6.3f%s;', Z(i)) ];
+            %if i < length(Z); command = [ command, ',' ];
+            %end;
+        end;
+    end
+    
+%     if exist('Z', 'var');
+%         switch colorscheme
+%             case 0 % previous default
+%                 fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000" />');
+%             case 1 % new default
+%                 fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000" />');
+%             case 2 % white orange to red
+%                 % slight pain because of VARNA rescaling:
+%                 if (sum( Z < 0 ) > 0)
+%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
+%                 else
+%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
+%                 end
+%             case 3 % blue to white to yellow
+%                 % slight pain because of VARNA rescaling:
+%                 if (sum( Z < 0 ) > 0);
+%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00" />');
+%                 else
+%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;,0.5:#2222FF;1:#0000FF" />');
+%                 end;
+%         end;
+%     end;
+%     
+    command = [command, ' -bpStyle lw'];
+    command = [command, ' -baseInner "#FFFFFF"'];
+    command = [command, ' -baseOutline "#FFFFFF"'];
+    command = [command, ' -bp "#000000"'];
+    command = [command, ' -spaceBetweenBases 0.6'];
+    command = [command, ' -flat false'];
+    titlename = filename;
+    dots = strfind(titlename,'.');
+    if ~isempty(dots);  titlename = titlename( 1: dots(end)-1 ); end;
+    command = [command, ' -title ',titlename ];
+    command = [command, ' -titleColor "#000000"'];
+    command = [command, ' -titleSize 20'];
+    command = [command, ' -colorMapCaption Reactivity'];
+        
+    if exist('special_base_pairs', 'var') & length( special_base_pairs ) > 0 & length( special_base_pairs{1} ) > 0;
+        command = [command, ' -auxBPs '];         
+        for q = 1:length(special_base_pairs)
+            special_base_pair_set = special_base_pairs{q};
+            hex_color = convert_rgb_to_hexadecimal(special_colors{q});
+            for k = 1:size(special_base_pair_set, 1);
+                command = [command, sprintf(fid, '(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color) ];
+            end;
+        end;    
+    end
+    
     if exist('offset', 'var');
-        PERIOD = 50;
-        for i = 1:length(sequence)
-            if (mod(i+offset, PERIOD) == 0)
-                fprintf(fid, '%d:type=B,anchor=%d,color=#000000,size=8;', i + offset, i);
+        command = [command, ' -baseNum "#FFFFFF"'];
+        command = [command, ' -periodNum 1000'];
+    end;
+
+    if (exist('offset', 'var') | exist('bpp_values', 'var'))
+         
+        command = [command, ' -annotations "'];
+        if exist('offset', 'var');
+            PERIOD = 20;
+            for i = 1:length(sequence)
+                if (mod(i+offset, PERIOD) == 0)
+                    command = [command, sprintf( '%d:type=B,anchor=%d,color=#000000,size=8;', i+offset, i )] ;
+                end;
             end;
         end;
+
+        if exist('bpp_values', 'var') && ~isempty(bpp_values);
+            if length(bpp_values) ~= length(bpp_anchor_bases);
+                fprintf('Must specify a bpp_anchor_base for each bpp_value \n');
+            end;
+            for i = 1:length(bpp_values)
+                command = [command, sprintf('%3.0f%%:type=L,anchor=%d,color=#009000,size=9;', 100 * bpp_values(i), bpp_anchor_bases(i) )];
+            end;
+        end;        
+        command = [command,'"'];
+    end
+
+    command = [command, ' -flat true' ];
+
+    command = [command, ' -o ',filename];
+
+    fprintf( [command , '\n'] );
+    returncode = system( command );
+    if ( returncode == 0 & system( 'which open' ) == 0 ) system( ['open ', filename ] ); end;
+else
+    
+    % Old HTML-based output -- as of 2017, no Web browsers allow for Java to run in browser, so this should be deprecated soon.
+    fid = fopen(filename,'w');
+    
+    vers = 1;
+    [VARNA_DIR, VARNA_JAR] = get_varna();
+    
+    fprintf(fid, '%s\n', '<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></HEAD><BODY>');
+    fprintf(fid, '%s%s%s%s%s\n', '<APPLET code="VARNA.class" codebase="', VARNA_DIR, '" archive="', VARNA_JAR, '" width="1200" height="1200">');
+    fprintf(fid, '%s%s%s\n', '<PARAM name="sequenceDBN"  value="', sequence, '"/>');
+    fprintf(fid, '%s%s%s\n', '<PARAM name="structureDBN" value="', structure, '"/>');
+    % fprintf(fid, '%s\n', '<PARAM name="algorithm" value="naview" />');
+    fprintf(fid, '%s\n', '<PARAM name="algorithm" value="radiate" />');
+    
+    if ~isempty(DATA);
+        fprintf(fid, '%s', '<param name="colorMap" value="');
+        for i = 1:length(Z);
+            fprintf(fid,' %6.3f%s', Z(i), ',');
+        end;
+        fprintf(fid, '%s\n','"/>');
     end;
     
-    if exist('bpp_values', 'var') && ~isempty(bpp_values);
-        if length(bpp_values) ~= length(bpp_anchor_bases);
-            fprintf('Must specify a bpp_anchor_base for each bpp_value \n');
-        end;
-        for i = 1:length(bpp_values)
-            %fprintf( fid, '%3.0f%%:type=L,anchor=%d,color=#303030,size=9;', 100*bpp_values(i), bpp_anchor_bases(i) );
-            %fprintf( fid, '%3.0f%%:type=L,anchor=%d,color=#FF3030,size=9;', 100*bpp_values(i), bpp_anchor_bases(i) );
-            fprintf(fid, '%3.0f%%:type=L,anchor=%d,color=#009000,size=9;', 100 * bpp_values(i), bpp_anchor_bases(i));
+    if exist('Z', 'var');
+        switch colorscheme
+            case 0 % previous default
+                fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000" />');
+            case 1 % new default
+                fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000" />');
+            case 2 % white orange to red
+                % slight pain because of VARNA rescaling:
+                if (sum( Z < 0 ) > 0)
+                    fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
+                else
+                    fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
+                end
+            case 3 % blue to white to yellow
+                % slight pain because of VARNA rescaling:
+                if (sum( Z < 0 ) > 0);
+                    fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00" />');
+                else
+                    fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;,0.5:#2222FF;1:#0000FF" />');
+                end;
         end;
     end;
     
-    fprintf(fid, '">\n');
-end;
+    fprintf(fid, '<param name="bpStyle" value="lw" />\n');
+    fprintf(fid, '<param name="baseInner" value="#FFFFFF" />\n');
+    fprintf(fid, '<param name="baseOutline" value="#FFFFFF" />\n');
+    fprintf(fid, '<param name="bp" value="#000000" />\n');
+    fprintf(fid, '<param name="spaceBetweenBases" value="0.6" />\n');
+    fprintf(fid, '<param name="flat" value="false" />\n');
+    fprintf(fid, '%s%s%s\n', '<param name="title" value="', strrep(filename, '.html', ''), '" />\n');
+    fprintf(fid, '<param name="titleColor" value="#000000" />\n');
+    fprintf(fid, '<param name="titleSize" value="20" />\n');
+    fprintf(fid, '<param name="colorMapCaption" value="Reactivity" />\n');
+    
+    % fprintf(fid, '<param name="colorMapMax" value="2" />\n');
+    % fprintf(fid, '<param name="colorMapMin" value="0" />\n');
+    
+    if exist('special_base_pairs', 'var');
+        if length(special_base_pairs) ~= length(special_colors);
+            fprintf('Must specify a special_color for each special_base_pair set\n');
+        end;
+        
+        fprintf(fid, '<param name="auxBPs" value="');
+        
+        for q = 1:length(special_base_pairs)
+            special_base_pair_set = special_base_pairs{q};
+            hex_color = convert_rgb_to_hexadecimal(special_colors{q});
+            for k = 1:size(special_base_pair_set, 1);
+                fprintf(fid, '(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color);
+            end;
+        end;
+        fprintf(fid, '" />\n');
+        
+    end;
+    
+    if (exist('offset', 'var') || exist('bpp_values', 'var'));
+        
+        if exist('offset', 'var');
+            fprintf(fid, '<param name="baseNum" value="#FFFFFF" />\n');
+            fprintf(fid, '<param name="periodNum" value="1000" />\n');
+        end;
+        
+        fprintf(fid, '<param name="annotations" value="');
+        if exist('offset', 'var');
+            PERIOD = 50;
+            for i = 1:length(sequence)
+                if (mod(i+offset, PERIOD) == 0)
+                    fprintf(fid, '%d:type=B,anchor=%d,color=#000000,size=8;', i + offset, i);
+                end;
+            end;
+        end;
+        
+        if exist('bpp_values', 'var') && ~isempty(bpp_values);
+            if length(bpp_values) ~= length(bpp_anchor_bases);
+                fprintf('Must specify a bpp_anchor_base for each bpp_value \n');
+            end;
+            for i = 1:length(bpp_values)
+                %fprintf( fid, '%3.0f%%:type=L,anchor=%d,color=#303030,size=9;', 100*bpp_values(i), bpp_anchor_bases(i) );
+                %fprintf( fid, '%3.0f%%:type=L,anchor=%d,color=#FF3030,size=9;', 100*bpp_values(i), bpp_anchor_bases(i) );
+                fprintf(fid, '%3.0f%%:type=L,anchor=%d,color=#009000,size=9;', 100 * bpp_values(i), bpp_anchor_bases(i));
+            end;
+        end;
+        
+        fprintf(fid, '">\n');
+    end;
+    
+    
+    fprintf(fid, '%s\n', '<PARAM name="flat" value="true" />');
+    fprintf(fid, '%s\n', '</applet></BODY></HTML>');
 
+    fclose(fid);
+end
 
-fprintf(fid, '%s\n', '<PARAM name="flat" value="true" />');
-fprintf(fid, '%s\n', '</applet></BODY></HTML>');
-
-fclose(fid);
-
+return
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function hex_string = convert_rgb_to_hexadecimal(rgb)
