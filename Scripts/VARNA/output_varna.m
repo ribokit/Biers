@@ -1,7 +1,7 @@
-function [special_base_pairs, special_colors] = output_varna(varna_file, sequence, display_structure, native_structure, modeled_structure, offset, mutpos, crystpos, shape, bpp, color_mode)
+function [special_base_pairs, special_colors] = output_varna(varna_file, sequence, display_structure, native_structure, modeled_structure, offset, ROI, crystpos, shape, bpp, color_mode)
 % [special_base_pairs, special_colors] = output_varna( ...
 %                               varna_file, sequence, display_structure, native_structure, modeled_structure, 
-%                               offset, mutpos, crystpos, shape, bpp, color_mode); 
+%                               offset, ROI, crystpos, shape, bpp, color_mode); 
 %
 % Generate HTML file with VARNA applet for RNA secstr visualziation.
 % **Make sure to set your path in get_varna.m
@@ -13,7 +13,8 @@ function [special_base_pairs, special_colors] = output_varna(varna_file, sequenc
 % native_structure      Optional            Reference/native secstr used for secstr comparison.
 % modeled_structure     Optional            Predicted/new secstr used for secstr comparison.
 % offset                Optional            Sequence numbering offset, default 0.
-% mutpos                Optional            [?]
+% ROI                   Optional            Region of interest (don't show
+%                                                base pairs outside this range)
 % crystpos              Optional            [?]
 % shape                 Optional            SHAPE reactivity profile for nucleotide coloring, default none.
 % bpp                   Optional            Base-pairing probability matrix for helix-wise confidence score.
@@ -23,8 +24,8 @@ function [special_base_pairs, special_colors] = output_varna(varna_file, sequenc
 % special_base_pairs    Index of base-pairs that differ between native_structure and modeled_structure
 % special_colors        Secstr comparison color set
 %
-% by T47, 2013-2015
-%
+% (C) T47, Stanford University 2013-2015
+% (C) Rhiju Das, Stanford University 2017
 
 if nargin == 0;  help( mfilename ); return; end;
 
@@ -34,24 +35,24 @@ if ~exist('bpp', 'var') || isempty(bpp); bpp = []; end;
 if ~exist('shape', 'var') || isempty(shape); shape = []; end;
 
 if ~exist('offset','var') || isempty(offset); offset = 0; end;
-if ~exist('mutpos','var') || isempty(mutpos); mutpos = [1:length(sequence)] + offset; end;
+if ~exist('ROI','var') || isempty(ROI); ROI = [1:length(sequence)] + offset; end;
 if ~exist('crystpos','var') || isempty(crystpos); crystpos = [1:length(sequence)] + offset; end;
 if ~exist('color_mode', 'var') || isempty(color_mode); color_mode = 1; end;
 
-mutpos = sort(mutpos);
+ROI = sort(ROI);
 seqpos = [1:length(sequence)] + offset;
 
-% select subset of residues based on mutpos
-gp = find(seqpos >= min(mutpos)  &  seqpos <= max(mutpos));
-mutpos_offset = min(gp) - 1;
-crystpos_subset = sort(crystpos) - offset - mutpos_offset;
+% select subset of residues based on ROI
+gp = find(seqpos >= min(ROI)  &  seqpos <= max(ROI));
+ROI_offset = min(gp) - 1;
+crystpos_subset = sort(crystpos) - offset - ROI_offset;
 
-% Need to shift around numbers if we have only focused on certain residues (mutpos).
+% Need to shift around numbers if we have only focused on certain residues (ROI).
 sequence_subset = sequence(gp);
-display_structure_subset = get_subset_structure(display_structure, mutpos - offset);
+display_structure_subset = get_subset_structure(display_structure, ROI - offset);
 %native_structure_subset  = native_structure;
-native_structure_subset  = get_subset_structure(native_structure, mutpos - offset);
-modeled_structure_subset = get_subset_structure(modeled_structure, mutpos - offset);
+native_structure_subset  = get_subset_structure(native_structure, ROI - offset);
+modeled_structure_subset = get_subset_structure(modeled_structure, ROI - offset);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -108,27 +109,25 @@ shape_subset = [];
 if ~isempty(shape); shape_subset = shape(gp); end;
 
 ADJUST_SHAPE = 1.0;
-varna_fig(varna_file, sequence_subset, display_structure_subset, ADJUST_SHAPE * shape_subset, 2 , offset + mutpos_offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases); 
+varna_fig(varna_file, sequence_subset, display_structure_subset, ADJUST_SHAPE * shape_subset, 2 , offset + ROI_offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases); 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function structure_shift = get_subset_structure(structure, mutpos)
+function structure_shift = get_subset_structure(structure, ROI)
 
 bps = convert_structure_to_bps(structure);
 bps_shift = [];
 
 for i = 1:size(bps, 1);
-  bp_shift1 = find(bps(i, 1) == mutpos);
-  bp_shift2 = find(bps(i, 2) == mutpos);
+  bp_shift1 = find(bps(i, 1) == ROI);
+  bp_shift2 = find(bps(i, 2) == ROI);
   if (~isempty(bp_shift1) && ~isempty(bp_shift2));
     bps_shift = [bps_shift; bp_shift1, bp_shift2];
   end;
 end;
 
-structure_shift = convert_bps_to_structure(bps_shift, length(mutpos));
+structure_shift = convert_bps_to_structure(bps_shift, length(ROI));
 structure_shift = structure;
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -25,16 +25,16 @@ if nargin == 0; help(mfilename); return; end;
 if ~exist('colorscheme', 'var'); colorscheme = 1; end;
 
 if ~isempty(DATA)
-    %% DATA Prep
-    %%%Z=hSHAPE(DATA);
-    Z = DATA;
+    % DATA Prep
+    %%%reactivity=hSHAPE(DATA);
+    reactivity = DATA;
     
-    Z = max(Z, 0);
-    Z = min(Z, 2.0);
-    %Z=100*Z;
+    reactivity = max(reactivity, 0);
+    reactivity = min(reactivity, 2.0);
+    %reactivity=100*reactivity;
     
     graypoints = find(DATA == -999 | isnan(DATA));
-    Z(graypoints) = -0.01;
+    reactivity(graypoints) = -0.01;
 end;
 
 if exist('special_base_pairs', 'var');
@@ -44,8 +44,9 @@ if exist('special_base_pairs', 'var');
 end
 
 if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html') 
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % now standard mode -- use command-line interface into VARNA.jar
-    
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
     [VARNA_DIR, VARNA_JAR] = get_varna();
     if ~exist( [VARNA_DIR,VARNA_JAR], 'file' ); 
         fprintf( ['Cannot find: ',VARNA_DIR,VARNA_JAR,'\n' ] );
@@ -54,44 +55,42 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
         return;
     end;
     
-    
     command = ['java -cp ',VARNA_DIR,VARNA_JAR,' fr.orsay.lri.varna.applications.VARNAcmd' ];
     command = [command, ' -sequenceDBN ', sequence];
     command = [command, ' -structureDBN "', structure,'"'];
     command = [command, ' -algorithm radiate'];
     
     if ~isempty(DATA);
-        command = [command, ' -colorMap '];
-        for i = 1:length(Z);
-            command = [command,sprintf('%6.3f%s;', Z(i)) ];
-            %if i < length(Z); command = [ command, ',' ];
-            %end;
+        command = [command, ' -colorMap "'];
+        for i = 1:length(reactivity);
+            command = [command,sprintf('%6.3f;', reactivity(i)) ];
         end;
+        command = [ command, '"'];
     end
     
-%     if exist('Z', 'var');
-%         switch colorscheme
-%             case 0 % previous default
-%                 fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000" />');
-%             case 1 % new default
-%                 fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000" />');
-%             case 2 % white orange to red
-%                 % slight pain because of VARNA rescaling:
-%                 if (sum( Z < 0 ) > 0)
-%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
-%                 else
-%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
-%                 end
-%             case 3 % blue to white to yellow
-%                 % slight pain because of VARNA rescaling:
-%                 if (sum( Z < 0 ) > 0);
-%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00" />');
-%                 else
-%                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;,0.5:#2222FF;1:#0000FF" />');
-%                 end;
-%         end;
-%     end;
-%     
+     if exist('reactivity', 'var');
+         switch colorscheme
+             case 0 % previous default
+                 command = [ command, ' -colorMapStyle "0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000"' ];
+             case 1 % new default
+                 command = [ command, ' -colorMapStyle "-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000"' ];
+             case 2 % white orange to red
+                 % slight pain because of VARNA rescaling:
+                 if (sum( reactivity < 0 ) > 0)
+                     command = [ command, ' -colorMapStyle "-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000"' ];
+                 else
+                     command = [ command, ' -colorMapStyle "0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000"' ];
+                 end
+            case 3 % blue to white to yellow
+                % slight pain because of VARNA rescaling:
+                if (sum( reactivity < 0 ) > 0);
+                    command = [ command, ' -colorMapStyle "-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00"' ];
+                else
+                    command = [ command, ' -colorMapStyle "0:#FFFFFF;,0.5:#2222FF;1:#0000FF"' ];
+                end;
+        end;
+    end;
+    
     command = [command, ' -bpStyle lw'];
     command = [command, ' -baseInner "#FFFFFF"'];
     command = [command, ' -baseOutline "#FFFFFF"'];
@@ -146,12 +145,15 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
     end
 
     command = [command, ' -flat true' ];
-
+    command = [command, ' -resolution 4.0'];
     command = [command, ' -o ',filename];
 
     fprintf( [command , '\n'] );
     returncode = system( command );
-    if ( returncode == 0 & system( 'which open' ) == 0 ) system( ['open ', filename ] ); end;
+
+    if ( returncode == 0 & isempty(find(strfind( filename, '/tmp/')==1)) & system( 'which open > /dev/null' ) == 0 ) ;
+        system( ['open ', filename ] ); 
+    end;
 else
     
     % Old HTML-based output -- as of 2017, no Web browsers allow for Java to run in browser, so this should be deprecated soon.
@@ -169,13 +171,13 @@ else
     
     if ~isempty(DATA);
         fprintf(fid, '%s', '<param name="colorMap" value="');
-        for i = 1:length(Z);
-            fprintf(fid,' %6.3f%s', Z(i), ',');
+        for i = 1:length(reactivity);
+            fprintf(fid,' %6.3f%s', reactivity(i), ',');
         end;
         fprintf(fid, '%s\n','"/>');
     end;
     
-    if exist('Z', 'var');
+    if exist('reactivity', 'var');
         switch colorscheme
             case 0 % previous default
                 fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000" />');
@@ -183,14 +185,14 @@ else
                 fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000" />');
             case 2 % white orange to red
                 % slight pain because of VARNA rescaling:
-                if (sum( Z < 0 ) > 0)
+                if (sum( reactivity < 0 ) > 0)
                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
                 else
                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000" />');
                 end
             case 3 % blue to white to yellow
                 % slight pain because of VARNA rescaling:
-                if (sum( Z < 0 ) > 0);
+                if (sum( reactivity < 0 ) > 0);
                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00" />');
                 else
                     fprintf(fid, '%s\n', '<param name="colorMapStyle" value="0:#FFFFFF;,0.5:#2222FF;1:#0000FF" />');
