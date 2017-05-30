@@ -1,6 +1,9 @@
 function [structure,bpp] = load_ct_file( ct_file )
 % [structure,bpp] = load_ct_file( ct_file )
 % only loads first structure!!
+%
+%
+% (C) Das lab, Stanford University 2011-2015
 
 fid = fopen( ct_file );
 
@@ -85,7 +88,7 @@ if ~clash_score_flag && any(clash_score ~= 0);
     end;
 end;
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function str_return = pk_braket_substitute(str_input, helix_map_sub)
 str_return = [str_input(1:(helix_map_sub(1)-1)), repmat('[',1,helix_map_sub(3)), ...
     str_input((helix_map_sub(1)+helix_map_sub(3)):(helix_map_sub(2)-helix_map_sub(3))),...

@@ -38,7 +38,6 @@ if ~exist( 'ONLY_A_C','var' ); ONLY_A_C = 0; end;
 if ~exist( 'print_stuff','var' ); print_stuff = 0; end
 if ~exist( 'd_nomod','var' ) || isempty( d_nomod ); d_nomod = []; end
 if ~exist( 'ignore_mut','var' ); ignore_mut = []; end
-if ~exist( 'mask_diag','var' ); mask_diag = -1; end
 
 Z = []; mutpos = [];seqplot = [];
 if isempty( rdat_files ); return; end;
@@ -64,6 +63,17 @@ for i = 1:length( rdat_files )
       d = rdat_files{i};
       assert( isobject( d ) );
   end
+  
+  if ~exist( 'mask_diag','var' );
+      % look for a stripe of 1.00's -- if
+      if ( length( find( abs(d.reactivity - 1.00) < 1e-5 ) ) > 10 )
+          mask_diag = 5;
+          fprintf( 'Looks like an M2-seq data set based on ones on the diagonal. Masking positions within %d of diagonal.\n', mask_diag )
+      else
+          mask_diag = -1;
+      end
+  end
+
   if ( NRES == 0 )
     NRES = length(d.sequence);
     Z_sum = zeros( NRES, NRES );
@@ -71,6 +81,7 @@ for i = 1:length( rdat_files )
   elseif ( length(d.sequence) ~= NRES ) 
     fprintf( 'WARNING! WARNING! NRES problem! %s\n', rdat_files{i} );
   end
+
 
   [ Z, mutpos ] = get_Zscore_and_apply_filter( d, d_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, mask_diag );
   % just a check
@@ -101,17 +112,11 @@ Zscore = [];
 
 a_input = d.reactivity;
 
-a_mask = a_input;
-if ( mask_diag >= 0 )
-    [idx_i, idx_j ] = ndgrid( [1:size(a_input,1)], [1:size(a_input,2)] );
-    length( a_input );
-    diag_pts = find( abs( 1 + idx_i - idx_j ) <= mask_diag ); 
-    size( a_mask )
-    a_mask( diag_pts ) = 0;
- end
+a = a_input;
+a = mask_diagonal( a, mask_diag );
 
-normbins = [ 10: size( a_mask,1)-10 ];
-a = quick_norm( a_mask, normbins );
+normbins = [ 10: size( a,1)-10 ];
+a = quick_norm( a, normbins );
 
 for i = 1:size( a, 1 )
   Zscore(i,:) =  ( a(i,:) - mean( a(i,:)) )/ std( a(i,:),0,2);

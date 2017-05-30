@@ -37,6 +37,8 @@ if ~isempty(DATA)
     reactivity(graypoints) = -0.01;
 end;
 
+is_tmp_file = ~isempty(find(strfind( filename, '/tmp/')==1));
+
 if exist('special_base_pairs', 'var');
     if length(special_base_pairs) ~= length(special_colors);
         fprintf('Must specify a special_color for each special_base_pair set\n');
@@ -97,23 +99,26 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
     command = [command, ' -bp "#000000"'];
     command = [command, ' -spaceBetweenBases 0.6'];
     command = [command, ' -flat false'];
-    titlename = filename;
-    dots = strfind(titlename,'.');
-    if ~isempty(dots);  titlename = titlename( 1: dots(end)-1 ); end;
-    command = [command, ' -title ',titlename ];
-    command = [command, ' -titleColor "#000000"'];
-    command = [command, ' -titleSize 20'];
+    if ~is_tmp_file
+        titlename = filename;
+        dots = strfind(titlename,'.');
+        if ~isempty(dots);  titlename = titlename( 1: dots(end)-1 ); end;
+        command = [command, ' -title ',titlename ];
+        command = [command, ' -titleColor "#000000"'];
+        command = [command, ' -titleSize 20'];
+    end
     command = [command, ' -colorMapCaption Reactivity'];
         
     if exist('special_base_pairs', 'var') & length( special_base_pairs ) > 0 & length( special_base_pairs{1} ) > 0;
-        command = [command, ' -auxBPs '];         
+        command = [command, ' -auxBPs "'];         
         for q = 1:length(special_base_pairs)
             special_base_pair_set = special_base_pairs{q};
             hex_color = convert_rgb_to_hexadecimal(special_colors{q});
             for k = 1:size(special_base_pair_set, 1);
-                command = [command, sprintf(fid, '(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color) ];
+                command = [command, sprintf('(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color) ];
             end;
         end;    
+        command = [command, '"'];         
     end
     
     if exist('offset', 'var');
@@ -151,7 +156,7 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
     fprintf( [command , '\n'] );
     returncode = system( command );
 
-    if ( returncode == 0 & isempty(find(strfind( filename, '/tmp/')==1)) & system( 'which open > /dev/null' ) == 0 ) ;
+    if ( returncode == 0 & ~is_tmp_file & system( 'which open > /dev/null' ) == 0 ) ;
         system( ['open ', filename ] ); 
     end;
 else

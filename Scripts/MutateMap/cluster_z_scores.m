@@ -1,7 +1,14 @@
-function  cluster_z_scores( zscore_matrix, structure, offset  ); 
-% cluster_z_scores( zscore_file, structure, offset  ); 
+function  cluster_z_scores( zscore_matrix, structure, offset, print_mode  ); 
+% cluster_z_scores( zscore_matrix, structure, offset, print_mode )
 %
-% (C) R. Das, 2011-2013.
+% INPUTS
+%  zscore_matrix = [REQUIRED] square Z matrix (or filename with that matrix )
+%  structure     = structure in dot-bracket notation
+%  offset        = offset to add to position to get conventional numbering
+%  print_mode    = 1: show plots in fig(1),fig(2) [default] 
+%                  0: show final clusters but do not go to a new figure panel.
+%
+% (C) R. Das, 2011-2013, 2017
 
 if nargin == 0;  help( mfilename ); return; end;
 
@@ -11,22 +18,22 @@ else
   d = zscore_matrix;
 end
 
-if ~exist( 'offset') offset = 0; end;
-if ~exist( 'structure' ); structure = ''; end;
-
+if ~exist( 'offset', 'var' ) offset = 0; end;
+if ~exist( 'structure', 'var' ); structure = ''; end;
+if ~exist( 'print_mode', 'var' ) print_mode = 1; end;
 d = abs( smooth2d(d,1) );
-figure(1)
-image( d'*20 );
-colormap( 1 - gray(100) );
 
-set_axes( d, offset );
+if ( print_mode )
+    figure(1)
+    show_2dmap( d*20, [], offset );
+    figure(2)
+end
 
-figure(2)
 NRES = length( d ) ;
 cluster_assignment = zeros( NRES, NRES );
 
 count = 0;
-CUTOFF = 1.0;
+CUTOFF = 1;
 for i = 1:NRES
   for j = 1:NRES
     if d(i,j) > CUTOFF
@@ -36,36 +43,37 @@ for i = 1:NRES
   end
 end
 
-cmap = jet( count );
-cmap = cmap( randperm( count ), : );
-
-cmap( 1,: ) = 0.0;
-colormap( cmap );
 
 NPASS = 5;
 for n = 1:NPASS
-  for i = 1:NRES
-    for j = 1:NRES
-      if ( cluster_assignment( i, j ) )
-	cluster_assignment = check_neighbor( cluster_assignment, i, j, i-1, j );
-	cluster_assignment = check_neighbor( cluster_assignment, i, j, i+1, j );
-	cluster_assignment = check_neighbor( cluster_assignment, i, j, i,   j-1);
-	cluster_assignment = check_neighbor( cluster_assignment, i, j, i,   j+1 );
-	%cluster_assignment = check_neighbor( cluster_assignment, i, j, i-1, j+1 );
-	%cluster_assignment = check_neighbor( cluster_assignment, i, j, i+1, j-1 );
-	cluster_assignment = check_neighbor( cluster_assignment, i, j, j,   i );
-      end
+    for i = 1:NRES
+        for j = 1:NRES
+            if ( cluster_assignment( i, j ) )
+                cluster_assignment = check_neighbor( cluster_assignment, i, j, i-1, j );
+                cluster_assignment = check_neighbor( cluster_assignment, i, j, i+1, j );
+                cluster_assignment = check_neighbor( cluster_assignment, i, j, i,   j-1);
+                cluster_assignment = check_neighbor( cluster_assignment, i, j, i,   j+1 );
+                
+                %cluster_assignment = check_neighbor( cluster_assignment, i, j, i-1, j+1 );
+                %cluster_assignment = check_neighbor( cluster_assignment, i, j, i+1, j-1 );
+                
+                cluster_assignment = check_neighbor( cluster_assignment, i, j, j,   i );
+            end
+        end
     end
-  end
-  
+    
 
 end
 
-figure(1)
-subplot(1,2,1)
-image( cluster_assignment' );
-set_axes( d, offset );
-show_bps( structure );
+if ( print_mode )
+    figure(1)
+    subplot(1,2,1)
+    show_2dmap( cluster_assignment, structure, offset );
+    cmap = jet( count );
+    cmap = cmap( randperm( count ), : );
+    cmap( 1,: ) = 0.0;
+    colormap( cmap );
+end
 
 % filter out weak clusters.
 CLUSTER_CUTOFF = 8;
@@ -77,46 +85,25 @@ AVG_HITS_PER_MUT_CUTOFF = 1000; % disabled
 CLUSTERS_PER_MUT_CUTOFF = 5; % important
 FORCE_SYMM = 1;
 
-
 cluster_assignment_plot = get_cluster_filter( d, cluster_assignment, CLUSTER_CUTOFF, ZSCORE_SUM_CUTOFF,MAX_ZSCORE_CUTOFF, MEAN_ZSCORE_CUTOFF, NUM_MUT_CUTOFF, AVG_HITS_PER_MUT_CUTOFF, FORCE_SYMM, CLUSTERS_PER_MUT_CUTOFF );
 
-subplot(1,2,2)
-image( cluster_assignment_plot' );
-set_axes( d, offset );
-show_bps( structure );
-
+if ( print_mode )
+    subplot(1,2,2)
+end
+show_2dmap( cluster_assignment_plot, structure, offset );
 
 % for paper figure.
-figure(2)
-cmap( 1,: ) = 1.0;
-colormap( cmap );
-clf;
-subplot(1,1,1);
-image( cluster_assignment_plot' );
-outline_clusters( cluster_assignment_plot, cmap );
-set_axes( d, offset, 'k' );
-show_bps( structure, 1 );
-xticklabel_rotate
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function show_bps( structure, USE_DOTS );
-
-if length( structure ) == 0; return; end;
-if ~exist( 'USE_DOTS' ); USE_DOTS = 0; end;
-
-hold on;
-bps = convert_structure_to_bps( structure );
-bps = [ bps; bps(:,[2 1] ) ];
-if USE_DOTS
-  plot( bps(:,1), bps(:,2), 'ko','markersize',2,'markerfacecolor','w','linewidth',1 );
-else
-  for i = 1:size( bps, 1 )
-    h = rectangle( 'Position', [ bps(i,1)-0.5, bps(i,2)-0.5, 1, 1], ...
-		   'edgecolor', [0.7 0.7 0.7],...
-		   'linewidth',0.5 );  
-  end
+if ( print_mode );    
+    figure(2)
+    clf;
+    subplot(1,1,1);
+    show_2dmap( cluster_assignment_plot, structure, offset );
+    outline_clusters( cluster_assignment_plot, cmap );
+    cmap( 1,: ) = 1.0;
+    colormap( cmap );
+    xticklabel_rotate
 end
-hold off
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function cluster_assignment  = get_cluster_filter( d, cluster_assignment, CLUSTER_CUTOFF, ZSCORE_SUM_CUTOFF, MAX_ZSCORE_CUTOFF, MEAN_ZSCORE_CUTOFF, NUM_MUT_CUTOFF, AVG_HITS_PER_MUT_CUTOFF, FORCE_SYMM, CLUSTERS_PER_MUT_CUTOFF );
@@ -174,7 +161,6 @@ if ~isempty( intersect( x, y ) )
   ok = 1;
 end;
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function cluster_assignment = check_neighbor(  cluster_assignment, i, j, ix, jx );
 
@@ -198,22 +184,7 @@ cluster_assignment( gp ) = b;
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function set_axes( d, offset, axiscolor )
-if ~exist( 'axiscolor' );  axiscolor = 'blue'; end;
-nres = length( d );
-seqpos = [1:nres] + offset;
-gp = find( mod(seqpos,10) == 0 );
-set( gca,'xtick', gp, 'xticklabel',  seqpos( gp ), 'ytick', gp, 'yticklabel', seqpos( gp ) );
-set( gca,'xgrid','on','ygrid','on','fontsize',12,'fontweight','bold','xcolor',axiscolor,'ycolor',axiscolor );
-hold on
-plot( [1:nres],[1:nres],axiscolor);
-hold off
-set(gcf,'color','white');
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function outline_clusters( cluster_assignment_plot, cmap );
-
 hold on
 
 nres = size( cluster_assignment_plot, 1);

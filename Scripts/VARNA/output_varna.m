@@ -29,15 +29,15 @@ function [special_base_pairs, special_colors] = output_varna(varna_file, sequenc
 
 if nargin == 0;  help( mfilename ); return; end;
 
-if ~exist('native_structure','var') || isempty(native_structure); native_structure = display_structure; end;
-if ~exist('modeled_structure','var') || isempty(modeled_structure); modeled_structure = display_structure; end;
-if ~exist('bpp', 'var') || isempty(bpp); bpp = []; end;
-if ~exist('shape', 'var') || isempty(shape); shape = []; end;
+if ~exist('native_structure','var') | isempty(native_structure); native_structure = display_structure; end;
+if ~exist('modeled_structure','var') | isempty(modeled_structure); modeled_structure = display_structure; end;
+if ~exist('bpp', 'var') | isempty(bpp); bpp = []; end;
+if ~exist('shape', 'var') | isempty(shape); shape = []; end;
 
-if ~exist('offset','var') || isempty(offset); offset = 0; end;
-if ~exist('ROI','var') || isempty(ROI); ROI = [1:length(sequence)] + offset; end;
-if ~exist('crystpos','var') || isempty(crystpos); crystpos = [1:length(sequence)] + offset; end;
-if ~exist('color_mode', 'var') || isempty(color_mode); color_mode = 1; end;
+if ~exist('offset','var') | isempty(offset); offset = 0; end;
+if ~exist('ROI','var') | isempty(ROI); ROI = [1:length(sequence)] + offset; end;
+if ~exist('crystpos','var') | isempty(crystpos); crystpos = [1:length(sequence)] + offset; end;
+if ~exist('color_mode', 'var') | isempty(color_mode); color_mode = 1; end;
 
 ROI = sort(ROI);
 seqpos = [1:length(sequence)] + offset;
@@ -109,7 +109,9 @@ shape_subset = [];
 if ~isempty(shape); shape_subset = shape(gp); end;
 
 ADJUST_SHAPE = 1.0;
-varna_fig(varna_file, sequence_subset, display_structure_subset, ADJUST_SHAPE * shape_subset, 2 , offset + ROI_offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases); 
+varna_fig(varna_file, sequence_subset, display_structure_subset, ...
+    ADJUST_SHAPE * shape_subset, 2 , offset + ROI_offset, ...
+    special_base_pairs, special_colors, bpp_values, bpp_anchor_bases);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

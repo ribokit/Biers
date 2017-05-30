@@ -1,6 +1,6 @@
-function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, cmd_pk, area_dms, temperature, shape_intercept, shape_slope, maxdist )
-% [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, cmd...
-%                                               temperature, shape_intercept, shape_slope, maxdist);
+function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, model_pk, area_dms, temperature, shape_intercept, shape_slope, maxdist )
+% [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, model_pk,a
+%                                               area_dms, temperature, shape_intercept, shape_slope, maxdist);
 %
 % Run RNAstructure data-drive secstr prediction with bootstrapping.
 % **Make sure to set your path in get_exe_dir.m
@@ -12,9 +12,9 @@ function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, off
 % seqpos            Optional            Sequence position used to filter area_shape
 % EX                Optional            2D bonus data, same dimension as sequence
 % NUM_BOOTSTRAP     Optional            Number of bootstrap runs, in addition to run with original data. Default 0 (no bootstrap).
-% cmd_pk            Optional            RNAstructure executable flag: 0 for Fold, 1 for ShapeKnot. Default 0.
+% model_pk          Optional            RNAstructure executable flag: 0 for Fold, 1 for ShapeKnot. Default 0.
 % area_dms          Optional            1D bonus data for DMS
-% tempertature      Optional            Folding temperature, use Celcius. Default 24.
+% temperature      Optional            Folding temperature, use Celcius. Default 24.
 % shape_intercept   Optional            1D bonus SHAPE intercept, default based on RNAstructure version
 % shape_slope       Optional            1D bonus SHAPE slope, default based on RNAstructrue version
 % maxdist           Optional            Max pairing distance, default none
