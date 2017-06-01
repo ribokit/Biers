@@ -1,4 +1,4 @@
-function [ Z, mutpos, seqplot ] = output_Zscore_from_rdat( outfile, rdat_files, d_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, print_stuff, mask_diag );
+function [ Z, mutpos, seqplot ] = output_Zscore_from_rdat( outfile, rdat_files, rdat_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, print_stuff, mask_diag );
 % [ Z, mutpos, seqplot ] = output_Zscore_from_rdat( outfile, rdat_files, rdat_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, print_stuff, mask_diag );
 %
 % Z = [ reactivity value -  mean reactivity at residue across mutants]/ 
@@ -36,7 +36,7 @@ if ~exist( 'APPLY_ZSCORE_OFFSET','var' ); APPLY_ZSCORE_OFFSET = 1; end;
 if ~exist( 'ZSCORE_OFFSET','var' ); ZSCORE_OFFSET = 0.0; end;
 if ~exist( 'ONLY_A_C','var' ); ONLY_A_C = 0; end;
 if ~exist( 'print_stuff','var' ); print_stuff = 0; end
-if ~exist( 'd_nomod','var' ) || isempty( d_nomod ); d_nomod = []; end
+if ~exist( 'rdat_nomod','var' ) || isempty( rdat_nomod ); rdat_nomod = []; end
 if ~exist( 'ignore_mut','var' ); ignore_mut = []; end
 
 Z = []; mutpos = [];seqplot = [];
@@ -45,14 +45,13 @@ if isempty( rdat_files ); return; end;
 if ~iscell( rdat_files ); rdat_files = { rdat_files }; end;
 
 NRES = 0;
-if ~isempty( d_nomod); 
-  if ischar( d_nomod )
-    d_nomod = read_rdat_file( d_nomod);
+if ~isempty( rdat_nomod); 
+  if ischar( rdat_nomod )
+    rdat_nomod = read_rdat_file( rdat_nomod);
   end
-  NRES = length( d_nomod.sequence ); 
+  NRES = length( rdat_nomod.sequence ); 
   Z_sum = zeros( NRES, NRES );
 end;
-
 mut_weights_sum = zeros( 1, NRES );
 
 for i = 1:length( rdat_files )
@@ -83,7 +82,7 @@ for i = 1:length( rdat_files )
   end
 
 
-  [ Z, mutpos ] = get_Zscore_and_apply_filter( d, d_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, mask_diag );
+  [ Z, mutpos ] = get_Zscore_and_apply_filter( d, rdat_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, mask_diag );
   % just a check
   if ~isempty(strfind( d.name, 'P4P6'));    Z( 176-d.offset, : ) = 0.0;   end;
 
@@ -106,7 +105,7 @@ plot_and_save(Z, seqplot,  outfile, print_stuff );
 return;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function [ Zscore_full, mutpos ] = get_Zscore_and_apply_filter( d, d_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, mask_diag );
+function [ Zscore_full, mutpos ] = get_Zscore_and_apply_filter( d, rdat_nomod, MEAN_EXPOSURE_CUTOFF, ZSCORE_OFFSET, APPLY_ZSCORE_OFFSET, ONLY_A_C, ignore_mut, mask_diag );
 
 Zscore = [];
 
@@ -188,11 +187,11 @@ end
 
 % If 'nomod' (i.e., background) measurement is given, use it to get rid of strong background spots.
 Z_NOMOD_CUTOFF = 6.0;
-if ~isempty( d_nomod )  
+if ~isempty( rdat_nomod )  
 
-  b = d_nomod.reactivity;
+  b = rdat_nomod.reactivity;
   if ( size( b, 1 ) ~= size( a, 1 ) )
-    fprintf( 'Hey, d_nomod needs to have the same dimensions as d !!!\n' ); return;
+    fprintf( 'Hey, rdat_nomod needs to have the same dimensions as d !!!\n' ); return;
   end
   b = quick_norm( b, normbins );
 
@@ -215,13 +214,13 @@ end
 ZSCORE_SCALING = -1.0;
 
 if ~exist('d.mutpos','var') || length( d.mutpos ) == 0
-  mutpos = generate_mutpos_from_rdat(d.data_annotations);
+  mutpos = generate_mutpos_from_rdat(d.data_annotations,d);
 end
 
 NRES = length(d.sequence);
 Zscore_full = zeros( NRES, NRES );
 pos1 = d.seqpos - d.offset;
-pos2 = mutpos - d.offset;
+pos2 = mutpos; % - d.offset;
 
 % look for first library, as marked by MutPos. Note that first column is assumed to be wt.
 for i = 2 : length( mutpos )
@@ -235,9 +234,7 @@ gp = [2:i];
 for i = 1:length( ignore_mut )
   gp = setdiff( gp,   find( mutpos == ignore_mut(i)) );
 end
-
 Zscore_full( pos1, pos2(gp) ) = Zscore(:,gp) * ZSCORE_SCALING;
-
 
 mutpos = mutpos( gp );
 
