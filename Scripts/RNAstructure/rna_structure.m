@@ -1,5 +1,5 @@
 function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, model_pk, area_dms, temperature, shape_intercept, shape_slope, maxdist )
-% [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, model_pk,a
+% [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, offset, seqpos, EX, NUM_BOOTSTRAP, model_pk,
 %                                               area_dms, temperature, shape_intercept, shape_slope, maxdist);
 %
 % Run RNAstructure data-drive secstr prediction with bootstrapping.
@@ -35,9 +35,9 @@ if ~exist( 'offset','var' ); offset = 0; end;
 if ~exist( 'seqpos','var' ); seqpos = 0; end;
 if ~exist( 'EX','var' ); EX = []; end;
 if ~exist( 'NUM_BOOTSTRAP','var' ); NUM_BOOTSTRAP = 0; end;
-if ~exist( 'cmd_pk','var') || isempty(cmd_pk); 
-    cmd_pk = 0; 
-elseif cmd_pk == 1;
+if ~exist( 'model_pk','var') || isempty(model_pk); 
+    model_pk = 0; 
+elseif model_pk == 1;
     fprintf('WARNING: ShapeKnots run is much slower than Fold!\n');
 end;
 if ~exist( 'maxdist','var' ); maxdist = 0; end;
@@ -119,7 +119,7 @@ USE_VIENNA = 0;
 
 tic;
 [bpp, structure, ct_file, command ] = run_rna_structure_with_bootstrap( NUM_BOOTSTRAP, seq_file, bps, offset, nres, EX_file, SHAPE_file, ...
-    temperature, experimental_offset, zscore_scalings, shape_intercepts, shape_slopes, USE_VIENNA, maxdist, cmd_pk, DMS_file);
+    temperature, experimental_offset, zscore_scalings, shape_intercepts, shape_slopes, USE_VIENNA, maxdist, model_pk, DMS_file);
 toc;
 
 % delete temporary files
