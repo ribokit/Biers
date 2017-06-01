@@ -30,4 +30,4 @@ for count = 1:nres;
 end;
 fclose( fid );
 
-structure = convert_bps_to_structre( bps, nres );
+structure = convert_bps_to_structure( bps, nres );
