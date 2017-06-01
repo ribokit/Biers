@@ -354,9 +354,9 @@ fid_table = fopen( table_file, 'w' );
 for fid = [1 fid_table ]
 
   fprintf( fid, '\n' );
-  fprintf( fid,   '%30s %4s  %4s ',' ',' ',' ' );
+  fprintf( fid,   '%30s %4s  %4s',' ',' ',' ' );
   for j = 1:length( structures )
-    fprintf( fid, '  %10s', run_type_tags{j} );
+    fprintf( fid, '   %10s', run_type_tags{j} );
   end
   fprintf( fid, '\n');
   
@@ -369,17 +369,19 @@ for fid = [1 fid_table ]
   for i = 1:length( RNA_tags )
     fprintf( fid, '%30s %4d  %4d', RNA_tags{i}, num_res_no_tails(i), all_num_native_bps(i) );
     for j = 1:length( structures )
-    fprintf( fid, '     %4d  %3d', all_num_native_bps_recovered(i,j), all_num_false_prediction_bps(i,j) );
+    fprintf( fid, '     %3d  %3d', all_num_native_bps_recovered(i,j), all_num_false_prediction_bps(i,j) );
     end
     fprintf( fid, '\n' );
   end
 
-  fprintf( fid, '%30s  %4d   %3d', 'Total', sum( num_res_no_tails ), sum( all_num_native_bps(:,1) ) );
+  fprintf( fid, '%30s %4d  %4d', 'Total', sum( num_res_no_tails ), sum( all_num_native_bps ) );
   for j = 1:length( structures )
     fprintf( fid, '     %3d  %3d', sum(all_num_native_bps_recovered(:,j)), sum(all_num_false_prediction_bps(:,j)) );
   end
   fprintf( fid, '\n' );
-  fprintf( fid, '-------------------------------------------------------------\n');
+  fprintf( fid, '---------------------------------------------------------' );
+  for j = 1:length( structures ); fprintf( fid, '------------' ); end;
+  fprintf( fid, '\n');
   fprintf( fid, '%30s %4s   %2s','FNR',' ',' ');
   for j = 1:length( structures )
     TP(j) = sum( all_num_native_bps_recovered(:,j) );
@@ -393,16 +395,18 @@ for fid = [1 fid_table ]
     fprintf( fid, '   %10.1f%',100* FP(j)/(TP(j)+FP(j)));
   end
   fprintf( fid, '\n' );  
-  fprintf( fid, '-------------------------------------------------------------\n');
+  fprintf( fid, '---------------------------------------------------------' );
+  for j = 1:length( structures ); fprintf( fid, '------------' ); end;
+  fprintf( fid, '\n');
 
   fprintf( fid, '%30s %4s   %2s','Sensitivity',' ',' ');
   for j = 1:length( structures )
-    fprintf( fid, '  %10.1f', 100*TP(j)/(TP(j)+FN(j)) );
+    fprintf( fid, '   %10.1f', 100*TP(j)/(TP(j)+FN(j)) );
   end
   fprintf( fid, '\n' );
   fprintf( fid, '%30s %4s   %2s','PPV',' ',' ');
   for j = 1:length( structures )
-    fprintf( fid, '  %10.1f%',100* TP(j)/(TP(j)+FP(j)));
+    fprintf( fid, '   %10.1f%',100* TP(j)/(TP(j)+FP(j)));
   end
   fprintf( fid, '\n' );  
 
