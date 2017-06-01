@@ -1,6 +1,17 @@
 function  [ stem_correspondence, num_extra_bps_added_to_stem, num_missing_bps_in_stem ] = find_shared_stems( native_stems, stems );
 %  [ stem_correspondence, num_extra_bps_added_to_stem, num_missing_bps_in_stem ] = find_shared_stems( native_stems, stems );
 %
+%  INPUTS:
+%  native_stems = cell of Nnative arrays defining each native stem, each [Nbp x 2]
+%  stems        = cell of Nmodel arrays defining each modeled stem, each [Nbp x 2]
+%
+%  OUTPUTS:
+%  stem_correspondence = for each of Nnative native_stems, index of match in stems
+%  num_extra_bps_added_to_stem = for each native_stem, num extra bps in
+%                                    modeled match  (-1 means no match)
+%  num_missing_bps_in_stem     = for each native_stem, num missing bps in
+%                                    modeled match  (-1 means no match)
+%
 
 if nargin == 0;  help( mfilename ); return; end;
 

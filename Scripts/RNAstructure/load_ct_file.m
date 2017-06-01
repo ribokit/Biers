@@ -8,101 +8,99 @@ function [structure,bpp] = load_ct_file( ct_file )
 %
 % (C) Das lab, Stanford University 2011-2015, 2017
 
+
+% initialize structure with '.'
+structure = '';
+for i = 1:nres; structure = [structure,'.']; end;
+left_delim  = '([{abcdefghijklmnopqrstuvwxyz';
+right_delim = ')]}abcdefghijklmnopqrstuvwxyz';
+if ( size( helix_map, 1 ) == 0 ) return; end;
+
+% read ct_file
 fid = fopen( ct_file );
 
 line = fgetl( fid );
 nres = str2num( strtok( line, ' ' ) );
 bpp = zeros( nres,nres );
 
-structure = '';
-partner_prv = 0;
-helix_l = 0;
 helix_map = [];
-helix_map_ct = 0;
 
-% initial fill-in of dot-parens with (,)
+% initial fill-in of helix_map whose rows are:
+%  begin-helix, end-helix, length of helix
+%  where begin-helix and end-helix are base paired.
+bps = [];
 for count = 1:nres;
     line = fgetl( fid );
-    
-    for j = 1:5;  [t,line] = strtok( line, ' ' ); end;
+        for j = 1:5;  [t,line] = strtok( line, ' ' ); end;
     partner = str2num( t );
-    
-    if abs(partner_prv - partner) == 1 && partner ~= 0;
-        helix_l = helix_l + 1;
-    elseif helix_l ~= 0 && partner_prv ~= 0;
-        if partner_prv >= count-1;
-            helix_map_ct = helix_map_ct + 1;
-            helix_map(helix_map_ct,:) = [count-1-helix_l,partner_prv+helix_l,helix_l+1];
-        end;
-        helix_l = 0;
-    end;
-    
-    if ( partner == 0 );
-        symbol = '.';
-    else
-        bpp( count, partner ) = 1.0;
-        if ( partner > count );
-            symbol = '(';
-        else
-            symbol = ')';
-        end;
-    end;
-    structure = [ structure, symbol ];
-    
-    partner_prv = partner;
-    
+    if partner ~= 0 & partner > count
+        bps = [bps;count, partner ];
+    end
 end;
-
-
 fclose( fid );
 
-% look for 'clashing' helices, replace smaller one with [,].
-% each helix is assigned clash score.
-clash_score = zeros(1,size(helix_map,1));
-for i = 1:size(helix_map,1)
-    for j = 1:size(helix_map,1)
-        % "crossing" base pairs
-        if (helix_map(i,1)<helix_map(j,1) && helix_map(i,2)<helix_map(j,2) && helix_map(i,2) > helix_map(j,1)) ...
-                || (helix_map(i,1)>helix_map(j,1) && helix_map(i,2)>helix_map(j,2) && helix_map(j,2) > helix_map(i,1))
-            clash_score(i) = clash_score(i)+1;
-        end;
+stems = parse_stems_from_bps( bps )
+for i = 1:length(stems)
+    stems{i}
+    helix_map = [helix_map; stems{i}(1,1), stems{i}(1,2), size( stems{i}, 1 ) ];
+end
+
+
+    
+% order helices by length
+[~,idx] = sort( helix_map(:,3) );
+idx = fliplr( idx );
+
+% "layers" are helices that can be connected by (), then by [], then by {},
+% then by aa, ...
+helix_layers = {};
+for n = 1:length( idx )
+    i = idx( n );
+    found_layer = 0;
+    test_helix = helix_map(i,:);
+    for j = 1:min(3,length(helix_layers))
+        if ( not_pseudoknotted( helix_layers{j}, test_helix ) )
+            helix_layers{j} = [ helix_layers{j}, test_helix ];
+            found_layer = 1;
+        end
+    end
+    if ( ~found_layer ) % new layer
+        helix_layers = [helix_layers, helix_map(i,:) ];
+    end
+end
+
+for j = 1:length( helix_layers )
+    helix_layer = helix_layers{j};
+    for i = 1:size( helix_layer, 1 )
+        structure = pk_bracket_substitute(structure, helix_layer(i,:), left_delim(j), right_delim(j) );
+    end
+end
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function ok = not_pseudoknotted( helix_layer, test_helix )
+
+ok = 1;
+for i = 1:size( helix_layer, 1 )
+    % "crossing" base pairs
+    if ( helix_layer(i,1) < test_helix(1) & ...
+         helix_layer(i,2) < test_helix(2) & ...
+         helix_layer(i,2) > test_helix(1) ) ...
+         | (helix_layer(i,1) > test_helix(1) & ...
+            helix_layer(i,2) > test_helix(2) & ...
+            test_helix(2) > helix_layer(i,1) )
+        ok = 0;
+        return;
     end;
 end;
 
-% go through each helix. if clashing, substitute with PK_bracket
-clash_score_flag = 0;
-for i = 1:length(clash_score)
-    if clash_score(i) > 1;
-        structure = pk_bracket_substitute(structure, helix_map(i,:));
-        clash_score_flag = 1;
-    end;
-end;
-
-% uh, what is this logic?
-if ~clash_score_flag && any(clash_score ~= 0);
-    clash_odd =[];
-    clash_odd_flag = 0;
-    for i = 1:length(clash_score)
-        if clash_score(i) == 1;
-            if clash_odd_flag == 0;
-                clash_odd_flag = 1;
-                clash_odd = [clash_odd, i];
-            else
-                clash_odd_flag = 0;
-            end;
-        end;
-    end;
-    for i = 1:length(clash_odd)
-        structure = pk_bracket_substitute(structure, helix_map(clash_odd(i),:));
-    end;
-end;
+return;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-function str_return = pk_bracket_substitute(str_input, helix_map_sub)
+function str_return = pk_bracket_substitute(str_input, helix_layer_sub, left_delim, right_delim)
 str_return = [...
-    str_input(1:(helix_map_sub(1)-1)), ...
-    repmat('[',1,helix_map_sub(3)), ...
-    str_input((helix_map_sub(1)+helix_map_sub(3)):(helix_map_sub(2)-helix_map_sub(3))),...
-    repmat(']',1,helix_map_sub(3)), ...
-    str_input((helix_map_sub(2)+1):end)];
+    str_input(1:(helix_layer_sub(1)-1)), ...
+    repmat(left_delim,1,helix_layer_sub(3)), ...
+    str_input((helix_layer_sub(1)+helix_layer_sub(3)):(helix_layer_sub(2)-helix_layer_sub(3))),...
+    repmat(right_delim,1,helix_layer_sub(3)), ...
+    str_input((helix_layer_sub(2)+1):end)];
 

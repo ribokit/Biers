@@ -1,23 +1,19 @@
 function structure = convert_bps_to_structure( bps, nres )
+% structure = convert_bps_to_structure( bps, nres )
+%
+%  Note: wraps around load_ct_file()
+%
+% INPUTS
+%  bps  = list of base pairs (i,j) (Nbp X 2 matrix )
+%
+%  (C) R. Das, Stanford University, 2009-2015, 2017
 
-% structure = repmat('.',1,nres);
+if ( nargin < 2 ) help( mfilename ); return; end;
 
-% for pseudoknot (pk) annotation
-% pk pairs are in the end of bps
-% bps_right_previous = 0;
-% pk_flag = 0;
-% 
-% for i = 1:size( bps, 1 )
-%     structure( bps(i,1) ) = '(';
-%     structure( bps(i,2) ) = ')';
-%     if bps_right_previous>bps(i,2) || bps_left_previous>bps(i,1)|| pk_flag;
-%         structure( bps(i,1) ) = '[';
-%         structure( bps(i,2) ) = ']';
-%         pk_flag = 1;
-%     end;
-%     
-%     bps_right_previous = bps(i,2);
-% end
+if length( bps ) > 0 & size( bps, 2 ) ~= 2
+    fprintf( 'bps must be Nbps x 2 array\n' );
+    return;
+end
 
 bps_all = zeros(nres,2);
 for i = 1:nres
