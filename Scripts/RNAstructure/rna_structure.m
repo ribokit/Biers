@@ -28,6 +28,7 @@ function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, off
 %
 
 if nargin == 0;  help( mfilename ); return; end;
+random_tag= num2str( randi( 1000000, 1 ) );
 
 if ~exist( 'area_shape','var' ); area_shape = []; end;
 if ~exist( 'area_dms','var' ); area_dms = []; end;
@@ -41,7 +42,7 @@ elseif model_pk == 1;
     fprintf('WARNING: ShapeKnots run is much slower than Fold!\n');
 end;
 if ~exist( 'maxdist','var' ); maxdist = 0; end;
-seq_file = 'tmp.seq';
+seq_file = ['tmp',random_tag,'.seq'];
 fid = fopen( seq_file, 'w' );
 fprintf( fid, ';\n' );
 fprintf( fid, 'default\n' );
@@ -56,10 +57,9 @@ nres = length( sequence );
 
 EX_file = '';
 if ~isempty( EX )
-  EX_file = 'tmp_EX.txt';
-  save 'tmp_EX.txt' -ascii EX;
+  EX_file = ['tmp',random_tag,'_EX.txt'];
+  save(EX_file, '-ascii','EX' );
 end
-
 
 SHAPE_out = [];
 
@@ -68,7 +68,7 @@ if ~isempty( area_shape )
   clf
   plot( seqpos, area_shape_norm ); 
   
-  SHAPE_file = ['tmp_SHAPE.txt'];
+  SHAPE_file = ['tmp',random_tag,'_SHAPE.txt'];
   fid = fopen( SHAPE_file, 'w' );
 
   SHAPE_out = nan * ones( 1, nres );
@@ -89,7 +89,7 @@ if ~isempty( area_dms )
   figure();clf;
   plot( seqpos, area_dms_norm ); 
   
-  DMS_file = ['tmp_DMS.txt'];
+  DMS_file = ['tmp',random_tag,'_DMS.txt'];
   fid = fopen( DMS_file, 'w' );
 
   DMS_out = nan * ones( 1, nres );
