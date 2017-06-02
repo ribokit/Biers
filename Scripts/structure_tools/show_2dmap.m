@@ -37,7 +37,7 @@ seqpos = [1:nres] + offset;
 gp = find( mod(seqpos,20) == 0 );
 set( gca,'xtick', gp, 'xticklabel',  seqpos( gp ), 'ytick', gp, 'yticklabel', seqpos( gp ) );
 set( gca,'xgrid','on','ygrid','on','fontsize',12,'fontweight','bold','xcolor',axiscolor,'ycolor',axiscolor );
-set( gca,'xticklabelrotation', 90 );
+xticklabel_rotate;
 hold on
 plot( [1:nres],[1:nres],axiscolor);
 hold off
