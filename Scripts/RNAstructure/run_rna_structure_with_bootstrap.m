@@ -11,7 +11,7 @@ if ~exist('DMS_file','var'); DMS_file = ''; end;
 
 
 [structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
-if exist( 'ct_file', 'var' )   & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
+if exist( 'ct_file', 'var' ) & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
 
 if NUM_BOOTSTRAP == 0; return; end;
 
@@ -138,13 +138,12 @@ else
 end;
 EXE = [get_exe_dir(), cmd];
 
-
 if ~isempty( EX_file )
-    ct_file = [ EX_file(end-6:end),'.temp.ct'];
+    ct_file = [ EX_file,'.temp.ct'];
 elseif ~isempty( SHAPE_file )
-    ct_file = [ SHAPE_file(end-6:end),'.temp.ct'];
+    ct_file = [ SHAPE_file,'.temp.ct'];
 else
-    ct_file = [ seq_file(end-6:end),'.temp.ct'];
+    ct_file = [ seq_file,'.temp.ct'];
 end
 
 if cmd_pk == 0;
@@ -186,11 +185,11 @@ function [structure, bpp, pfs_file, command  ] = run_vienna_with_EX_and_SHAPE( s
 EXE = 'python ../../../external/ViennaRNA-1.8.4/Utils/viennafold.py';
 
 if ~isempty( EX_file );
-    pfs_file = [ EX_file(end-6:end),'.temp.pfs'];
+    pfs_file = [ EX_file,'.temp.pfs'];
 elseif ~isempty( SHAPE_file )
-    pfs_file = [ SHAPE_file(end-6:end),'.temp.pfs'];
+    pfs_file = [ SHAPE_file,'.temp.pfs'];
 else
-    pfs_file = [ seq_file(end-6:end),'.temp.pfs'];
+    pfs_file = [ seq_file,'.temp.pfs'];
 end;
 
 command = [EXE,' ',seq_file,' ',pfs_file];% currently no temperature!!! ,' -T ',num2str( 273.15 + temperature, '%6.2f' ) ];

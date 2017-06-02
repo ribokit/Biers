@@ -1,9 +1,19 @@
 function show_2dmap( Z, structure, offset );
+% show_2dmap( Z, structure, offset );
 %
-% Pulled out of cluster_z_scores
+%   Makes plot of square matrix of scores, e.g., 
+%       -Z scores, base pair probabilities,
+%       or bootstrapping probabilities.
+%   Pulled out of cluster_z_scores
 %
+% INPUTS:
+% Z         = NxN square matrix of *positive* counts (you may need to 
+%               negate a Z-score matrix)
+% structure = structure string in dot parens notation -- will show up 
+%               as squares.
+% offset    = value to add to 1, 2, ... N to get conventional numbering
 %
-
+if nargin < 1; help( mfilename ); return; end;
 image( Z' );
 colormap( 1 - gray(100) );
 set_axes( Z, offset );

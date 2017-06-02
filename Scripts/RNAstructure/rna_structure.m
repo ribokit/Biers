@@ -14,7 +14,7 @@ function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, off
 % NUM_BOOTSTRAP     Optional            Number of bootstrap runs, in addition to run with original data. Default 0 (no bootstrap).
 % model_pk          Optional            RNAstructure executable flag: 0 for Fold, 1 for ShapeKnot. Default 0.
 % area_dms          Optional            1D bonus data for DMS
-% temperature      Optional            Folding temperature, use Celcius. Default 24.
+% temperature       Optional            Folding temperature, use Celsius. Default 24.
 % shape_intercept   Optional            1D bonus SHAPE intercept, default based on RNAstructure version
 % shape_slope       Optional            1D bonus SHAPE slope, default based on RNAstructrue version
 % maxdist           Optional            Max pairing distance, default none
