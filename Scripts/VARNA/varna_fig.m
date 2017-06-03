@@ -3,7 +3,9 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 %
 %  varna_fig(filename,sequence,structure,DATA,colorscheme,offset,special_base_pairs,special_colors, bpp_values, bpp_anchor_bases)
 %
-% filename  = output filename [e.g., 'my_rna_in_varna.eps']
+% filename  = output filename [end in '.eps','.png','.svg']. PNG files will
+%              display in MATLAB. Default is [], which is interpreted as
+%              /tmp/tmp.png.
 % sequence  = RNA sequence
 % structure = structure in dot/bracket notation. length should match sequence.
 %
@@ -20,8 +22,8 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 % (C) C.C. VanLang, P. Cordero 2010
 % (C) S. Tian, 2016
 
-if nargin == 0; help(mfilename); return; end;
-
+if nargin < 3; help(mfilename); return; end;
+if isempty( filename ); filename = '/tmp/tmp.png'; end;
 if ~exist('colorscheme', 'var'); colorscheme = 1; end;
 
 if ~isempty(DATA)
@@ -159,6 +161,13 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
     if ( returncode == 0 & ~is_tmp_file & system( 'which open > /dev/null' ) == 0 ) ;
         system( ['open ', filename ] ); 
     end;
+    
+    % show .png in matlab
+    if ( length(filename) > 4 & strcmp(filename(end-3:end),'.png') )  
+        fprintf( 'Displaying PNG in MATLAB\n' );
+        imshow( imread( filename ) );
+    end
+    
 else
     
     % Old HTML-based output -- as of 2017, no Web browsers allow for Java to run in browser, so this should be deprecated soon.
