@@ -1,4 +1,4 @@
-function show_2dmap( Z, structure, offset );
+function show_2dmap( Z, structure, offset, maxZ, show_colorbar );
 % show_2dmap( Z, structure, offset );
 %
 %   Makes plot of square matrix of scores, e.g., 
@@ -12,12 +12,35 @@ function show_2dmap( Z, structure, offset );
 % structure = structure string in dot parens notation -- will show up 
 %               as squares.
 % offset    = value to add to 1, 2, ... N to get conventional numbering
+% maxZ      = [optional] maximum value of Z to show (default is [], no
+%              scaling)
+% show_colorbar = show colorbar to side (default 0).
 %
 if nargin < 1; help( mfilename ); return; end;
-image( Z' );
-colormap( 1 - gray(100) );
+if ( size( Z, 1 ) ~= size( Z, 2 ) ); 
+    if size( Z, 1 ) == size( Z, 2 ) + 1;
+        Z = Z(:,2:end);
+        fprintf( 'Warning: assuming you have an M2 file, but need a square plot. Not showing wild type!' );
+    else
+        fprintf( 'Z needs to be square' );
+        return;
+    end
+end
+if ~exist( 'maxZ' ) || isempty( maxZ );
+    image( Z' );
+    maxZ = 100;
+else
+    if ( maxZ < 0 ); Z = -Z; maxZ = -maxZ; end;
+    imagesc( Z', [0, maxZ] );
+end
+
+colormap(gca,  1 - gray(100) );
 set_axes( Z, offset );
 show_bps( structure );
+if show_colorbar
+    h = colorbar;
+    set( h,'ticks',[0, maxZ]);
+end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function show_bps( structure, USE_DOTS );
@@ -52,6 +75,6 @@ hold on
 plot( [1:nres],[1:nres],axiscolor);
 hold off
 set(gcf,'color','white');
-xlabel( 'Sequence Position' );
+xlabel( 'Mapped Position' );
 ylabel( 'Mutation Position' );
 axis image;
