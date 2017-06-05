@@ -59,57 +59,57 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
         return;
     end;
     
-    command = ['java -cp ',VARNA_DIR,VARNA_JAR,' fr.orsay.lri.varna.applications.VARNAcmd' ];
-    command = [command, ' -sequenceDBN ', sequence];
-    command = [command, ' -structureDBN "', structure,'"'];
-    command = [command, ' -algorithm radiate'];
+    command = ['java -cp ',VARNA_DIR,VARNA_JAR,' fr.orsay.lri.varna.applications.VARNAcmd', ' \\\n' ];
+    command = [command, ' -sequenceDBN ', sequence, ' \\\n'];
+    command = [command, ' -structureDBN "', structure,'"', ' \\\n'];
+    command = [command, ' -algorithm radiate', ' \\\n'];
     
     if ~isempty(DATA);
         command = [command, ' -colorMap "'];
         for i = 1:length(reactivity);
             command = [command,sprintf('%6.3f;', reactivity(i)) ];
         end;
-        command = [ command, '"'];
+        command = [ command, '"', ' \\\n'];
     end
     
      if exist('reactivity', 'var');
          switch colorscheme
              case 0 % previous default
-                 command = [ command, ' -colorMapStyle "0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000"' ];
+                 command = [ command, ' -colorMapStyle "0:#0000FF;10:#0000FF;40:#FFFFFF;60:#FFFFFF;90:#FF0000;100:#FF0000"', ' \\\n' ];
              case 1 % new default
-                 command = [ command, ' -colorMapStyle "-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000"' ];
+                 command = [ command, ' -colorMapStyle "-0.01:#B0B0B0;0:#0000FF;1:#FFFFFF;2:#FF0000"', ' \\\n' ];
              case 2 % white orange to red
                  % slight pain because of VARNA rescaling:
                  if (sum( reactivity < 0 ) > 0)
-                     command = [ command, ' -colorMapStyle "-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000"' ];
+                     command = [ command, ' -colorMapStyle "-0.001:#C0C0C0,0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000"', ' \\\n' ];
                  else
-                     command = [ command, ' -colorMapStyle "0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000"' ];
+                     command = [ command, ' -colorMapStyle "0:#FFFFFF;0.1:#FFFFFF,0.8:#FF8800;1:#FF0000"', ' \\\n' ];
                  end
             case 3 % blue to white to yellow
                 % slight pain because of VARNA rescaling:
                 if (sum( reactivity < 0 ) > 0);
-                    command = [ command, ' -colorMapStyle "-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00"' ];
+                    command = [ command, ' -colorMapStyle "-0.001:#B0B0B0,0:#0000FF;0.5:#FFFFFF;1:#FFFF00"', ' \\\n' ];
                 else
-                    command = [ command, ' -colorMapStyle "0:#FFFFFF;,0.5:#2222FF;1:#0000FF"' ];
+                    command = [ command, ' -colorMapStyle "0:#FFFFFF;,0.5:#2222FF;1:#0000FF"', ' \\\n' ];
                 end;
         end;
     end;
     
-    command = [command, ' -bpStyle lw'];
-    command = [command, ' -baseInner "#FFFFFF"'];
-    command = [command, ' -baseOutline "#FFFFFF"'];
-    command = [command, ' -bp "#000000"'];
-    command = [command, ' -spaceBetweenBases 0.6'];
-    command = [command, ' -flat false'];
+    command = [command, ' -bpStyle lw', ' \\\n'];
+    command = [command, ' -baseInner "#FFFFFF"', ' \\\n'];
+    command = [command, ' -baseOutline "#FFFFFF"', ' \\\n'];
+    command = [command, ' -bp "#000000"', ' \\\n'];
+    command = [command, ' -spaceBetweenBases 0.6', ' \\\n'];
+    command = [command, ' -flat false', ' \\\n'];
     if ~is_tmp_file
         titlename = filename;
         dots = strfind(titlename,'.');
         if ~isempty(dots);  titlename = titlename( 1: dots(end)-1 ); end;
-        command = [command, ' -title ',titlename ];
-        command = [command, ' -titleColor "#000000"'];
-        command = [command, ' -titleSize 20'];
+        command = [command, ' -title ',titlename, ' \\\n' ];
+        command = [command, ' -titleColor "#000000"', ' \\\n'];
+        command = [command, ' -titleSize 20', ' \\\n'];
     end
-    command = [command, ' -colorMapCaption Reactivity'];
+    command = [command, ' -colorMapCaption Reactivity', ' \\\n'];
         
     if exist('special_base_pairs', 'var') & length( special_base_pairs ) > 0 & length( special_base_pairs{1} ) > 0;
         command = [command, ' -auxBPs "'];         
@@ -120,12 +120,12 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
                 command = [command, sprintf('(%d,%d):thickness=3,color=#%6s;', special_base_pair_set(k, 1), special_base_pair_set(k, 2), hex_color) ];
             end;
         end;    
-        command = [command, '"'];         
+        command = [command, '"', ' \\\n'];         
     end
     
     if exist('offset', 'var');
-        command = [command, ' -baseNum "#FFFFFF"'];
-        command = [command, ' -periodNum 1000'];
+        command = [command, ' -baseNum "#FFFFFF"', ' \\\n'];
+        command = [command, ' -periodNum 1000', ' \\\n'];
     end;
 
     if (exist('offset', 'var') | exist('bpp_values', 'var'))
@@ -148,15 +148,15 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
                 command = [command, sprintf('%3.0f%%:type=L,anchor=%d,color=#009000,size=9;', 100 * bpp_values(i), bpp_anchor_bases(i) )];
             end;
         end;        
-        command = [command,'"'];
+        command = [command,'"', ' \\\n'];
     end
 
-    command = [command, ' -flat true' ];
-    command = [command, ' -resolution 4.0'];
+    command = [command, ' -flat true', ' \\\n' ];
+    command = [command, ' -resolution 4.0', ' \\\n'];
     command = [command, ' -o ',filename];
 
-    fprintf( [command , '\n'] );
-    returncode = system( command );
+    fprintf( [strrep(command, '%:', '%%:'), '\n'] );
+    returncode = system( strrep(command, ' \\\n', '') );
 
     if ( returncode == 0 & ~is_tmp_file & system( 'which open > /dev/null' ) == 0 ) ;
         system( ['open ', filename ] ); 
