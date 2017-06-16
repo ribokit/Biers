@@ -106,33 +106,27 @@ Z4 = Z3.*tril(ends_helix{ opts.minimum_helix_length });
 Z5 = Z4;
 Z5( ~circshift(Z4,[-1, 1]) & ~circshift(Z4,[1, -1]) ) = 0;
 
+% reconnect domains that might be separated by one helix bp.
+Z5B = ends_helix{opts.minimum_helix_length}  .* min( circshift( Z5, [-1 1] ), circshift( Z5, [1 -1] ) );
+Z6 = max( Z5B, Z5 );
+
 % filter so that no position has more than one partner.
-[m,idx] = sort( Z5(:) );
-Z6 = 0*Z5;
+[m,idx] = sort( Z6(:) );
+Z7 = 0*Z6;
 used = zeros( 1, L );
 for q = fliplr(idx')
-    [i,j] = ind2sub( size(Z5), q );
+    [i,j] = ind2sub( size(Z6), q );
     if ( ~used( i ) & ~used( j ) )
-        Z6(i,j) = Z5(i,j); used(i) = 1; used(j) = 1;
+        Z7(i,j) = Z6(i,j); used(i) = 1; used(j) = 1;
     end
 end
 
 % filter singlets again
-Z7 = Z6;
-Z7( ~circshift(Z7,[-1, 1]) & ~circshift(Z7,[1, -1]) ) = 0;
+Z8 = Z7;
+Z8( ~circshift(Z8,[-1, 1]) & ~circshift(Z8,[1, -1]) ) = 0;
 
-
-%subplot(1,2,1);
-show_2dmap( 200*Z7, structure, offset );
-
-%hold on; plot( sum(how_competitive) ); plot( sum(how_competitive') ); hold off;
-% apply 'smooth' filter to identify less punctate helices.
-%Y = -Zmask;
-%Y2 = smooth2d(Y,5);
-%subplot(1,2,2);
-%show_2dmap( 50*Y2, structure, offset );
-
-Zfinal = Z7;
+Zfinal = Z8;
+show_2dmap( Zfinal, structure, offset, 0.5);
 
 % convert to structure in dot-parens notation
 [ix,jx] = ind2sub( size( Zfinal ), find( Zfinal' > 0 ) );
