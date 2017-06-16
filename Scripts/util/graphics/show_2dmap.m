@@ -33,6 +33,7 @@ else
     if ( maxZ < 0 ); Z = -Z; maxZ = -maxZ; end;
     imagesc( Z', [0, maxZ] );
 end
+if ~exist( 'show_colorbar', 'var' ); show_colorbar = 0; end;
 
 colormap(gca,  1 - gray(100) );
 set_axes( Z, offset );

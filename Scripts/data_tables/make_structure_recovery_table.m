@@ -57,6 +57,7 @@ for i = 1:length( RNA_tags )
       tail_pos = find( lower(sequence) == sequence );
   end
   native_stems = filter_stems( native_stems, tail_pos );
+  native_stems = filter_minimum_length( native_stems, minimum_stem_length );
 
   num_res_no_tails(i) = length(all_native_structure{i})-length(tail_pos);
   for j = 1:length( structures )
@@ -85,8 +86,16 @@ for i = 1:length( RNA_tags )
     % Look for false positives:
     correspondence_to_native = find_shared_stems( stems, native_stems_all );
     all_correspondence_to_native{i}{j} = correspondence_to_native;
-
     num_false_prediction_stems = length( find( correspondence_to_native == 0 ) );
+    if  ( length( find( correspondence_to_native ~= 0 ) ) ~= length( unique( correspondence_to_native( find( correspondence_to_native ~= 0 ) ) ) ) ) 
+        %RNA_tags{i}
+        %i
+        %correspondence_to_native
+        %length( find( correspondence_to_native ~= 0 ) )
+        %length( unique( correspondence_to_native ) )-1
+    %error( 'found issue' );
+    end
+    
     all_num_false_prediction_stems(i,j) = num_false_prediction_stems;
 
   end
