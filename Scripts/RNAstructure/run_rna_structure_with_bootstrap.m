@@ -11,8 +11,13 @@ if ~exist('DMS_file','var'); DMS_file = ''; end;
 
 
 [structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
-if exist( 'ct_file', 'var' ) & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
+%if exist( 'ct_file', 'var' ) & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
 
+if length( structure ) == 0;
+    for i = 1:nres; structure = [structure, '.']; end;
+    bpp = zeros(nres,nres);
+end
+    
 if NUM_BOOTSTRAP == 0; return; end;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -173,7 +178,11 @@ end
 
 fprintf( 'COMMAND:   %s\n',command )
 system( command );
-[structure, bpp] = load_ct_file( ct_file );
+if exist( ct_file, 'file' )
+    [structure, bpp] = load_ct_file( ct_file );
+else
+    structure = ''; bpp = [];
+end
 
 %system( ['rm ',ct_file ] );
 

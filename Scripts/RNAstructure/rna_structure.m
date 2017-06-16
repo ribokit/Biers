@@ -32,10 +32,10 @@ random_tag= num2str( randi( 1000000, 1 ) );
 
 if ~exist( 'area_shape','var' ); area_shape = []; end;
 if ~exist( 'area_dms','var' ); area_dms = []; end;
-if ~exist( 'offset','var' ); offset = 0; end;
-if ~exist( 'seqpos','var' ); seqpos = 0; end;
+if ~exist( 'offset','var' ) | isempty( offset ); offset = 0; end;
+if ~exist( 'seqpos','var' ) | isempty( seqpos ); seqpos = [1:length(sequence)]; end;
 if ~exist( 'EX','var' ); EX = []; end;
-if ~exist( 'NUM_BOOTSTRAP','var' ); NUM_BOOTSTRAP = 0; end;
+if ~exist( 'NUM_BOOTSTRAP','var' ) | isempty( NUM_BOOTSTRAP ); NUM_BOOTSTRAP = 0; end;
 if ~exist( 'model_pk','var') || isempty(model_pk); 
     model_pk = 0; 
 elseif model_pk == 1;
@@ -86,7 +86,7 @@ end
 
 if ~isempty( area_dms )
   area_dms_norm = area_dms; %SHAPE_normalize( area_shape );
-  figure();clf;
+  %figure();clf;
   plot( seqpos, area_dms_norm ); 
   
   DMS_file = ['tmp',random_tag,'_DMS.txt'];
