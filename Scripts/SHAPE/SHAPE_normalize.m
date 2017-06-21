@@ -7,6 +7,9 @@ function [d_norm, scalefactor, cap_value ] = SHAPE_normalize( d_for_scalefactor 
 %      take that instead.
 %  -- scalefactor is mean of top 10th percentile of values, but removing values above that filter.
 %
+%  Works for DMS too if the input profile has NaN's for positions to ignore.
+% 
+% (C) Das lab, Stanford University, 2009, 2012, 2017.
 
 if nargin == 0;  help( mfilename ); return; end;
 
