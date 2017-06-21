@@ -1,10 +1,12 @@
 function show_recovered_helices( native_structure, structure, offset, sequence, Z, nt_labels, which_subplots, tag );
-% show_recovered_helices( native_structure, structure, Z );
+% show_recovered_helices( native_structure, structure, offset, sequence, Z, nt_labels, which_subplots, tag );
 %
 %  Plotting function that shows helix recovery on both a 2D map (left)
 %    and a secondary structure (right).
 %
-%  Tries to be smart about where to apply nucleotide labels
+%  Tries to be smart about where to apply nucleotide labels (nt_labels).
+%
+%  NOTE: Smooths 2d Z-scores for visualization! 
 %
 % INPUTS
 %  native_structure = native (reference) structure in dot-parens notation
@@ -16,6 +18,7 @@ function show_recovered_helices( native_structure, structure, offset, sequence, 
 %  nt_labels        = cell of labels for particular nts in helices, like { {149,'P5b'},... };
 %  which_subplots   = two triplets defining MATLAB subplot locations (default: [] is left and right panel)
 %
+% (C) R. Das, Stanford University, June 2017
 
 % figure out matches to native structure
 native_stems  = parse_stems( native_structure );
@@ -36,6 +39,8 @@ if ~exist( 'Z' ) | isempty( Z )
             Z( stem(j,2), stem(j,1) ) = 1;
         end
     end
+else
+    Z = smooth2d( Z );
 end
 show_2dmap( Z+0.5, '', offset, -2 )
 set(gca,'xgrid','off','ygrid','off' );
