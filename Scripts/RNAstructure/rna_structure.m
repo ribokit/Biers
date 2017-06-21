@@ -46,7 +46,7 @@ seq_file = ['tmp',random_tag,'.seq'];
 fid = fopen( seq_file, 'w' );
 fprintf( fid, ';\n' );
 fprintf( fid, 'default\n' );
-fprintf( fid, '%s1\n',sequence );
+fprintf( fid, '%s1\n',upper(sequence) );
 fclose( fid );
 
 area_shape( find( isnan( area_shape ) ) ) = -999;
@@ -86,8 +86,8 @@ end
 
 if ~isempty( area_dms )
   area_dms_norm = area_dms; %SHAPE_normalize( area_shape );
-  %figure();clf;
-  plot( seqpos, area_dms_norm ); 
+  gp = find( area_dms_norm >= 0 ); % neg. values are filtered out in RNAstructure.
+  plot( seqpos( gp ), area_dms_norm( gp ) ); 
   
   DMS_file = ['tmp',random_tag,'_DMS.txt'];
   fid = fopen( DMS_file, 'w' );
