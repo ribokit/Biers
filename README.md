@@ -19,7 +19,7 @@ To install **Biers**, simply:
 
 - Download the zip or tar file of the repository and unpack; or 
 ```bash
-git clone https://github.com/DasLab/Biers.git
+git clone https://github.com/ribokit/Biers.git
 ```
 
 - In *MATLAB*, go to "**Set Path**". Then "**Add with Subfolders**" of the target `path/to/Biers/Scripts/`.
@@ -28,13 +28,14 @@ git clone https://github.com/DasLab/Biers.git
 
 ## Usage 
 
-Documentation (*MATLAB* tutorial) is available at https://daslab.github.io/Biers/.
+Documentation (*MATLAB* tutorial) is available at https://ribokit.github.io/Biers/.
 
 ## License
 
-Copyright &copy; of **Biers** _Source Code_ is described in [LICENSE.md](https://github.com/DasLab/Biers/blob/master/LICENSE.md).
+Copyright &copy; of **Biers** _Source Code_ is described in [LICENSE.md](https://github.com/ribokit/Biers/blob/master/LICENSE.md).
 
-<br/>
+<hr/>
+
 Developed by **Das lab**, _Leland Stanford Junior University_.
-<br/>
-README by [**t47**](http://t47.io/), *April 2016*. Updated, Rhiju Das, 2017.
+
+README by [**t47**](https://t47.io/), *April 2016*. Updated, Rhiju Das, 2017.
