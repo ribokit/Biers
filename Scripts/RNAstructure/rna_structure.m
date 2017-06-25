@@ -130,6 +130,6 @@ if exist( 'seq_file', 'var' )   & length( seq_file ) > 0   & exist( seq_file, 'f
 
 % beep notice when finished
 fprintf( [structure, '\n'] );
-gong;
+if exist( 'gong', 'file' ); gong; end; % HiTRACE addition.
 
 
