@@ -1,9 +1,0 @@
-function EXE_DIR = get_exe_dir()
-
-% make sure to change EXE_DIR to your local path
-% the following line is just a dummy path
-% it is used to locate the RNAstructure executables, e.g. Fold and ShapeKnot
-
-% use full path, e.g. "/User/yourname/Desktop/RNAstructure/exe/", with trailing slash
-
-EXE_DIR = '/path/to/RNAstructure/exe/';
