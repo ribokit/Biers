@@ -1,5 +1,5 @@
 function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases, extra_annotations )
-% VARNA_FIG: Create html file with secondary structure -- double click to get VARNA visualizer in a web browser
+% VARNA_FIG: Create image file with secondary structure -- double click to get VARNA visualizer in a web browser
 %
 %  varna_fig(filename,sequence,structure,DATA,colorscheme,offset,special_base_pairs,special_colors, bpp_values, bpp_anchor_bases)
 %
@@ -50,7 +50,7 @@ if exist('special_base_pairs', 'var');
     end;
 end
 
-if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html') 
+if length( filename ) < 5 | ~strcmp( filename( end-4:end), '.html') 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % now standard mode -- use command-line interface into VARNA.jar
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
@@ -175,13 +175,14 @@ if length( filename ) < 5 | ~strcmp( filename( end-5:end), '.html')
     end;
     
     % show .png in matlab
-    if ( length(filename) > 4 & strcmp(filename(end-3:end),'.png') )  
+    [dirname,basename,ext] = fileparts( filename );
+    if ( strcmp(ext,'png') )  
         fprintf( 'Displaying PNG in MATLAB\n' );
         imshow( imread( filename ) );
     end
 
     % will display interactive VARNA
-    % if ( is_tmp_file )  returncode = system( [strrep(command_without_output, ' \\\n', ''), ' &' ] ); end;
+    if ( length( ext ) == 0 ) returncode = system( [strrep(command_without_output, ' \\\n', ''), ' &' ] ); end;
 
 else
     
@@ -297,6 +298,8 @@ else
     fprintf(fid, '%s\n', '</applet></BODY></HTML>');
 
     fclose(fid);
+    
+    fprintf( '\n\nYou probably will not be able to run the HTML version of VARNA -- no Web browser supports it anymore!\nInstead, rerun with .html in the name of your file, and you will get an interactive version of VARNA.\nOr use .jpg or .png as the file extension.\n' );
 end
 
 return
