@@ -299,7 +299,7 @@ else
 
     fclose(fid);
     
-    fprintf( '\n\nYou probably will not be able to run the HTML version of VARNA -- no Web browser supports it anymore!\nInstead, rerun with .html in the name of your file, and you will get an interactive version of VARNA.\nOr use .jpg or .png as the file extension.\n' );
+    fprintf( '\n\nYou probably will not be able to run the HTML version of VARNA -- no Web browser supports it anymore!\nInstead, rerun without .html in the name of your file, and you will get an interactive version of VARNA.\nOr use .jpg or .png as the file extension.\n' );
 end
 
 return
