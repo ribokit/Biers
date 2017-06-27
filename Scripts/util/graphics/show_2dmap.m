@@ -65,6 +65,7 @@ hold off
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function set_axes( d, offset, axiscolor )
+
 if ~exist( 'axiscolor' );  axiscolor = 'k'; end;
 nres = length( d );
 seqpos = [1:nres] + offset;
