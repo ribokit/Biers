@@ -2,7 +2,7 @@ function [bpp, structure, ct_file, command ] = run_rna_structure_with_bootstrap(
     temperature, experimental_offset, zscore_scaling, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file )
 % run_rna_structure_with_bootstrap( NUM_BOOTSTRAP, seq_file, bps, offset, nres, EX_file, SHAPE_file, temperature, experimental_offset, zscore_scaling, shape_intercept, shape_slope, USE_VIENNA, maxdist );
 %
-% make sure to set your path in get_exe_dir.m
+% make sure to set your path in get_RNAstructure_exe_dir.m
 %
 
 if ~exist( 'maxdist','var' ); maxdist = 0; end;
@@ -71,7 +71,7 @@ copyfile( seq_file, seq_file_boot );
 [ structure_boot, bpp_boot, ct_file ] = run_rna_structure_with_EX_and_SHAPE( seq_file_boot, temperature, experimental_offset, zscore_scaling, EX_file_boot, SHAPE_file_boot, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file_boot );
 
 if ~isempty(EX_file_boot)    & exist( EX_file_boot, 'file' );   delete( EX_file_boot ); end
-if ~isempty(SHAPE_file_boot) & exist( EX_file_boot, 'file' );   delete( SHAPE_file_boot ); end
+if ~isempty(SHAPE_file_boot) & exist( SHAPE_file_boot, 'file' );   delete( SHAPE_file_boot ); end
 if ~isempty(DMS_file_boot)   & exist( DMS_file_boot, 'file');   delete( DMS_file_boot ); end
 delete( seq_file_boot );
 delete( ct_file );
@@ -145,7 +145,7 @@ if cmd_pk == 0;
 else
     cmd = 'ShapeKnots';
 end;
-EXE = [get_exe_dir(), cmd];
+EXE = [get_RNAstructure_exe_dir(), cmd];
 
 % seq_file must have a unique name -- hopefully has tmp1234_ and boot52_
 % tags.

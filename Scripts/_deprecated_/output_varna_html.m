@@ -4,7 +4,7 @@ function [special_base_pairs, special_colors] = output_varna_html(varna_file, se
 %                               offset, mutpos, crystpos, shape, bpp, color_mode); 
 %
 % Generate HTML file with VARNA applet for RNA secstr visualziation.
-% **Make sure to set your path in get_varna.m
+% **Make sure to set your path in get_varna_exe.m
 %
 % [Input]
 % varna_file            Required            File name (must end in: .html)                                                          .png

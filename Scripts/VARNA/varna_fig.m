@@ -3,9 +3,12 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 %
 %  varna_fig(filename,sequence,structure,DATA,colorscheme,offset,special_base_pairs,special_colors, bpp_values, bpp_anchor_bases)
 %
-% filename  = output filename [end in '.eps','.png','.svg']. PNG files will
-%              display in MATLAB. Default is [], which is interpreted as
-%              /tmp/tmp.png.
+% filename  = output filename 
+%              If filename is given without extension, will display in
+%               interactive VARNA viewer.
+%              Alternatively, filename can end in '.png','.jpg','.svg','.eps'. 
+%              PNG/JPG files will display in MATLAB. 
+%              Default is [], which is interpreted as /tmp/tmp.png. 
 % sequence  = RNA sequence
 % structure = structure in dot/bracket notation. length should match sequence.
 %
@@ -49,16 +52,18 @@ if exist('special_base_pairs', 'var');
         fprintf('Must specify a special_color for each special_base_pair set\n');
     end;
 end
+if exist('extra_annotations', 'var'); extra_annotations = []; end;
 
-if length( filename ) < 5 | ~strcmp( filename( end-4:end), '.html') 
+[dirname,basename,ext] = fileparts( filename );
+if ~strcmp( ext, '.html') 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % now standard mode -- use command-line interface into VARNA.jar
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%    
-    [VARNA_DIR, VARNA_JAR] = get_varna();
+    [VARNA_DIR, VARNA_JAR] = get_varna_exe();
     if ~exist( [VARNA_DIR,VARNA_JAR], 'file' ); 
         fprintf( ['Cannot find: ',VARNA_DIR,VARNA_JAR,'\n' ] );
         scripts_dir = fileparts( fileparts( which( 'varna_fig.m') ) );
-        fprintf( ['Please update ',scripts_dir,'/get_varna.m based on ',scripts_dir,'/get_varna.m.example\n' ]);
+        fprintf( ['Please update ',scripts_dir,'/get_varna_exe.m based on ',scripts_dir,'/get_varna_exe.m.example\n' ]);
         return;
     end;
     
@@ -105,9 +110,7 @@ if length( filename ) < 5 | ~strcmp( filename( end-4:end), '.html')
     command = [command, ' -spaceBetweenBases 0.6', ' \\\n'];
     command = [command, ' -flat false', ' \\\n'];
     if ~is_tmp_file
-        titlename = filename;
-        dots = strfind(titlename,'.');
-        if ~isempty(dots);  titlename = titlename( 1: dots(end)-1 ); end;
+        titlename = basename;
         command = [command, ' -title ',titlename, ' \\\n' ];
         command = [command, ' -titleColor "#000000"', ' \\\n'];
         command = [command, ' -titleSize 20', ' \\\n'];
@@ -166,31 +169,32 @@ if length( filename ) < 5 | ~strcmp( filename( end-4:end), '.html')
     command = [command, ' -resolution 4.0', ' \\\n'];
     command_without_output = command;
     command = [command, ' -o ',filename];
-
-    fprintf( [strrep(command, '%:', '%%:'), '\n'] );
-    returncode = system( strrep(command, ' \\\n', '') );
-
-    if ( returncode == 0 & ~is_tmp_file & system( 'which open > /dev/null' ) == 0 ) ;
-        system( ['open ', filename ] ); 
-    end;
     
-    % show .png in matlab
-    [dirname,basename,ext] = fileparts( filename );
-    if ( strcmp(ext,'png') )  
-        fprintf( 'Displaying PNG in MATLAB\n' );
-        imshow( imread( filename ) );
+    %fprintf( [strrep(command, '%:', '%%:'), '\n'] );
+    
+    % display interactive VARNA if no extension
+    if ( length( ext ) == 0 )
+        returncode = system( [strrep(command_without_output, ' \\\n', ''), ' &' ] );
+    else
+        returncode = system( strrep(command, ' \\\n', '') );
+        if ( returncode == 0 )
+            % show .png or .jpg in matlab
+            if ( strcmp(ext,'.png') | strcmp(ext,'.jpg')  )
+                fprintf( 'Displaying image in MATLAB\n' );
+                imshow( imread( filename ) );
+            else if ( ~is_tmp_file & system( 'which open > /dev/null' ) == 0 )
+                    system( ['open ', filename ] );
+                end;
+            end
+        end
     end
-
-    % will display interactive VARNA
-    if ( length( ext ) == 0 ) returncode = system( [strrep(command_without_output, ' \\\n', ''), ' &' ] ); end;
-
 else
-    
+        
     % Old HTML-based output -- as of 2017, no Web browsers allow for Java to run in browser, so this should be deprecated soon.
     fid = fopen(filename,'w');
     
     vers = 1;
-    [VARNA_DIR, VARNA_JAR] = get_varna();
+    [VARNA_DIR, VARNA_JAR] = get_varna_exe();
     
     fprintf(fid, '%s\n', '<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></HEAD><BODY>');
     fprintf(fid, '%s%s%s%s%s\n', '<APPLET code="VARNA.class" codebase="', VARNA_DIR, '" archive="', VARNA_JAR, '" width="1200" height="1200">');
@@ -299,7 +303,16 @@ else
 
     fclose(fid);
     
-    fprintf( '\n\nYou probably will not be able to run the HTML version of VARNA -- no Web browser supports it anymore!\nInstead, rerun without .html in the name of your file, and you will get an interactive version of VARNA.\nOr use .jpg or .png as the file extension.\n' );
+    fprintf( '\n\nYou probably will not be able to run the HTML version of VARNA -- no Web browser supports it anymore!\nInstead, rerunning now without .html in the name of your file, and you will get an interactive version of VARNA.\nOr use .jpg or .png as the file extension.\n' );
+    new_filename = [dirname,'/',basename];
+    if ~exist('bpp_values', 'var') bpp_values = []; end;
+    if ~exist('bpp_anchor_bases', 'var') bpp_anchor_bases = []; end;
+    if ~exist('special_base_pairs', 'var') special_base_pairs = []; end;
+    if ~exist('special_colors', 'var') special_colors= []; end;
+    if ~exist('offset', 'var'); offset = 0; end;
+    if ~exist('extra_annotations', 'var'); extra_annotations = []; end;
+    varna_fig(new_filename, sequence, structure, DATA, colorscheme, offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases, extra_annotations )
+    
 end
 
 return

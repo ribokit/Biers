@@ -1,4 +1,4 @@
-function EXE_DIR = get_exe_dir()
+function EXE_DIR = get_RNAstructure_exe_dir()
 
 % make sure to change EXE_DIR to your local path
 % the following line is just a dummy path

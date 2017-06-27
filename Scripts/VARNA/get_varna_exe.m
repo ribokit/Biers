@@ -1,4 +1,4 @@
-function [VARNA_DIR, VARNA_JAR] = get_varna()
+function [VARNA_DIR, VARNA_JAR] = get_varna_exe()
 %
 % Supplies local path, e.g. "/Users/yourname/src/VARNA.jar", based on
 % enironment variable $VARNA.
