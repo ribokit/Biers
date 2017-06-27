@@ -3,7 +3,8 @@ function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, off
 %                                               area_dms, temperature, shape_intercept, shape_slope, maxdist);
 %
 % Run RNAstructure data-drive secstr prediction with bootstrapping.
-% **Make sure to set your path in get_exe_dir.m
+% **Make sure to set environment variable DATAPATH in your .bashrc to RNAstructure, and 
+%        launch MATLAB from the terminal **
 %
 % [Input]
 % sequence          Required            RNA sequence
@@ -24,8 +25,7 @@ function [structure, bpp, SHAPE_out ] = rna_structure( sequence, area_shape, off
 % bpp               Base-pairing probability matrix, summarized from bootstraping runs into percentages.
 % SHAPE_out         Filtered 1D bonus data
 %
-% by T47, 2015
-%
+% (C) T47, 2015, R. Das, 2017
 
 if nargin == 0;  help( mfilename ); return; end;
 random_tag= num2str( randi( 1000000, 1 ) );
@@ -84,6 +84,8 @@ else
   SHAPE_file = '';
 end
 
+% this should be combined with above SHAPE block in a separate function
+% call.
 if ~isempty( area_dms )
   area_dms_norm = area_dms; %SHAPE_normalize( area_shape );
   gp = find( area_dms_norm >= 0 ); % neg. values are filtered out in RNAstructure.

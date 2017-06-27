@@ -9,9 +9,8 @@ if ~exist( 'maxdist','var' ); maxdist = 0; end;
 if ~exist('cmd_pk','var'); cmd_pk = 0; end;
 if ~exist('DMS_file','var'); DMS_file = ''; end;
 
-
 [structure, bpp, ct_file, command ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
-%if exist( 'ct_file', 'var' ) & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
+if exist( 'ct_file', 'var' ) & length( ct_file ) > 0   & exist( ct_file, 'file' );   delete( ct_file ); end;
 
 if length( structure ) == 0;
     for i = 1:nres; structure = [structure, '.']; end;
@@ -24,10 +23,10 @@ if NUM_BOOTSTRAP == 0; return; end;
 % boostrap loop.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 all_bpp = zeros( nres, nres, NUM_BOOTSTRAP );
-for i = 1:NUM_BOOTSTRAP;   structure_boot{i} = ''; end
+for i = 1:NUM_BOOTSTRAP; structure_boot{i} = ''; end
 
-% this is set up to work with the Matlab parallelization toolbox.
-if (exist( 'parpool' ) | exist( 'matlabpool' )) & parallelization_exists()
+if NUM_BOOTSTRAP > 1 & (exist( 'parpool' ) | exist( 'matlabpool' )) & parallelization_exists()
+    % this is set up to work with the Matlab parallelization toolbox.
     parfor n = 1:NUM_BOOTSTRAP
         [structure_boot{n}, all_bpp(:,:,n) ] = main_loop( n, seq_file, temperature, experimental_offset, zscore_scaling, EX_file, SHAPE_file, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file );
     end
@@ -53,23 +52,28 @@ SHAPE_file_boot = '';
 DMS_file_boot = '';
 
 if ~isempty(EX_file);
-    EX_file_boot = ['EX_',num2str(n),'.txt'] ;
+    EX_file_boot = ['boot',num2str(n),'_',EX_file] ;
     create_bootstrap_EX( EX_file, EX_file_boot );
 end
 if ~isempty(SHAPE_file);
-    SHAPE_file_boot = ['SHAPE_',num2str(n),'.txt'];
+    SHAPE_file_boot = ['boot',num2str(n),'_',SHAPE_file] ;
     create_bootstrap_SHAPE( SHAPE_file, SHAPE_file_boot );
 end
 if ~isempty(DMS_file);
-    DMS_file_boot = ['DMS_',num2str(n),'.txt'];
+    DMS_file_boot = ['boot',num2str(n),'_',DMS_file] ;
     create_bootstrap_SHAPE( DMS_file, DMS_file_boot );
 end
+% have to copy seq_file as it gives the name of ct_file, which needs to be
+% unique:
+seq_file_boot = ['boot',num2str(n),'_',seq_file] ;
+copyfile( seq_file, seq_file_boot );
 
-[ structure_boot, bpp_boot, ct_file ] = run_rna_structure_with_EX_and_SHAPE( seq_file, temperature, experimental_offset, zscore_scaling, EX_file_boot, SHAPE_file_boot, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file_boot );
+[ structure_boot, bpp_boot, ct_file ] = run_rna_structure_with_EX_and_SHAPE( seq_file_boot, temperature, experimental_offset, zscore_scaling, EX_file_boot, SHAPE_file_boot, shape_intercept, shape_slope, USE_VIENNA, maxdist, cmd_pk, DMS_file_boot );
 
 if ~isempty(EX_file_boot)    & exist( EX_file_boot, 'file' );   delete( EX_file_boot ); end
 if ~isempty(SHAPE_file_boot) & exist( EX_file_boot, 'file' );   delete( SHAPE_file_boot ); end
 if ~isempty(DMS_file_boot)   & exist( DMS_file_boot, 'file');   delete( DMS_file_boot ); end
+delete( seq_file_boot );
 delete( ct_file );
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,13 +147,9 @@ else
 end;
 EXE = [get_exe_dir(), cmd];
 
-if ~isempty( EX_file )
-    ct_file = [ EX_file,'.temp.ct'];
-elseif ~isempty( SHAPE_file )
-    ct_file = [ SHAPE_file,'.temp.ct'];
-else
-    ct_file = [ seq_file,'.temp.ct'];
-end
+% seq_file must have a unique name -- hopefully has tmp1234_ and boot52_
+% tags.
+ct_file = [ seq_file,'.temp.ct'];
 
 if cmd_pk == 0;
     command = [EXE,' ',seq_file,' ',ct_file,' -T ',num2str( 273.15 + temperature, '%6.2f' ) ];
