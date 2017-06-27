@@ -5,7 +5,6 @@ function [structure,bpp] = load_ct_file( ct_file )
 % INPUTS 
 %  ct_file = file in ct format, as is used by, e.g., the RNAstructure
 %  
-%
 % (C) Das lab, Stanford University 2011-2015, 2017
 
 
@@ -31,3 +30,9 @@ end;
 fclose( fid );
 
 structure = convert_bps_to_structure( bps, nres );
+
+for i = 1:size( bps, 1); 
+    bpp( bps(i,1), bps(i,2) ) = 1; 
+    bpp( bps(i,2), bps(i,1) ) = 1; 
+end
+    
