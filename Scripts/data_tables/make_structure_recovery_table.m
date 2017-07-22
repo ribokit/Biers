@@ -34,9 +34,6 @@ for i = 1:length( RNA_tags )
   native_stems_all = parse_stems( native_structure );
   native_stems = filter_minimum_length( native_stems_all, minimum_stem_length );
 
-  num_native_stems = length( native_stems );
-  all_num_native_stems(i) = num_native_stems;
-
   all_num_extra_bps_added_to_stem{i} = [];
   all_num_missing_bps_in_stem{i}     = [];
   all_stems{i}                       = {};
@@ -58,6 +55,9 @@ for i = 1:length( RNA_tags )
   end
   native_stems = filter_stems( native_stems, tail_pos );
   native_stems = filter_minimum_length( native_stems, minimum_stem_length );
+  
+  num_native_stems = length( native_stems );
+  all_num_native_stems(i) = num_native_stems;
 
   num_res_no_tails(i) = length(all_native_structure{i})-length(tail_pos);
   for j = 1:length( structures )
