@@ -31,7 +31,7 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 if nargin < 3; help(mfilename); return; end;
 if isempty( filename ); filename = '/tmp/tmp.png'; end;
 if ~exist('colorscheme', 'var'); colorscheme = 1; end;
-
+if ~exist( 'DATA' ); DATA = []; end
 if ~isempty(DATA)
     % DATA Prep
     %%%reactivity=hSHAPE(DATA);
