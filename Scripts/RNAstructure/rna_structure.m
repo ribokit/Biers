@@ -65,8 +65,7 @@ SHAPE_out = [];
 
 if ~isempty( area_shape )
   area_shape_norm = area_shape; %SHAPE_normalize( area_shape );
-  clf
-  plot( seqpos, area_shape_norm ); 
+  % clf;  plot( seqpos, area_shape_norm ); 
   
   SHAPE_file = ['tmp',random_tag,'_SHAPE.txt'];
   fid = fopen( SHAPE_file, 'w' );
@@ -89,7 +88,7 @@ end
 if ~isempty( area_dms )
   area_dms_norm = area_dms; %SHAPE_normalize( area_shape );
   gp = find( area_dms_norm >= 0 ); % neg. values are filtered out in RNAstructure.
-  plot( seqpos( gp ), area_dms_norm( gp ) ); 
+  %plot( seqpos( gp ), area_dms_norm( gp ) ); 
   
   DMS_file = ['tmp',random_tag,'_DMS.txt'];
   fid = fopen( DMS_file, 'w' );
