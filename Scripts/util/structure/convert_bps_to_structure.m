@@ -26,12 +26,13 @@ if length( bps ) == 0; return; end;
 % break up into helices (stems)
 stems = parse_stems_from_bps( bps );
 
-% convert into helix_map format (this is historical)
+% convert into helix_map format (this is historical):
+% Looks like partner i of first base pair, partner j of first base pair,
+% length of helix
 helix_map = [];
 for i = 1:length(stems)
     helix_map = [helix_map; stems{i}(1,1), stems{i}(1,2), size( stems{i}, 1 ) ];
 end
-
 
 % order helices by length, longest to shortest
 [~,idx] = sort( helix_map(:,3) );
@@ -47,7 +48,7 @@ for n = 1:length( idx )
     for j = 1:min(3,length(helix_layers))
         if ( not_pseudoknotted( helix_layers{j}, test_helix ) )
             helix_layers{j} = [ helix_layers{j}; test_helix ];
-            found_layer = 1;
+            found_layer = 1; break;
         end
     end
     if ( ~found_layer ) % new layer
@@ -55,6 +56,14 @@ for n = 1:length( idx )
     end
 end
 
+% reorder so that helix layers with the most base pairs are first.
+for j = 1:length( helix_layers )
+    num_bps(j) = sum( helix_layers{j}(:,3) );
+end
+[~,sorted_idx] = sort( num_bps );
+helix_layers = helix_layers( sorted_idx(end:-1:1) );
+
+% ready to create output string in dot-parens notation!
 for j = 1:length( helix_layers )
     helix_layer = helix_layers{j};
     for i = 1:size( helix_layer, 1 )
