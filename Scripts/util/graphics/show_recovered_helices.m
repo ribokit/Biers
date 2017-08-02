@@ -48,6 +48,7 @@ goodpos = find( upper( sequence ) == sequence );
 axis( [min(goodpos), max(goodpos), min(goodpos), max(goodpos), ] );
 set(gca,'fontsize',7);
 
+
 hold on
 if ~exist( 'nt_labels' ) | isempty(nt_labels); nt_labels = {}; end;
 stem_colors = get_conventional_stem_colors( native_stems );
@@ -108,7 +109,6 @@ for i = 1:length( special_bps ); special_bps{ i }  = special_bps{i} - min(goodpo
 for i = 1:length( extra_annotations ); extra_annotations{i}{2}  = extra_annotations{i}{2} - min(goodpos ) + 1; end;
 
 % PNG (will show up in MATLAB);
-offset+min(goodpos)-1
 varna_fig([], sequence(goodpos), native_structure(goodpos), [], [], offset+min(goodpos)-1, special_bps, special_colors, [], [], extra_annotations );
 if ~exist( 'tag','var' ) tag = 'show_recovered_helices'; end;
 % EPS -- editable in illustrator
