@@ -24,7 +24,13 @@ git clone https://github.com/ribokit/Biers.git
 
 - In *MATLAB*, go to "**Set Path**". Then "**Add with Subfolders**" of the target `path/to/Biers/Scripts/`.
 
-- Copy `Scripts/get_exe_dir.m.example` and `Scripts/get_varna.m.example` into `Scripts/get_exe_dir.m` and `Scripts/get_varna.m`. Edit `Scripts/get_exe_dir.m` and `Scripts/get_varna.m` following the instructions in these files.
+- Make sure you have set in your environment the variables `DATAPATH` (for RNAstructure) and `VARNA` (for VARNA). If you are on a Mac or Linux, put lines like the following in your `.bashrc`:
+
+```bash
+export DATAPATH=/path/to/RNAstructure/data_tables/
+export VARNA=/path/to/src/VARNA.jar
+```
+  Note that you should have set up `DATAPATH` as part of the RNAstructure installation process.
 
 ## Usage 
 
