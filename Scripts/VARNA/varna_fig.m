@@ -1,4 +1,4 @@
-function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases, extra_annotations )
+function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, special_base_pairs, special_colors, bpp_values, bpp_anchor_bases, extra_annotations, flat )
 % VARNA_FIG: Create image file with secondary structure -- double click to get VARNA visualizer in a web browser
 %
 %  varna_fig(filename,sequence,structure,DATA,colorscheme,offset,special_base_pairs,special_colors, bpp_values, bpp_anchor_bases)
@@ -23,6 +23,7 @@ function varna_fig(filename, sequence, structure, DATA, colorscheme, offset, spe
 % bpp_anchor_bases   = where those bpp_values will show up.
 % extra_annotations  = cell of label-resnum-rgb triplets, like 
 %                            { {'P5b',150,[0.5 0.5 0.5]}, ... }.
+% flat               = make exterior loop flat (default: 1 )
 %
 % (C) R. Das 2011, 2017
 % (C) C.C. VanLang, P. Cordero 2010
@@ -40,10 +41,11 @@ if ~isempty(DATA)
     reactivity = max(reactivity, 0);
     reactivity = min(reactivity, 2.0);
     %reactivity=100*reactivity;
-    
+        
     graypoints = find(DATA == -999 | isnan(DATA));
     reactivity(graypoints) = -0.01;
 end;
+if ~exist( 'flat','var') flat = 1; end;
 
 is_tmp_file = ~isempty(find(strfind( filename, '/tmp/')==1));
 
@@ -75,6 +77,7 @@ if ~strcmp( ext, '.html')
     if ~isempty(DATA);
         command = [command, ' -colorMap "'];
         for i = 1:length(reactivity);
+            if reactivity(i)>1; reactivity(i) = 2.0; end; % max out at 2.0
             command = [command,sprintf('%6.3f;', reactivity(i)) ];
         end;
         command = [ command, '"', ' \\\n'];
@@ -108,7 +111,7 @@ if ~strcmp( ext, '.html')
     command = [command, ' -baseOutline "#FFFFFF"', ' \\\n'];
     command = [command, ' -bp "#000000"', ' \\\n'];
     command = [command, ' -spaceBetweenBases 0.6', ' \\\n'];
-    command = [command, ' -flat false', ' \\\n'];
+    if ~flat; command = [command, ' -flat false', ' \\\n']; end;
     if ~is_tmp_file
         titlename = basename;
         command = [command, ' -title ',titlename, ' \\\n' ];
@@ -165,7 +168,7 @@ if ~strcmp( ext, '.html')
         command = [command,'"', ' \\\n'];
     end
 
-    command = [command, ' -flat true', ' \\\n' ];
+    if flat; command = [command, ' -flat true', ' \\\n' ]; end;
     command = [command, ' -resolution 4.0', ' \\\n'];
     command_without_output = command;
     command = [command, ' -o ',filename];
@@ -239,7 +242,7 @@ else
     fprintf(fid, '<param name="baseOutline" value="#FFFFFF" />\n');
     fprintf(fid, '<param name="bp" value="#000000" />\n');
     fprintf(fid, '<param name="spaceBetweenBases" value="0.6" />\n');
-    fprintf(fid, '<param name="flat" value="false" />\n');
+    if ~flat; fprintf(fid, '<param name="flat" value="false" />\n'); end;
     fprintf(fid, '%s%s%s\n', '<param name="title" value="', strrep(filename, '.html', ''), '" />\n');
     fprintf(fid, '<param name="titleColor" value="#000000" />\n');
     fprintf(fid, '<param name="titleSize" value="20" />\n');
@@ -298,7 +301,7 @@ else
     end;
     
     
-    fprintf(fid, '%s\n', '<PARAM name="flat" value="true" />');
+    if flat; fprintf(fid, '%s\n', '<PARAM name="flat" value="true" />'); end;
     fprintf(fid, '%s\n', '</applet></BODY></HTML>');
 
     fclose(fid);

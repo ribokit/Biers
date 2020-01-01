@@ -41,6 +41,7 @@ end
 function ok = check_bp( native_bps, bp )
 
 ok = 1;
+if length( native_bps ) == 0; ok = 0; return; end;
 
 idx = find( bp(1) == native_bps(:,1) );
 

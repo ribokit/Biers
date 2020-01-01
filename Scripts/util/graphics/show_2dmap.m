@@ -49,9 +49,11 @@ function show_bps( structure, USE_DOTS );
 if length( structure ) == 0; return; end;
 if ~exist( 'USE_DOTS' ); USE_DOTS = 0; end;
 
-hold on;
 bps = convert_structure_to_bps( structure );
+if length( bps ) == 0; return; end;
 bps = [ bps; bps(:,[2 1] ) ];
+
+hold on;
 if USE_DOTS
   plot( bps(:,1), bps(:,2), 'ko','markersize',2,'markerfacecolor','w','linewidth',1 );
 else

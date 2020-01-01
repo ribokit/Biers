@@ -118,6 +118,7 @@ varna_fig([tag,'.eps'], sequence(goodpos), native_structure(goodpos), [], [], of
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [stem_labels, domain_labels] = assign_stem_labels( native_stems, nt_labels, offset );
+stem_labels = {}; domain_labels = {};
 
 for i = 1:length( native_stems ); stem_labels{i} = ''; end;
 

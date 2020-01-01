@@ -1,4 +1,4 @@
-function [special_base_pairs, special_colors] = output_varna(varna_file, sequence, display_structure, native_structure, modeled_structure, offset, ROI, crystpos, shape, bpp, color_mode)
+function [special_base_pairs, special_colors] = output_varna(varna_file, sequence, display_structure, native_structure, modeled_structure, offset, ROI, crystpos, shape, bpp, color_mode, flat)
 % [special_base_pairs, special_colors] = output_varna( ...
 %                               varna_file, sequence, display_structure, native_structure, modeled_structure, 
 %                               offset, ROI, crystpos, shape, bpp, color_mode); 
@@ -19,6 +19,7 @@ function [special_base_pairs, special_colors] = output_varna(varna_file, sequenc
 % shape                 Optional            SHAPE reactivity profile for nucleotide coloring, default none.
 % bpp                   Optional            Base-pairing probability matrix for helix-wise confidence score.
 % color_mode            Optional            Secstr comparison line color set, default 1.
+% flat                  Optional            make exterior loop flat, default: 1.
 %
 % [Output]
 % special_base_pairs    Index of base-pairs that differ between native_structure and modeled_structure
@@ -38,6 +39,7 @@ if ~exist('offset','var') | isempty(offset); offset = 0; end;
 if ~exist('ROI','var') | isempty(ROI); ROI = [1:length(sequence)] + offset; end;
 if ~exist('crystpos','var') | isempty(crystpos); crystpos = [1:length(sequence)] + offset; end;
 if ~exist('color_mode', 'var') | isempty(color_mode); color_mode = 1; end;
+if ~exist('flat', 'var') | isempty(flat); flat = 1; end;
 
 ROI = sort(ROI);
 seqpos = [1:length(sequence)] + offset;
@@ -106,12 +108,15 @@ end;
 fprintf( ['Creating file for VARNA visualization: ', varna_file, '\n' ] );
 
 shape_subset = [];
-if ~isempty(shape); shape_subset = shape(gp); end;
+if ~isempty(shape); 
+    for i = length(shape)+1: length(sequence); shape(i) = NaN; end; % fill with NaNs
+    shape_subset = shape(gp); 
+end;
 
 ADJUST_SHAPE = 1.0;
 varna_fig(varna_file, sequence_subset, display_structure_subset, ...
     ADJUST_SHAPE * shape_subset, 2 , offset + ROI_offset, ...
-    special_base_pairs, special_colors, bpp_values, bpp_anchor_bases);
+    special_base_pairs, special_colors, bpp_values, bpp_anchor_bases, flat);
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -148,7 +153,8 @@ end;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function  [ bpp_values, anchor_bases ] = get_bpp_values(stems, bpp_subset)
-
+bpp_values = [];
+anchor_bases = [];
 for i = 1:length(stems);
   stem = stems{i};
   middle_index = round(length( stem ) / 2);
