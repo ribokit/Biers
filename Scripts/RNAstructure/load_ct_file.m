@@ -1,18 +1,23 @@
-function [structure,bpp] = load_ct_file( ct_file )
-% [structure,bpp] = load_ct_file( ct_file )
+function [structure,bpp,bps] = load_ct_file( ct_file )
+% [structure,bpp, bps] = load_ct_file( ct_file )
 % only loads first structure!
 %
 % INPUTS 
 %  ct_file = file in ct format, as is used by, e.g., the RNAstructure
+%
+% OUTPUTS
+%  structure = (string of length Nres) dot bracket notation, same length as RNA sequence
+%  bpp       = [Nres x Nres] base pair matrix (0 and 1)
+%  bps       = [Nbp x 2] list of base pairs
 %  
-% (C) Das lab, Stanford University 2011-2015, 2017
+% (C) Das lab, Stanford University 2011-2015, 2017, 2024
 
 
 % read ct_file
 fid = fopen( ct_file );
 
 line = fgetl( fid );
-nres = str2num( strtok( line, ' ' ) );
+nres = str2num( strtok( line ) );
 bpp = zeros( nres,nres );
 
 % initial fill-in of helix_map whose rows are:
@@ -21,10 +26,13 @@ bpp = zeros( nres,nres );
 bps = [];
 for count = 1:nres;
     line = fgetl( fid );
-        for j = 1:5;  [t,line] = strtok( line, ' ' ); end;
+    for j = 1:5;  [t,line] = strtok( line ); end;
+    res = [];
+    if length(line) > 0; res = str2num( strtok( line ) ); end;
     partner = str2num( t );
-    if partner ~= 0 & partner > count
-        bps = [bps;count, partner ];
+    if isempty(res); res = count; end;
+    if partner ~= 0 & partner > res
+        bps = [bps;res, partner ];
     end
 end;
 fclose( fid );

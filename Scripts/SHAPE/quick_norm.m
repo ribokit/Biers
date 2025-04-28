@@ -1,7 +1,7 @@
 function [d_out, norm_factor, d_out_err ] = quick_norm( d, bins, d_err, FORCE_POSITIVE )
 % QUICK_NORM: normalize data based on mean in specified bins
 %
-% [d_out, norm_factor ] = quick_norm( d, bins );
+% [d_out, norm_factor, d_out_err ] = quick_norm( d, bins, d_err, FORCE_POSITIVE )
 %
 % (C) R. Das, 2008.
 %
@@ -18,7 +18,7 @@ if size( d, 1) == 1 && size( d, 2)>1
 end
 
 if ~exist('bins','var') || isempty( bins )
-  bins = 1:size(d, 1);
+  bins = all( ~isnan( d' ) ); %1:size(d, 1);
 end
 
 %for i = 1:size( d, 2 )

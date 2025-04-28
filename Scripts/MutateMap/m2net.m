@@ -1,7 +1,7 @@
-function [Zfinal,structure] = m2net( Z, sequence, structure, offset )
+function [Zfinal,structure] = m2net( Z, sequence, structure, offset, show_plots )
 % [Zfinal,structure] = m2net( r )
 % [Zfinal,structure] = m2net( Z, r )
-% [Zfinal,structure] = m2net( Z, sequence, structure, offset )
+% [Zfinal,structure] = m2net( Z, sequence, structure, offset, show_plots )
 %
 % Extremely simple convolutional neural net to identify
 %  helices in mutate-and-map (M2) data.
@@ -13,6 +13,7 @@ function [Zfinal,structure] = m2net( Z, sequence, structure, offset )
 %  sequence  = sequence (use lowercase for flanking regions to ignore)
 %  structure = secondary structure in dot-parens rotation for comparison
 %  offset    = offset to add to 1,2,... to get conventional numbering.
+%  show_plots = show plots (default 1)
 %
 %
 % Output
@@ -40,6 +41,7 @@ if isobject( sequence )
     structure = r.structure;
     offset = r.offset;
 end
+if ~exist('show_plots','var') show_plots = 1; end;
 L = length( sequence );
 
 % prep one-hot arrays (tiled vertical and horizontal) of isA, isC, isG, isU
@@ -88,7 +90,7 @@ if ( opts.mask_flanking_lowercase_sequence )
     Zmask( flankpos, : ) = 0;
     Zmask( :, flankpos ) = 0;
 end
-show_2dmap( 50*-Zmask, structure, offset );
+if show_plots; show_2dmap( 50*-Zmask, structure, offset ); end
 
 % apply 5x5 filter to look for stripe.
 S = opts.cross_diagonal_filter_stride; % filter size
@@ -97,7 +99,7 @@ B = ( diag(ones(S,1) ) + B_bias)/S; % filter
 B = fliplr( B ); % cross-diagonal
 Z2 = filter2( B, -Zmask );
 Z3 = max( (Z2 + Z2') - opts.cross_diagonal_relu_bias, 0 );
-show_2dmap( 50*Z3, structure, offset ); 
+if show_plots; show_2dmap( 50*Z3, structure, offset ); end
 
 % now filter for helices > 2bp.
 Z4 = Z3.*tril(ends_helix{ opts.minimum_helix_length }); 
@@ -126,7 +128,7 @@ Z8 = Z7;
 Z8( ~circshift(Z8,[-1, 1]) & ~circshift(Z8,[1, -1]) ) = 0;
 
 Zfinal = Z8;
-show_2dmap( Zfinal, structure, offset, 0.5);
+if show_plots; show_2dmap( Zfinal, structure, offset, 0.5); end
 
 % convert to structure in dot-parens notation
 [ix,jx] = ind2sub( size( Zfinal ), find( Zfinal' > 0 ) );

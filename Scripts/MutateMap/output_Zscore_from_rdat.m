@@ -178,7 +178,7 @@ end
 for j = 1:size( a, 2 )
   data_annotation = d.data_annotations{j};
   for k = 1:length( data_annotation )
-    if ( strfind( data_annotation{k}, 'badQuality' ) )
+    if ( contains( data_annotation{k}, 'badQuality' ) )
       Zscore(:,j) = 0.0;
     end
   end
